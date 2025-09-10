@@ -1,0 +1,214 @@
+html,
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden !important;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem; 
+    max-width: 100%;
+}
+
+
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px; /* md:max-w-screen-md */
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px; /* lg:max-w-screen-lg */
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px; /* xl:max-w-screen-xl */
+    }
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =======================
+  Font Sizes: Base (Desktop)
+======================= */
+
+.page-title {
+    font-size: 72px;
+    line-height: 120%;
+    letter-spacing: -1px;
+}
+
+.h1 {
+    font-weight: 600;
+    font-size: 64px;
+    letter-spacing: -0.5px;
+    line-height: 110%;
+}
+
+.h2 {
+    font-weight: 600;
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 120%;
+}
+
+.h3 {
+    font-size: 32px;
+    line-height: 130%;
+    letter-spacing: 0px;
+}
+
+.h4 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 140%;
+    letter-spacing: 0px;
+}
+
+.h6 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+.sub-title {
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0px;
+}
+
+.p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================
+  Responsive font sizes — Tablet
+========================== */
+@media (max-width: 1024px) {
+    .page-title {
+        font-size: 52px;
+    }
+    .h1 {
+        font-size: 48px;
+    }
+    .h2 {
+        font-size: 36px;
+    }
+    .h3 {
+        font-size: 28px;
+    }
+    .h4 {
+        font-size: 22px;
+    }
+    .h6 {
+        font-size: 16px;
+    }
+    .sub-title {
+        font-size: 18px;
+    }
+    .p {
+        font-size: 16px;
+    }
+}
+
+/* ==========================
+  Responsive font sizes — Mobile
+========================== */
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 38px;
+    }
+    .h1 {
+        font-size: 36px;
+    }
+    .h2 {
+        font-size: 28px;
+    }
+    .h3 {
+        font-size: 24px;
+    }
+    .h4 {
+        font-size: 20px;
+    }
+    .h6 {
+        font-size: 16px;
+    }
+    .sub-title {
+        font-size: 16px;
+    }
+    .p {
+        font-size: 15px;
+    }
+}
+
+/* colors */
+
+/* bg color */
+
+.bg-primary {
+    background-color: #39b54a;
+}
+
+.bg-secondary-light {
+    background-color: #0083cb1a !important;
+}
+
+.bg-secondary {
+    background-color: #00aeef;
+}
+
+.bg-third {
+    background-color: #20409a;
+}
+
+/* text color */
+.text-primary {
+    color: #39b54a;
+}
+
+.text-secondary {
+    color: #00aeef;
+}
+
+.text-third {
+    color: #20409a;
+}
+
+/* border color */
+.border-primary {
+    color: #39b54a;
+}
+
+.border-secondary {
+    border: 2px solid #00aeef;
+}
+
+.border-third {
+    color: #20409a;
+}
+
+/* btn */
+
+.btn-primary {
+    background-color: #39b54a;
+}
+
+.btn-secondary {
+    background-color: #00aeef;
+}

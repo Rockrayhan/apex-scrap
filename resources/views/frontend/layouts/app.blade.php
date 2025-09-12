@@ -15,6 +15,10 @@
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('/frontend/style.css') }}">
 
+    {{-- slice js --}}
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" /> --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     {{-- font family --}}
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
@@ -314,7 +318,8 @@
     </footer>
 
     <footer class="bg-secondary text-white p-8">
-        <p class="container text-center">Copyright@ 2025 <a href="#" class="underline">Apex Trade Solution LLC.</a> This Site is by Studx</p>
+        <p class="container text-center">Copyright@ 2025 <a href="#" class="underline">Apex Trade Solution
+                LLC.</a> This Site is by Studx</p>
     </footer>
 
 
@@ -343,6 +348,34 @@
             }
         });
     </script>
+
+    {{-- swiper js --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script> --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    {{-- Swiper init --}}
+    <script>
+        const swiper = new Swiper('.swiper-review', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: '.swiper-button-next-custom',
+                prevEl: '.swiper-button-prev-custom',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2
+                }, // md
+                1024: {
+                    slidesPerView: 3
+                }, // lg
+            },
+        });
+    </script>
+
 
 </body>
 

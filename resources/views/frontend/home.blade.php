@@ -276,6 +276,198 @@
            </section>
 
 
+           {{-- Business Reviews --}}
+           <section class="bg-gray-200 py-16">
+               <div class="container">
+                   <h3 class="h3 text-center font-bold text-primary"> Business Reviews </h3>
+
+                   <div class="flex justify-end gap-5 py-5">
+                       {{-- left arrow --}}
+                       <button class="border-green-800 border-2 p-1 cursor-pointer swiper-button-prev-custom">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                               stroke="currentColor" class="size-6">
+                               <path stroke-linecap="round" stroke-linejoin="round"
+                                   d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                           </svg>
+                       </button>
+
+                       {{-- right arrow --}}
+                       <button class="border-green-800 border-2 p-1 cursor-pointer swiper-button-next-custom">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                               stroke="currentColor" class="size-6">
+                               <path stroke-linecap="round" stroke-linejoin="round"
+                                   d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                           </svg>
+                       </button>
+                   </div>
+
+                   {{-- Swiper slider --}}
+                   <div class="swiper swiper-review">
+
+                       <div class="swiper-wrapper">
+                           {{-- card --}}
+                           <div class="swiper-slide">
+                               <div class="flex flex-col gap-8 bg-[#626262] p-6 rounded-lg text-white shadow-2xl">
+                                   <div class="flex gap-2">
+                                       {{-- your stars --}}
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                   </div>
+
+                                   <p>
+                                       “We are a culturally rooted creative studio in Yogyakarta, partnering with
+                                       forward-thinking
+                                       brands to reimagine what's possible- through powerful design, strategy, and
+                                       storytelling.”
+                                   </p>
+
+                                   <div class="flex justify-between items-center">
+                                       <div>
+                                           <h6 class="font-bold text-lg">Herris Adom</h6>
+                                           <p class="text-sm"> Managing Director </p>
+                                       </div>
+                                       <div>
+                                           <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           {{-- card --}}
+                           <div class="swiper-slide">
+                               <div class="flex flex-col gap-8 bg-[#626262] p-6 rounded-lg text-white shadow-2xl">
+                                   <div class="flex gap-2">
+                                       {{-- your stars --}}
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                   </div>
+
+                                   <p>
+                                       “We are a culturally rooted creative studio in Yogyakarta, partnering with
+                                       forward-thinking
+                                       brands to reimagine what's possible- through powerful design, strategy, and
+                                       storytelling.”
+                                   </p>
+
+                                   <div class="flex justify-between items-center">
+                                       <div>
+                                           <h6 class="font-bold text-lg">Herris Adom</h6>
+                                           <p class="text-sm"> Managing Director </p>
+                                       </div>
+                                       <div>
+                                           <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+
+
+                           {{-- card --}}
+                           <div class="swiper-slide">
+                               <div class="flex flex-col gap-8 bg-[#626262] p-6 rounded-lg text-white shadow-2xl">
+                                   <div class="flex gap-2">
+                                       {{-- your stars --}}
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                   </div>
+
+                                   <p>
+                                       “We are a culturally rooted creative studio in Yogyakarta, partnering with
+                                       forward-thinking
+                                       brands to reimagine what's possible- through powerful design, strategy, and
+                                       storytelling.”
+                                   </p>
+
+                                   <div class="flex justify-between items-center">
+                                       <div>
+                                           <h6 class="font-bold text-lg">Herris Adom</h6>
+                                           <p class="text-sm"> Managing Director </p>
+                                       </div>
+                                       <div>
+                                           <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+
+
+                           {{-- card --}}
+                           <div class="swiper-slide">
+                               <div class="flex flex-col gap-8 bg-[#626262] p-6 rounded-lg text-white shadow-2xl">
+                                   <div class="flex gap-2">
+                                       {{-- your stars --}}
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                   </div>
+
+                                   <p>
+                                       “We are a culturally rooted creative studio in Yogyakarta, partnering with
+                                       forward-thinking
+                                       brands to reimagine what's possible- through powerful design, strategy, and
+                                       storytelling.”
+                                   </p>
+
+                                   <div class="flex justify-between items-center">
+                                       <div>
+                                           <h6 class="font-bold text-lg">Herris Adom</h6>
+                                           <p class="text-sm"> Managing Director </p>
+                                       </div>
+                                       <div>
+                                           <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+
+                       </div>
+                   </div>
+               </div>
+           </section>
+
+
+
+           {{-- Business Partners --}}
+           <section class="py-16">
+
+               <h3 class="h3 text-primary text-center py-5 font-bold"> Business Partners </h3>
+
+               <p class="text-center w-full md:w-2/3 container mb-6">
+                   Apex Scrap, we believe growth comes through strong partnerships. Over the years, we’ve built lasting
+                   relationships with manufacturers, recyclers, steel mills, foundries, and global trading companies who
+                   trust us for consistent quality and reliable supply.
+               </p>
+
+               <div class="bg-secondary py-10">
+                   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
+                       <img src="{{ asset('/frontend/images/client-1.png') }}" alt="Client 1"
+                           class="transition duration-300 ease-in-out hover:grayscale hover:scale-105" />
+                       <img src="{{ asset('/frontend/images/client-2.png') }}" alt="Client 2"
+                           class="transition duration-300 ease-in-out hover:grayscale hover:scale-105" />
+                       <img src="{{ asset('/frontend/images/client-3.png') }}" alt="Client 3"
+                           class="transition duration-300 ease-in-out hover:grayscale hover:scale-105" />
+                       <img src="{{ asset('/frontend/images/client-4.png') }}" alt="Client 4"
+                           class="transition duration-300 ease-in-out hover:grayscale hover:scale-105" />
+                       <img src="{{ asset('/frontend/images/client-5.png') }}" alt="Client 5"
+                           class="transition duration-300 ease-in-out hover:grayscale hover:scale-105" />
+                   </div>
+               </div>
+
+
+
+
+           </section>
+
 
 
 
@@ -322,6 +514,9 @@
                </div>
 
            </section>
+
+
+
 
 
        @endsection

@@ -1,6 +1,6 @@
        @extends('frontend.layouts.app')
 
-       @section('title', 'Apex-Scrap We are')
+       @section('title', 'Apex-Scrap About')
 
        @section('content')
 

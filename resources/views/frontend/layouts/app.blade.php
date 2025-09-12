@@ -55,7 +55,7 @@
                         <a href="/" class="flex items-center h-full gap-2.5">
                             <img src="{{ asset('/frontend/images/logo.png') }}" alt="Logo"
                                 class="h-10 sm:h-12 md:h-16 w-auto max-w-full object-contain" />
-                            <h4 class="h4"> Apex-Scrap </h4>
+                            <h4 class="h4 font-bold"> Apex-Scrap </h4>
                         </a>
 
 
@@ -129,6 +129,14 @@
                                     <a href="/insight" class="text-lg font-medium block w-full"> Insight </a>
                                 </li>
 
+
+                                <li>
+
+                                    <a href="/get-quote"
+                                        class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg">
+                                        Get Quote </a>
+                                </li>
+
                             </ul>
                         </div>
 
@@ -136,13 +144,14 @@
 
 
                     <!-- Navbar Center (Desktop) -->
-                    <div class="navbar-center hidden lg:flex ">
+                    <div class="navbar-center hidden lg:flex gap-16 ">
                         <ul class="flex gap-10 items-center h6 font-normal">
                             <!-- Home -->
-                            <li><a href="/" class="hover:text-sky-600 transition-all duration-200">Home</a></li>
+                            <li><a href="/" class="hover:text-green-800 transition-all duration-200">Home</a></li>
 
                             <!-- About -->
-                            <li><a href="/about" class="hover:text-sky-600 transition-all duration-200">About</a></li>
+                            <li><a href="/about" class="hover:text-green-800 transition-all duration-200">About</a>
+                            </li>
 
                             <!-- What We Sell -->
                             {{-- <li class="relative group">
@@ -167,23 +176,35 @@
                             </li> --}}
 
                             <!-- Services -->
-                            <li><a href="/services" class="hover:text-sky-600 transition-all duration-200">Services</a>
+                            <li><a href="/services"
+                                    class="hover:text-green-800 transition-all duration-200">Services</a>
                             </li>
 
                             <!-- Materials -->
                             <li><a href="/materials"
-                                    class="hover:text-sky-600 transition-all duration-200">Materials</a>
+                                    class="hover:text-green-800 transition-all duration-200">Materials</a>
                             </li>
 
                             <!-- Contact -->
-                            <li><a href="/contact" class="hover:text-sky-600 transition-all duration-200">Contact</a>
+                            <li><a href="/contact" class="hover:text-green-800 transition-all duration-200">Contact</a>
                             </li>
 
                             <!-- Insight -->
-                            <li><a href="/insight" class="hover:text-sky-600 transition-all duration-200">Insight</a>
+                            <li><a href="/insight" class="hover:text-green-800 transition-all duration-200">Insight</a>
                             </li>
 
+
+                            <!-- Insight -->
+
                         </ul>
+
+                        <ul>
+                            <a href="/get-quote"
+                                class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg">
+                                Get Quote </a>
+
+                        </ul>
+
                     </div>
 
                 </div>

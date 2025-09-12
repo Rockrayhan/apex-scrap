@@ -22,8 +22,8 @@ Route::get('/lang/{locale}', function ($locale) {
 
 
 Route::get('/', [FrontendController::class, 'home'])->name('home');
-
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/services', [FrontendController::class, 'services'])->name('services');
 
 Route::get('/categories/{id}', [FrontendController::class, 'categoryDetailsPage'])->name('categories.show');
 

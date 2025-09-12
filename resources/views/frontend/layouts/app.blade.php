@@ -25,20 +25,24 @@
 <body>
     <header>
         {{-- Language Switch - top nav --}}
-        <div class="flex justify-end gap-10  container py-3">
-            <div>
-                <a href="{{ route('lang.switch', 'en') }}" class="text-blue-600 hover:underline">EN</a> |
-                <a href="{{ route('lang.switch', 'zh') }}" class="text-blue-600 hover:underline">CN</a>
-            </div>
-            <div>
-                <a href="/contact" class="text-primary"> Ask Questions </a>
-            </div>
+        <div class="bg-primary text-white  py-3">
+            <div class="container flex justify-end gap-10 " >
 
+
+                <div>
+                    <a href="{{ route('lang.switch', 'en') }}" class="hover:underline">EN</a> |
+                    <a href="{{ route('lang.switch', 'zh') }}" class="hover:underline">CN</a>
+                </div>
+                <div>
+                    <a href="/contact" class="hover:underline"> Ask Questions </a>
+                </div>
+
+            </div>
         </div>
 
         {{-- navbar --}}
-        <nav class="relative z-50  mb-[3.5rem] md:mb-[5rem]">
-            <div class=" top-5 left-0 w-full shadow-lg z-50 bg-secondary backdrop-blur-sm text-white">
+        <nav class="relative z-50">
+            <div class="top-5 left-0 w-full shadow-lg z-50 text-secondary backdrop-blur-sm text-white">
                 <div class="navbar px-4 sm:px-8 py-2 flex gap-5 h-[65px] md:h-auto">
                     <!-- Navbar Start -->
                     <div class="navbar-start flex justify-between items-center w-full lg:flex-1">
@@ -71,15 +75,15 @@
                                 </li>
 
 
-                                <!-- we are -->
+                                <!-- about -->
                                 <li class="py-4 px-2 border-b border-gray-100">
-                                    <a href="/we-are" class="text-lg font-medium block w-full">We Are</a>
+                                    <a href="/about" class="text-lg font-medium block w-full">About</a>
                                 </li>
 
 
 
                                 <!-- what we sell -->
-                                <li class="py-4 px-2 border-b border-gray-100">
+                                {{-- <li class="py-4 px-2 border-b border-gray-100">
                                     <details class="group">
                                         <summary
                                             class="text-lg font-medium flex justify-between items-center cursor-pointer">
@@ -97,18 +101,28 @@
                                             <li><a href="/demo" class="text-base block py-2">Plastic Metal</a></li>
                                         </ul>
                                     </details>
-                                </li>
+                                </li> --}}
 
 
                                 <!-- Services -->
                                 <li class="py-4 px-2 border-b border-gray-100">
-                                    <a href="/we-are" class="text-lg font-medium block w-full">Services</a>
+                                    <a href="/services" class="text-lg font-medium block w-full">Services</a>
+                                </li>
+
+                                <!-- Materials -->
+                                <li class="py-4 px-2 border-b border-gray-100">
+                                    <a href="/materials" class="text-lg font-medium block w-full">Materials</a>
+                                </li>
+
+                                <!-- Contact -->
+                                <li class="py-4 px-2 border-b border-gray-100">
+                                    <a href="/contact" class="text-lg font-medium block w-full">Contact</a>
                                 </li>
 
 
-                                <!-- Insights -->
+                                <!-- Insight -->
                                 <li class="py-4 px-2 border-b border-gray-100">
-                                    <a href="/we-are" class="text-lg font-medium block w-full"> Insights </a>
+                                    <a href="/insight" class="text-lg font-medium block w-full"> Insight </a>
                                 </li>
 
                             </ul>
@@ -123,11 +137,11 @@
                             <!-- Home -->
                             <li><a href="/" class="hover:text-sky-600 transition-all duration-200">Home</a></li>
 
-                            <!-- We Are -->
-                            <li><a href="/we-are" class="hover:text-sky-600 transition-all duration-200">We Are</a></li>
+                            <!-- About -->
+                            <li><a href="/about" class="hover:text-sky-600 transition-all duration-200">About</a></li>
 
                             <!-- What We Sell -->
-                            <li class="relative group">
+                            {{-- <li class="relative group">
                                 <span
                                     class="flex items-center cursor-pointer hover:text-sky-600 transition-all duration-200">
                                     What We Sell
@@ -146,14 +160,23 @@
                                         <a href="/demo" class="block hover:text-sky-600 transition">Plastic Metal</a>
                                     </div>
                                 </div>
-                            </li>
+                            </li> --}}
 
                             <!-- Services -->
-                            <li><a href="/we-are" class="hover:text-sky-600 transition-all duration-200">Services</a>
+                            <li><a href="/services" class="hover:text-sky-600 transition-all duration-200">Services</a>
                             </li>
 
-                            <!-- Insights -->
-                            <li><a href="/we-are" class="hover:text-sky-600 transition-all duration-200">Insights</a>
+                            <!-- Materials -->
+                            <li><a href="/materials"
+                                    class="hover:text-sky-600 transition-all duration-200">Materials</a>
+                            </li>
+
+                            <!-- Contact -->
+                            <li><a href="/contact" class="hover:text-sky-600 transition-all duration-200">Contact</a>
+                            </li>
+
+                            <!-- Insight -->
+                            <li><a href="/insight" class="hover:text-sky-600 transition-all duration-200">Insight</a>
                             </li>
 
                         </ul>

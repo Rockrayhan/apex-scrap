@@ -15,6 +15,12 @@ class FrontendController extends Controller
     }
 
 
+    public function about()
+    {
+        return view('frontend.about');
+    }
+
+
     public function categoryDetailsPage($id)
     {
         $category = Category::with('products')->findOrFail($id);

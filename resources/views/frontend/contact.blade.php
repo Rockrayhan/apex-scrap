@@ -66,7 +66,7 @@
     </style>
 
 
-    <div class="max-w-7xl mx-auto px-4  pb-6">
+    <div class="max-w-7xl mx-auto px-4  py-12">
         <!-- Header -->
         <div class="text-center mb-12">
             <h1 class="text-4xl font-bold text-primary mb-4">Contact Us</h1>
@@ -257,7 +257,7 @@
         // Initialize the map
         function initMap() {
             // Create a map centered in Asia
-            const map = L.map('map').setView([30, 100], 3);
+            const map = L.map('map').setView([30, 100], 2);
 
             // Add OpenStreetMap tiles
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

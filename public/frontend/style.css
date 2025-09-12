@@ -13,9 +13,7 @@ body {
     max-width: 100%;
 }
 
-button {
-    cursor: pointer;
-}
+
 
 @media (min-width: 768px) {
     .container {
@@ -40,6 +38,31 @@ button {
     justify-content: center;
     align-items: center;
 }
+
+
+button {
+    cursor: pointer;
+}
+
+
+
+
+
+
+/* custom css */
+
+.btn-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
 
 /* =======================
   Font Sizes: Base (Desktop)
@@ -181,7 +204,7 @@ button {
 }
 
 .bg-third {
-    background-color: #20409a;
+    background-color: #41F4E4;
 }
 
 /* text color */
@@ -194,13 +217,13 @@ button {
 }
 
 .text-third {
-    color: #20409a;
+    color: #41F4E4;
 }
 
 /* border color */
 .border-primary {
-    color: #0c514a !important;
-    /* border: 2px solid #0c514a ; */
+    /* color: #0c514a !important; */
+    border: 2px solid #0c514a ;
 }
 
 .border-secondary {
@@ -208,7 +231,7 @@ button {
 }
 
 .border-third {
-    color: #20409a;
+    color: #41F4E4;
 }
 
 /* btn */

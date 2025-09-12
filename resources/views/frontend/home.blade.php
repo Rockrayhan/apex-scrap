@@ -25,10 +25,10 @@
                    </span>
 
                    <div class="flex gap-6">
-                    <button class="bg-teal-400 text-secondary rounded-3xl px-8 py-2">
+                    <button class="bg-teal-400 text-secondary rounded-3xl px-8 py-2 btn-hover">
                         Get Free Quote
                     </button>
-                    <button class="border-3 border-teal-400 text-teal-400 rounded-3xl px-8 py-2">
+                    <button class="border-3 border-teal-400 text-teal-400 rounded-3xl px-8 py-2 btn-hover">
                         Our Services
                     </button>
                    </div>
@@ -103,7 +103,7 @@
                                <li> Global Export Expertise </li>
                            </ul>
 
-                           <button class="btn-primary">
+                           <button class="btn-primary btn-hover">
                                Read More
                            </button>
 

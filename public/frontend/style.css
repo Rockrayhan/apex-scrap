@@ -13,6 +13,10 @@ body {
     max-width: 100%;
 }
 
+button {
+    cursor: pointer;
+}
+
 @media (min-width: 768px) {
     .container {
         max-width: 768px; /* md:max-w-screen-md */

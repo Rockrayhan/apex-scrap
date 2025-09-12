@@ -7,27 +7,38 @@
 
 
            {{-- home banner --}}
-           <section class="relative flex justify-center  min-h-[70vh]  bg-black/40 bg-cover bg-no-repeat bg-center"
+           <section class="relative flex justify-center  min-h-[80vh]  bg-black/40 bg-cover bg-no-repeat bg-center"
                style="background-image: url('{{ asset('/frontend/images/banner.webp') }}')">
 
                {{-- Dark overlay --}}
                <div class="absolute inset-0 bg-black opacity-50"></div>
 
-               <div class="relative z-10 text-white px-5 md:px-10 flex flex-col gap-10 md:gap-15  mt-30 text-center">
+               <div class="relative z-10 text-white px-5 md:px-10 flex flex-col gap-4 md:gap-8  mt-30 text-left">
                    <h1 class="h2 font-bold">
-                       Turning Scrap Into Global Value
-                   </h1>
-                   <h1 class="h3">
-                       Free Material Pricing
+                       Turn Your Scrap Into
                        <br>
-                       <a href="tel:(313) 365-6100" class="underline"> (313) 365-6100 </a>
+                       <span class="text-teal-400">Cash Today</span>
                    </h1>
+
+                   <span class="text-xl text-white w-full md:w-2/3">
+                      We supply premium recycled scrap materials to industries worldwide—helping you save costs, ensure quality, and support sustainability.
+                   </span>
+
+                   <div class="flex gap-6">
+                    <button class="bg-teal-400 text-secondary rounded-3xl px-8 py-2">
+                        Get Free Quote
+                    </button>
+                    <button class="border-3 border-teal-400 text-teal-400 rounded-3xl px-8 py-2">
+                        Our Services
+                    </button>
+                   </div>
+
 
                </div>
            </section>
 
            {{-- business area --}}
-           <div class="bg-primary mx-8 -mt-5 relative z-90 ">
+           <div class="bg-primary mx-8 ">
                <div
                    class="h4 container mx-auto flex flex-col md:flex-row md:items-center md:justify-between text-white py-3 px-4">
 
@@ -257,9 +268,8 @@
                                    </span>
                                </span>
 
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                   stroke-width="1.5" stroke="currentColor"
-                                   class="size-4 transition-transform duration-300">
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                   stroke="currentColor" class="size-4 transition-transform duration-300">
                                    <path stroke-linecap="round" stroke-linejoin="round"
                                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                                </svg>

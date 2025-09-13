@@ -2,10 +2,7 @@
 
 @section('content')
 <div class="container pb-5 mb-5">
-            <div class="d-flex justify-content-end my-3">
-            <a href="{{ route('lang.switch', 'en') }}">English</a> |
-            <a href="{{ route('lang.switch', 'zh') }}">中文</a>
-        </div>
+           
     <h2>All Blogs</h2>
     <a href="{{ route('blogs.create') }}" class="btn btn-primary mb-3">+ Add New Blog</a>
 

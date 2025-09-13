@@ -13,7 +13,7 @@
                 @csrf
                 <div class="mb-3">
                     <label class="form-label">Category Name</label>
-                    <input type="text" name="name" value="{{ old('name', $category->name) }}" class="form-control" required>
+                    <input type="text" name="name_en" value="{{ old('name', $category->name) }}" class="form-control" required>
                 </div>
                 <button type="submit" class="btn btn-success">Update Category</button>
                 <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">Cancel</a>

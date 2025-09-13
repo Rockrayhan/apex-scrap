@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Services\TranslationService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -12,8 +13,11 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::with('category')->get();
-        return view('products.index', compact('products'));
+        // $products = Product::with('category')->get();
+        // return view('products.index', compact('products'));
+
+        $categories = Category::with('products')->get();
+        return view('products.index', compact('categories'));
     }
 
     public function create()
@@ -22,12 +26,11 @@ class ProductController extends Controller
         return view('products.create', compact('categories'));
     }
 
-
     public function store(Request $request)
     {
         $request->validate([
             'category_id' => 'required|exists:categories,id',
-            'name' => 'required|unique:products',
+            'name_en' => 'required|unique:products,name_en',
             'image' => 'nullable|image'
         ]);
 
@@ -38,19 +41,23 @@ class ProductController extends Controller
             $filename = 'uploads/products/' . $filename;
         }
 
+        // Auto translate
+        $translator = app(TranslationService::class);
+        $name_zh = $translator->translate($request->name_en);
+        $description_zh = $translator->translate($request->description_en ?? '');
 
         Product::create([
             'category_id' => $request->category_id,
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-            'description' => $request->description,
-            'image' => $filename
+            'name_en' => $request->name_en,
+            'name_zh' => $name_zh,
+            'slug' => Str::slug($request->name_en),
+            'description_en' => $request->description_en,
+            'description_zh' => $description_zh,
+            'image' => $filename,
         ]);
 
         return redirect()->route('admin.products.index')->with('success', 'Product added!');
     }
-
-
 
     public function edit($id)
     {
@@ -65,39 +72,44 @@ class ProductController extends Controller
 
         $request->validate([
             'category_id' => 'required|exists:categories,id',
-            'name' => 'required|unique:products,name,' . $id,
+            'name_en' => 'required|unique:products,name_en,' . $id,
             'image' => 'nullable|image',
         ]);
 
-        $filename = $product->image; // keep old image
+        $filename = $product->image;
         if ($request->hasFile('image')) {
+            if ($product->image && file_exists(public_path($product->image))) {
+                unlink(public_path($product->image));
+            }
             $filename = time() . '.' . $request->image->extension();
             $request->image->move(public_path('uploads/products'), $filename);
             $filename = 'uploads/products/' . $filename;
         }
 
+        // Auto translate
+        $translator = app(TranslationService::class);
+        $name_zh = $translator->translate($request->name_en);
+        $description_zh = $translator->translate($request->description_en ?? '');
+
         $product->update([
             'category_id' => $request->category_id,
-            'name' => $request->name,
-            'slug' => Str::slug($request->name),
-            'description' => $request->description,
+            'name_en' => $request->name_en,
+            'name_zh' => $name_zh,
+            'slug' => Str::slug($request->name_en),
+            'description_en' => $request->description_en,
+            'description_zh' => $description_zh,
             'image' => $filename,
         ]);
 
         return redirect()->route('admin.products.index')->with('success', 'Product updated successfully!');
     }
 
-
-
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
-
-        // Delete product image if exists
         if ($product->image && file_exists(public_path($product->image))) {
             unlink(public_path($product->image));
         }
-
         $product->delete();
 
         return redirect()->route('admin.products.index')->with('success', 'Product deleted!');

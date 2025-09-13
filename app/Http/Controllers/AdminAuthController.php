@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,7 +15,9 @@ class AdminAuthController extends Controller
     public function dashboard()
     {
         $blogs = Blog::all();
-        return view('dashboard', compact('blogs'));
+        $categories = Category::all();
+        $products = Product::all();
+        return view('dashboard', compact('blogs', 'categories', 'products'  ));
     }
 
 

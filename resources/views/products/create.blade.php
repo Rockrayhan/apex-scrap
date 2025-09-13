@@ -24,18 +24,18 @@
 
                     <div class="mb-3">
                         <label class="form-label">Product Name</label>
-                        <input type="text" name="name" class="form-control" placeholder="Enter product name" required>
+                        <input type="text" name="name_en" class="form-control" placeholder="Enter product name" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Description</label>
-                        <textarea name="description" class="form-control" rows="5" placeholder="Enter description"></textarea>
+                        <textarea name="description_en" class="form-control" rows="5" placeholder="Enter description"></textarea>
                     </div>
 
 
                     <div class="mb-3">
                         <label class="form-label">Image</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" accept="image/*"  class="form-control">
                     </div>
 
                     <button type="submit" class="btn btn-success">Save Product</button>

@@ -26,13 +26,13 @@
 
                     <div class="mb-3">
                         <label class="form-label">Product Name</label>
-                        <input type="text" name="name" value="{{ old('name', $product->name) }}" class="form-control"
+                        <input type="text" name="name_en" value="{{ old('name', $product->name) }}" class="form-control"
                             required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Description</label>
-                        <textarea name="description" class="form-control" rows="3">{{ old('description', $product->description) }}</textarea>
+                        <textarea name="description_en" class="form-control" rows="3">{{ old('description', $product->description) }}</textarea>
                     </div>
 
 
@@ -48,7 +48,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Upload New Image</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" accept="image/*" class="form-control">
                     </div>
 
 

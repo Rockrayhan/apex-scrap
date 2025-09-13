@@ -89,7 +89,7 @@
 
                                     <button
                                         class="border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 btn-hover">
-                                        <span>See More</span>
+                                        <span> {{ app()->getLocale() == 'zh' ? '查看更多' : 'See More' }} </span>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-4">
                                             <path stroke-linecap="round" stroke-linejoin="round"

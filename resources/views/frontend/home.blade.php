@@ -25,7 +25,7 @@
                        quality, and support sustainability.
                    </span>
 
-                   <div class="flex flex-col items-center md:flex-row md:justify-start gap-6">
+                   <div class="flex flex-col items-start md:items-center md:flex-row md:justify-start gap-6">
                        <button class="bg-teal-400 text-secondary rounded-3xl px-8 py-2 btn-hover">
                            Get Free Quote
                        </button>
@@ -39,22 +39,22 @@
            </section>
 
            {{-- business area --}}
-           <div class="bg-primary mx-8 ">
+           <div class="bg-primary ">
                <div
-                   class="h4 container mx-auto flex flex-col md:flex-row md:items-center md:justify-between text-white py-3 px-4">
+                   class="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between text-white py-5 px-4">
 
                    {{-- Left Side - Title --}}
-                   <div class="font-semibold mb-2 md:mb-0">
+                   <h6 class="h4 font-semibold mb-3 md:mb-0">
                        Business Areas
-                   </div>
+                   </h6>
 
                    {{-- Right Side - Countries --}}
-                   <div class="flex flex-wrap gap-5 ">
-                       <span class="hover:text-gray-200 cursor-pointer">China</span>
-                       <span class="hover:text-gray-200 cursor-pointer">Singapore</span>
-                       <span class="hover:text-gray-200 cursor-pointer">Japan</span>
-                       <span class="hover:text-gray-200 cursor-pointer">Dubai</span>
-                       <span class="hover:text-gray-200 cursor-pointer">Turkey</span>
+                   <div class="flex flex-wrap gap-x-8 gap-y-2 ">
+                       <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">China</span>
+                       <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">Singapore</span>
+                       <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">Japan</span>
+                       <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">Dubai</span>
+                       <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">Turkey</span>
                    </div>
                </div>
            </div>
@@ -158,13 +158,13 @@
 
            {{-- What we sell --}}
 
-           <section class="py-16 container">
+           <section class="pb-16 container">
 
                <div class="center flex-col gap-4 py-6">
                    <div class="center gap-3">
-                       <hr class="border-b-2 border-green-800 w-28">
+                       <hr class="border-b-2 border-green-800 w-12 md:w-18 lg:w-28">
                        <h3 class="h3 text-primary font-bold"> What We Sell </h3>
-                       <hr class="border-b-2 border-green-800 w-28">
+                       <hr class="border-b-2 border-green-800 w-12 md:w-18 lg:w-28">
                    </div>
 
                    <p class="text-center w-full md:w-2/3">

@@ -93,29 +93,6 @@
                                 </li>
 
 
-
-                                <!-- what we sell -->
-                                {{-- <li class="py-4 px-2 border-b border-gray-100">
-                                    <details class="group">
-                                        <summary
-                                            class="text-lg font-medium flex justify-between items-center cursor-pointer">
-                                            <span>What We Sell</span>
-                                            <svg class="w-5 h-5 transform group-open:rotate-180 transition-transform"
-                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M19 9l-7 7-7-7" />
-                                            </svg>
-                                        </summary>
-                                        <ul class="pl-4 mt-3 space-y-3">
-                                            <li><a href="/demo" class="text-base block py-2">Farrous Metal</a></li>
-                                            <li><a href="/demo" class="text-base block py-2">Non-Farrous Metal</a>
-                                            </li>
-                                            <li><a href="/demo" class="text-base block py-2">Plastic Metal</a></li>
-                                        </ul>
-                                    </details>
-                                </li> --}}
-
-
                                 <!-- Services -->
                                 <li class="py-4 px-2 border-b border-gray-100">
                                     <a href="/services" class="text-lg font-medium block w-full">Services</a>
@@ -140,9 +117,10 @@
 
                                 <li>
 
-                                    <a href="/get-quote"
-                                        class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg">
-                                        Get Quote </a>
+                                    <button
+                                        class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
+                                        onclick="getQuoteModal.showModal()">
+                                        Get Quote </button>
                                 </li>
 
                             </ul>
@@ -205,11 +183,11 @@
 
                         </ul>
 
-
                         <ul>
-                            <a href="/get-quote"
-                                class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg">
-                                Get Quote </a>
+                            <button
+                                class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
+                                onclick="getQuoteModal.showModal()">
+                                Get Quote </button>
                         </ul>
 
                     </div>
@@ -220,6 +198,124 @@
 
 
     </header>
+
+
+
+    {{-- Get Quote Modal --}}
+    <dialog id="getQuoteModal" class="w-full md:w-2/3 mx-2 sm:mx-auto mb-5 rounded-xl shadow-2xl">
+        <div class="bg-white rounded-xl max-h-[90vh] p-6 mb-6 sm:p-8">
+
+            <!-- Close Button -->
+            <div class="flex justify-end">
+                <button onclick="getQuoteModal.close()"
+                    class=" bg-red-500 hover:bg-red-600 text-white font-bold rounded px-3 py-1">
+                    Close
+                </button>
+            </div>
+
+            <h4 class="text-2xl sm:text-3xl font-bold text-primary text-center mb-6">
+                Send us a message
+            </h4>
+
+            <form action="{{ route('contact.send') }}" method="POST" class="space-y-6" enctype="multipart/form-data">
+                @csrf
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Full Name -->
+                    <div>
+                        <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                        <div class="relative">
+                            <i class="fas fa-user text-gray-400 absolute inset-y-0 left-0 flex items-center pl-3"></i>
+                            <input type="text" id="name" name="name"
+                                class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Your name" required>
+                        </div>
+                    </div>
+
+                    <!-- Scrap Category -->
+                    <div>
+                        <label for="scrap_category" class="block text-gray-700 font-medium mb-2">Scrap
+                            Category</label>
+                        <select id="scrap_category" name="scrap_category"
+                            class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Select Category</option>
+                            <option value="metal">Metal</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="plastic">Plastic</option>
+                            <option value="paper">Paper</option>
+                        </select>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div>
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                        <div class="relative">
+                            <i class="fas fa-phone text-gray-400 absolute inset-y-0 left-0 flex items-center pl-3"></i>
+                            <input type="text" id="phone" name="phone"
+                                class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Your phone number" required>
+                        </div>
+                    </div>
+
+                    <!-- Material Type -->
+                    <div>
+                        <label for="material_type" class="block text-gray-700 font-medium mb-2">Material Type</label>
+                        <select id="material_type" name="material_type"
+                            class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Select Material</option>
+                            <option value="copper">Copper</option>
+                            <option value="aluminum">Aluminum</option>
+                            <option value="steel">Steel</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                        <div class="relative">
+                            <i
+                                class="fas fa-envelope text-gray-400 absolute inset-y-0 left-0 flex items-center pl-3"></i>
+                            <input type="email" id="email" name="email"
+                                class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="your.email@example.com" required>
+                        </div>
+                    </div>
+
+                    <!-- Estimated Weight -->
+                    <div>
+                        <label for="estimated_weight" class="block text-gray-700 font-medium mb-2">Estimated
+                            Weight</label>
+                        <select id="estimated_weight" name="estimated_weight"
+                            class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Select Weight</option>
+                            <option value="<50kg">Less than 50kg</option>
+                            <option value="50-100kg">50-100kg</option>
+                            <option value="100-500kg">100-500kg</option>
+                            <option value=">500kg">More than 500kg</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Additional Details -->
+                <div class="mt-6">
+                    <label for="details" class="block text-gray-700 font-medium mb-2">Additional Details</label>
+                    <div class="relative">
+                        <i class="fas fa-comment text-gray-400 absolute top-3 left-3"></i>
+                        <textarea id="details" name="details" rows="5"
+                            class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Provide any additional details here"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg mt-6 flex justify-center items-center">
+                    <i class="fas fa-paper-plane mr-2"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </dialog>
+
+
 
     <main>
 

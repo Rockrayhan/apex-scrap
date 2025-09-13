@@ -11,6 +11,9 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+
+
+        /*-- css for map -- */
         #map {
             height: 500px;
             border-radius: 0.5rem;
@@ -21,7 +24,6 @@
             margin: 13px 19px;
             line-height: 1.4;
         }
-
 
 
         .country-label {

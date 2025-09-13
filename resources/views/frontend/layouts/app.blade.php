@@ -34,9 +34,17 @@
 
 
                 <div>
-                    <a href="{{ route('lang.switch', 'en') }}" class="hover:underline">EN</a> |
-                    <a href="{{ route('lang.switch', 'zh') }}" class="hover:underline">CN</a>
+                    <a href="{{ route('lang.switch', 'en') }}"
+                        class="hover:underline {{ app()->getLocale() == 'en' ? 'font-bold' : '' }}">
+                        EN
+                    </a> |
+
+                    <a href="{{ route('lang.switch', 'zh') }}"
+                        class="hover:underline {{ app()->getLocale() == 'zh' ? 'font-bold' : '' }}">
+                        CN
+                    </a>
                 </div>
+
                 <div>
                     <a href="/contact" class="hover:underline"> Ask Questions </a>
                 </div>
@@ -145,64 +153,63 @@
 
                     <!-- Navbar Center (Desktop) -->
                     <div class="navbar-center hidden lg:flex gap-16 ">
-                        <ul class="flex gap-10 items-center h6 font-normal">
-                            <!-- Home -->
-                            <li><a href="/" class="hover:text-green-800 transition-all duration-200">Home</a></li>
+                        <ul class="flex gap-10 items-center h6">
 
-                            <!-- About -->
-                            <li><a href="/about" class="hover:text-green-800 transition-all duration-200">About</a>
+                            <!-- Home -->
+                            <li>
+                                <a href="{{ route('home') }}"
+                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('home') ? 'active' : '' }}">
+                                    Home
+                                </a>
                             </li>
 
-                            <!-- What We Sell -->
-                            {{-- <li class="relative group">
-                                <span
-                                    class="flex items-center cursor-pointer hover:text-sky-600 transition-all duration-200">
-                                    What We Sell
-                                    <svg class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </span>
-                                <div
-                                    class="pointer-events-none absolute top-full left-0 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto transition duration-300 ease-in-out text-lg text-secondary">
-                                    <div class="bg-base-100 shadow-lg rounded-md mt-2 p-4 w-64 z-50 space-y-2">
-                                        <a href="/demo" class="block hover:text-sky-600 transition">Farrous Metal</a>
-                                        <a href="/demo" class="block hover:text-sky-600 transition">Non-Farrous
-                                            Metal</a>
-                                        <a href="/demo" class="block hover:text-sky-600 transition">Plastic Metal</a>
-                                    </div>
-                                </div>
-                            </li> --}}
+                            <!-- About -->
+                            <li>
+                                <a href="{{ route('about') }}"
+                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('about') ? 'active' : '' }}">
+                                    About
+                                </a>
+                            </li>
 
                             <!-- Services -->
-                            <li><a href="/services"
-                                    class="hover:text-green-800 transition-all duration-200">Services</a>
+                            <li>
+                                <a href="{{ route('services') }}"
+                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('services') ? 'active' : '' }}">
+                                    Services
+                                </a>
                             </li>
 
                             <!-- Materials -->
-                            <li><a href="/materials"
-                                    class="hover:text-green-800 transition-all duration-200">Materials</a>
+                            <li>
+                                <a href="{{ route('materials') }}"
+                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('materials') ? 'active' : '' }}">
+                                    Materials
+                                </a>
                             </li>
 
                             <!-- Contact -->
-                            <li><a href="/contact" class="hover:text-green-800 transition-all duration-200">Contact</a>
+                            <li>
+                                <a href="{{ route('contact') }}"
+                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('contact') ? 'active' : '' }}">
+                                    Contact
+                                </a>
                             </li>
 
                             <!-- Insight -->
-                            <li><a href="/insight" class="hover:text-green-800 transition-all duration-200">Insight</a>
+                            <li>
+                                <a href="{{ route('insight') }}"
+                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('insight') ? 'active' : '' }}">
+                                    Insight
+                                </a>
                             </li>
-
-
-                            <!-- Insight -->
 
                         </ul>
+
 
                         <ul>
                             <a href="/get-quote"
                                 class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg">
                                 Get Quote </a>
-
                         </ul>
 
                     </div>

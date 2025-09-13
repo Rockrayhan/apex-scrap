@@ -25,13 +25,15 @@ Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/services', [FrontendController::class, 'services'])->name('services');
 Route::get('/materials', [FrontendController::class, 'materials'])->name('materials');
+Route::get('/insight', [FrontendController::class, 'insight'])->name('insight');
 
 Route::get('/categories/{id}', [FrontendController::class, 'categoryDetailsPage'])->name('categories.show');
+Route::get('/blogs/{id}', [FrontendController::class, 'blogDetailsPage'])->name('blogDetailsPage');
 
 
 
 
-Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+Route::get('/contact', [ContactController::class, 'showForm'])->name('contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 

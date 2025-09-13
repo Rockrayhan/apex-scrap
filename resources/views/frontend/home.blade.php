@@ -21,16 +21,17 @@
                    </h1>
 
                    <span class="text-xl text-white w-full md:w-2/3">
-                      We supply premium recycled scrap materials to industries worldwide—helping you save costs, ensure quality, and support sustainability.
+                       We supply premium recycled scrap materials to industries worldwide—helping you save costs, ensure
+                       quality, and support sustainability.
                    </span>
 
                    <div class="flex flex-col items-center md:flex-row md:justify-start gap-6">
-                    <button class="bg-teal-400 text-secondary rounded-3xl px-8 py-2 btn-hover">
-                        Get Free Quote
-                    </button>
-                    <button class="border-3 border-teal-400 text-teal-400 rounded-3xl px-8 py-2 btn-hover">
-                        Our Services
-                    </button>
+                       <button class="bg-teal-400 text-secondary rounded-3xl px-8 py-2 btn-hover">
+                           Get Free Quote
+                       </button>
+                       <button class="border-3 border-teal-400 text-teal-400 rounded-3xl px-8 py-2 btn-hover">
+                           Our Services
+                       </button>
                    </div>
 
 
@@ -190,11 +191,10 @@
 
                        <div>
                            <button
-                               class="border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 cursor-pointer group">
+                               class="border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 btn-hover">
                                <span>See More</span>
                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                   stroke="currentColor"
-                                   class="size-4 transition-all duration-300 ease-in-out group-hover:translate-x-1">
+                                   stroke="currentColor" class="size-4">
                                    <path stroke-linecap="round" stroke-linejoin="round"
                                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                                </svg>
@@ -220,19 +220,10 @@
 
                        <div>
                            <button
-                               class="relative border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 cursor-pointer group">
-
-                               <span class="relative">
-                                   See More
-                                   <!-- Animated underline -->
-                                   <span
-                                       class="absolute left-0 bottom-0 w-0 h-[1.5px] bg-green-800 transition-all duration-300 ease-in-out group-hover:w-full">
-                                   </span>
-                               </span>
-
+                               class="border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 btn-hover">
+                               <span>See More</span>
                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                   stroke="currentColor"
-                                   class="size-4 transition-transform duration-300 group-hover:translate-x-1">
+                                   stroke="currentColor" class="size-4">
                                    <path stroke-linecap="round" stroke-linejoin="round"
                                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                                </svg>
@@ -258,18 +249,10 @@
 
                        <div>
                            <button
-                               class="relative border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 cursor-pointer group">
-
-                               <span class="relative">
-                                   See More
-                                   <!-- Animated underline -->
-                                   <span
-                                       class="absolute left-0 bottom-0 w-0 h-[1.5px] bg-green-800 transition-all duration-300 ease-in-out group-hover:w-full">
-                                   </span>
-                               </span>
-
+                               class="border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 btn-hover">
+                               <span>See More</span>
                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                   stroke="currentColor" class="size-4 transition-transform duration-300">
+                                   stroke="currentColor" class="size-4">
                                    <path stroke-linecap="round" stroke-linejoin="round"
                                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                                </svg>
@@ -482,7 +465,7 @@
 
 
            {{-- Blog section --}}
-           <section class="container py-16">
+           {{-- <section class="container py-16">
                <h2 class="text-lg font-semibold mb-4">
                    {{ app()->getLocale() == 'zh' ? '这里有所有 (' . count($blogs) . ') 篇博客' : 'Here are all (' . count($blogs) . ') blogs' }}
                </h2>
@@ -491,10 +474,10 @@
                        <div
                            class="card w-72 bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow">
                            <div class="card-body p-4">
-                               {{-- Title --}}
-                               <h4 class="text-lg font-semibold mb-2">{{ $blog->title }}</h4> {{-- Accessor --}}
 
-                               {{-- Meta --}}
+                               <h4 class="text-lg font-semibold mb-2">{{ $blog->title }}</h4>
+
+
                                <p class="text-sm text-gray-600 mb-2">
                                    {{ app()->getLocale() == 'zh' ? '作者' : 'Author' }}:
                                    <span class="font-medium">{{ $blog->author }}</span>
@@ -503,15 +486,15 @@
                                    <span class="font-medium">{{ $blog->category }}</span>
                                </p>
 
-                               {{-- Image --}}
+
                                @if ($blog->image)
                                    <img src="{{ asset($blog->image) }}" class="w-full h-40 object-cover rounded mb-3">
                                @endif
 
-                               {{-- Description --}}
-                               <p class="text-sm text-gray-700 mb-3">{!! $blog->description !!}</p> {{-- Accessor --}}
 
-                               {{-- Featured --}}
+                               <p class="text-sm text-gray-700 mb-3">{!! $blog->description !!}</p>
+
+
                                <small class="text-gray-500">
                                    {{ app()->getLocale() == 'zh' ? '主页推荐:' : 'Featured:' }}
                                    <span class="font-medium">
@@ -523,7 +506,7 @@
                    @endforeach
                </div>
 
-           </section>
+           </section> --}}
 
 
 

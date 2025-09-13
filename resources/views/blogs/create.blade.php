@@ -11,9 +11,9 @@
             <input type="text" name="title_en" placeholder="English Title" class="form-control mb-2" required>
             {{-- <input type="text" name="title_zh" placeholder="Chinese Title" class="form-control mb-2" required> --}}
             <input type="text" name="category" placeholder="Category" class="form-control mb-2" required>
-            <input type="file" name="image" class="form-control mb-2">
+            <input type="file" name="image" accept="image/*" class="form-control mb-2">
 
-            <textarea name="description_en" id="description" placeholder="Description" class="form-control mb-2" required></textarea>
+            <textarea name="description_en"  placeholder="Description" class="form-control mb-2 getTinyMce" required></textarea>
 
             {{-- <label for=""> Cinese Description </label>
             <textarea name="description_zh" id="description" placeholder="Description" class="form-control mb-2" required></textarea> --}}

@@ -23,7 +23,7 @@ class BlogController extends Controller
     }
 
 
-  public function store(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'author' => 'required',
@@ -68,15 +68,18 @@ class BlogController extends Controller
         return view('blogs.edit', compact('blog'));
     }
 
+
+
+    
     // Update blog
     public function update(Request $request, $id)
     {
         $request->validate([
             'author' => 'required',
-            'title' => 'required',
+            'title_en' => 'required',
             'category' => 'required',
             'image' => 'nullable|mimes:jpg,jpeg,png,webp|max:2048',
-            'description' => 'required',
+            'description_en' => 'required',
             'featured_in_home' => 'required|boolean',
         ]);
 
@@ -84,26 +87,34 @@ class BlogController extends Controller
 
         $filename = $blog->image;
         if ($request->hasFile('image')) {
-            // Delete old image if exists
             if ($blog->image && file_exists(public_path($blog->image))) {
                 unlink(public_path($blog->image));
             }
-            // Save new image
             $filename = '/uploads/blogs/' . time() . '.' . $request->image->extension();
             $request->image->move(public_path('uploads/blogs'), basename($filename));
         }
 
+        // Re-translate
+        $translator = app(\App\Services\TranslationService::class);
+        $title_zh = $translator->translate($request->title_en);
+        $description_zh = $translator->translate($request->description_en);
+
         $blog->update([
             'author' => $request->author,
-            'title' => $request->title,
+            'title_en' => $request->title_en,
+            'title_zh' => $title_zh,
             'category' => $request->category,
             'image' => $filename,
-            'description' => $request->description,
+            'description_en' => $request->description_en,
+            'description_zh' => $description_zh,
             'featured_in_home' => $request->featured_in_home,
         ]);
 
         return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');
     }
+
+
+
 
 
     // Delete blog

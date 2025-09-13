@@ -10,8 +10,7 @@ class FrontendController extends Controller
 {
     public function home()
     {
-        $blogs = Blog::all();
-        return view('frontend.home', compact('blogs'));
+        return view('frontend.home');
     }
 
 
@@ -31,10 +30,27 @@ class FrontendController extends Controller
         return view('frontend.materials');
     }
 
+    public function insight()
+    {
+        $blogs = Blog::all();
+        return view('frontend.insight', compact('blogs'));
+    }
+
 
     public function categoryDetailsPage($id)
     {
         $category = Category::with('products')->findOrFail($id);
         return view('frontend.categoryDetails', compact('category'));
+    }
+
+
+    public function blogDetailsPage($id)
+    {
+        $blog = Blog::findOrFail($id);
+        $relatedBlogs = Blog::where('id', '!=', $id)
+            ->latest()
+            ->take(3)
+            ->get();
+        return view('frontend.blogDetailsPage', compact('blog', 'relatedBlogs'));
     }
 }

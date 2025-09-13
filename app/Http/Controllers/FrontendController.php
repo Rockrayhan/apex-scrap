@@ -26,6 +26,11 @@ class FrontendController extends Controller
         return view('frontend.services');
     }
 
+    public function materials()
+    {
+        return view('frontend.materials');
+    }
+
 
     public function categoryDetailsPage($id)
     {

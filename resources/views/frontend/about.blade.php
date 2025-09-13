@@ -5,7 +5,7 @@
        @section('content')
 
            {{-- banner --}}
-           <section class="relative center min-h-[30vh] md:min-h-[50vh] bg-black/40 bg-cover bg-no-repeat bg-center"
+           <section class="relative center min-h-[40vh] md:min-h-[50vh] bg-black/40 bg-cover bg-no-repeat bg-center"
                style="background-image: url('{{ asset('/frontend/images/banner.webp') }}')">
 
                {{-- Dark overlay --}}

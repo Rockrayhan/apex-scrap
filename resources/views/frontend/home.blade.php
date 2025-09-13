@@ -24,7 +24,7 @@
                       We supply premium recycled scrap materials to industries worldwide—helping you save costs, ensure quality, and support sustainability.
                    </span>
 
-                   <div class="flex gap-6">
+                   <div class="flex flex-col items-center md:flex-row md:justify-start gap-6">
                     <button class="bg-teal-400 text-secondary rounded-3xl px-8 py-2 btn-hover">
                         Get Free Quote
                     </button>

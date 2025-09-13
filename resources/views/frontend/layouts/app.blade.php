@@ -222,23 +222,24 @@
     </main>
 
 
-    <footer class=" bg-primary text-white p-10">
-        <div class="container footer sm:footer-horizontal grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+    <footer class="bg-primary text-white px-6 py-10">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
 
-            <aside class="col-span-2 flex flex-col gap-4">
-                <img src="{{ asset('/frontend/images/logo-2.png') }}" alt="" class="w-58">
+            {{-- Logo + About --}}
+            <aside class="col-span-1 lg:col-span-2 flex flex-col gap-4">
+                <img src="{{ asset('/frontend/images/logo-2.png') }}" alt="Logo" class="w-40 md:w-52">
 
-                <p>
+                <p class="text-sm leading-relaxed">
                     Professional scrap metal recycling services with fair prices, fast pickup, and eco-friendly
                     processing. Turn your scrap into cash today.
                 </p>
 
-                <div class="flex gap-2.5 flex-wrap">
-
-                    {{-- facebook --}}
+                {{-- Social Icons --}}
+                <div class="flex gap-3 flex-wrap">
+                    {{-- Facebook --}}
                     <a href="#"
-                        class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 71 72"
+                        class="p-2 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-300 transition duration-300 hover:border-gray-100 hover:bg-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 71 72"
                             fill="none">
                             <path
                                 d="M46.4233 38.6403L47.7279 30.3588H39.6917V24.9759C39.6917 22.7114 40.8137 20.4987 44.4013 20.4987H48.1063V13.4465C45.9486 13.1028 43.7685 12.9168 41.5834 12.8901C34.9692 12.8901 30.651 16.8626 30.651 24.0442V30.3588H23.3193V38.6403H30.651V58.671H39.6917V38.6403H46.4233Z"
@@ -246,8 +247,8 @@
                         </svg>
                     </a>
 
-                    {{-- whatsapp --}}
-                    <a href="#"
+
+                    {{-- whatsapp --}} <a href="#"
                         class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 71 72"
                             fill="none">
@@ -257,23 +258,20 @@
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M43.9566 36.8847C43.5093 36.5249 42.9856 36.2716 42.4254 36.1442C41.8651 36.0168 41.2831 36.0186 40.7236 36.1495C39.8831 36.4977 39.3399 37.8134 38.7968 38.4713C38.6823 38.629 38.514 38.7396 38.3235 38.7823C38.133 38.8251 37.9335 38.797 37.7623 38.7034C34.6849 37.5012 32.1055 35.2965 30.4429 32.4475C30.3011 32.2697 30.2339 32.044 30.2557 31.8178C30.2774 31.5916 30.3862 31.3827 30.5593 31.235C31.165 30.6368 31.6098 29.8959 31.8524 29.0809C31.9063 28.1818 31.6998 27.2863 31.2576 26.5011C30.9157 25.4002 30.265 24.42 29.3825 23.6762C28.9273 23.472 28.4225 23.4036 27.9292 23.4791C27.4359 23.5546 26.975 23.7709 26.6021 24.1019C25.9548 24.6589 25.4411 25.3537 25.0987 26.135C24.7562 26.9163 24.5939 27.7643 24.6236 28.6165C24.6256 29.0951 24.6864 29.5716 24.8046 30.0354C25.1049 31.1497 25.5667 32.2144 26.1754 33.1956C26.6145 33.9473 27.0937 34.6749 27.6108 35.3755C29.2914 37.6767 31.4038 39.6305 33.831 41.1284C35.049 41.8897 36.3507 42.5086 37.7105 42.973C39.1231 43.6117 40.6827 43.8568 42.2237 43.6824C43.1018 43.5499 43.9337 43.2041 44.6462 42.6755C45.3588 42.1469 45.9302 41.4518 46.3102 40.6512C46.5334 40.1675 46.6012 39.6269 46.5042 39.1033C46.2714 38.0327 44.836 37.4007 43.9566 36.8847Z"
                                 fill="#111827" />
-                        </svg>
-                    </a>
+                        </svg> </a>
 
 
-                    {{-- Linkedin --}}
-                    <a href="#"
+                    {{-- Linkedin --}} <a href="#"
                         class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 72 72"
                             fill="none">
                             <path
                                 d="M24.7612 55.999V28.3354H15.5433V55.999H24.7621H24.7612ZM20.1542 24.5591C23.3679 24.5591 25.3687 22.4348 25.3687 19.7801C25.3086 17.065 23.3679 15 20.2153 15C17.0605 15 15 17.065 15 19.7799C15 22.4346 17.0001 24.5588 20.0938 24.5588H20.1534L20.1542 24.5591ZM29.8633 55.999H39.0805V40.5521C39.0805 39.7264 39.1406 38.8985 39.3841 38.3088C40.0502 36.6562 41.5668 34.9455 44.1138 34.9455C47.4484 34.9455 48.7831 37.4821 48.7831 41.2014V55.999H58V40.1376C58 31.6408 53.4532 27.6869 47.3887 27.6869C42.4167 27.6869 40.233 30.4589 39.0198 32.347H39.0812V28.3364H29.8638C29.9841 30.9316 29.8631 56 29.8631 56L29.8633 55.999Z"
                                 fill="#111827" />
-                        </svg>
-                    </a>
+                        </svg> </a>
 
-                    {{-- We chat --}}
-                    <a href="#"
+
+                    {{-- We chat --}} <a href="#"
                         class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 72 72"
                             fill="none">
@@ -283,28 +281,16 @@
                             <path
                                 d="M62.2121 42.4484C62.2121 35.22 54.9051 29.3599 45.8956 29.3599C36.8858 29.3599 29.5799 35.22 29.5799 42.4484C29.5799 49.6763 36.8858 55.5365 45.8956 55.5365C47.3773 55.5365 48.7867 55.3271 50.1542 55.0297L58.9489 58.8084L55.9072 52.713C59.7191 50.3174 62.2121 46.6335 62.2121 42.4484ZM41.001 41.6303C39.6496 41.6303 38.5534 40.5314 38.5534 39.1757C38.5534 37.8207 39.6495 36.7222 41.001 36.7222C42.3528 36.7222 43.4482 37.8212 43.4482 39.1757C43.4482 40.5316 42.3526 41.6303 41.001 41.6303ZM50.7905 41.6303C49.4385 41.6303 48.3433 40.5314 48.3433 39.1757C48.3433 37.8207 49.4384 36.7222 50.7905 36.7222C52.1425 36.7222 53.238 37.8212 53.238 39.1757C53.238 40.5316 52.1425 41.6303 50.7905 41.6303Z"
                                 fill="#111827" />
-                        </svg>
-                    </a>
+                        </svg> </a>
 
+                    {{-- Add other icons the same way --}}
                 </div>
-
-
             </aside>
 
-            {{-- <nav class="flex flex-col justify-center items-start">
-                <ul class="h6 underline decoration-dotted font-bold footer-title">Quick Links</ul>
-                <li class="link link-hover list-disc">About Us </li>
-                <li class="link link-hover list-disc">Services </li>
-                <li class="link link-hover list-disc"> Career </li>
-                <li class="link link-hover list-disc"> Materials </li>
-            </nav> --}}
-
-
+            {{-- Quick Links --}}
             <nav class="flex flex-col items-start">
-                <h6 class="h6 underline decoration-dotted font-bold footer-title mb-2">
-                    Quick Links
-                </h6>
-                <ul class="list-disc list-inside space-y-1">
+                <h6 class="h6 underline decoration-dotted font-bold footer-title mb-3">Quick Links</h6>
+                <ul class="list-disc list-inside space-y-1 text-sm">
                     <li><a href="#" class="link link-hover">About Us</a></li>
                     <li><a href="#" class="link link-hover">Services</a></li>
                     <li><a href="#" class="link link-hover">Career</a></li>
@@ -312,12 +298,10 @@
                 </ul>
             </nav>
 
-
+            {{-- Services --}}
             <nav class="flex flex-col items-start">
-                <h6 class="h6 underline decoration-dotted font-bold footer-title mb-2">
-                    Services
-                </h6>
-                <ul class="list-disc list-inside space-y-1">
+                <h6 class="h6 underline decoration-dotted font-bold footer-title mb-3">Services</h6>
+                <ul class="list-disc list-inside space-y-1 text-sm">
                     <li><a href="#" class="link link-hover">Residential Pickup</a></li>
                     <li><a href="#" class="link link-hover">Commercial Collection</a></li>
                     <li><a href="#" class="link link-hover">Metal Sorting</a></li>
@@ -326,17 +310,20 @@
                 </ul>
             </nav>
 
-            <nav>
-                <h6 class="h6 underline decoration-dotted font-bold footer-title">Contact Info </h6>
-                <a class="link link-hover">(555) 123-SCRAP</a>
-                <a class="link link-hover">quotes@ecoscrap.com</a>
-                <a class="link link-hover">1234 Industrial Blvd</a>
-                <a class="link link-hover">Recycling City, RC 12345</a>
-                <a class="link link-hover">Mon-Fri 7AM-6PM</a>
+            {{-- Contact --}}
+            <nav class="flex flex-col items-start">
+                <h6 class="h6 underline decoration-dotted font-bold footer-title mb-3">Contact Info</h6>
+                <ul class="space-y-1 text-sm">
+                    <li><a class="link link-hover">(555) 123-SCRAP</a></li>
+                    <li><a class="link link-hover">quotes@ecoscrap.com</a></li>
+                    <li><a class="link link-hover">1234 Industrial Blvd</a></li>
+                    <li><a class="link link-hover">Recycling City, RC 12345</a></li>
+                    <li><a class="link link-hover">Mon-Fri 7AM-6PM</a></li>
+                </ul>
             </nav>
         </div>
-
     </footer>
+
 
     <footer class="bg-secondary text-white p-8">
         <p class="container text-center">Copyright@ 2025 <a href="#" class="underline">Apex Trade Solution

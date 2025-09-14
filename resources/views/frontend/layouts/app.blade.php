@@ -44,7 +44,7 @@
                 </div>
 
                 <div>
-                    <a href="/contact" class="hover:underline">
+                    <a href="/ask-question" class="hover:underline">
                         {{ app()->getLocale() == 'zh' ? '有问题吗？' : 'Ask Questions' }}
                     </a>
                 </div>
@@ -53,17 +53,17 @@
         </div>
 
         {{-- navbar --}}
-        <nav class="relative z-50">
+        <nav class="relative z-50 container">
             <div class="top-5 left-0 w-full shadow-lg z-50 text-secondary backdrop-blur-sm text-white">
-                <div class="navbar px-4 sm:px-8 py-2 flex gap-5 h-[65px] md:h-auto">
+                <div class="navbar py-2 flex gap-5 h-[65px] md:h-auto">
                     <!-- Navbar Start -->
                     <div class="navbar-start flex justify-between items-center w-full lg:flex-1">
 
                         <!-- Logo -->
-                        <a href="/" class="flex items-center h-full gap-2.5">
-                            <img src="{{ asset('/frontend/images/logo.png') }}" alt="Logo"
-                                class="h-10 sm:h-12 md:h-16 w-auto max-w-full object-contain" />
-                            <h4 class="h4 font-bold"> Apex-Scrap </h4>
+                        <a href="/" class="h-full">
+                            <img src="{{ asset('/frontend/images/logo-2.webp') }}" alt="Logo"
+                                class="h-10 sm:h-12 md:h-16 w-full object-contain" />
+                            {{-- <h4 class="h4 font-bold"> Apex-Scrap </h4> --}}
                         </a>
 
                         <!-- Mobile Navigation -->
@@ -340,7 +340,10 @@
 
             {{-- Logo + About --}}
             <aside class="col-span-1 lg:col-span-2 flex flex-col gap-4">
-                <img src="{{ asset('/frontend/images/logo-2.png') }}" alt="Logo" class="w-40 md:w-52">
+                <a href="/">
+                    <img src="{{ asset('/frontend/images/logo-2.webp') }}" alt="Logo"
+                        class="w-40 md:w-52 bg-white">
+                </a>
 
                 <p class="text-sm leading-relaxed">
                     {{ app()->getLocale() == 'zh'
@@ -392,14 +395,15 @@
                     {{ app()->getLocale() == 'zh' ? '快速链接' : 'Quick Links' }}
                 </h6>
                 <ul class="list-disc list-inside space-y-1 text-sm">
-                    <li><a href="#"
+                    <li><a href="/about"
                             class="link link-hover">{{ app()->getLocale() == 'zh' ? '关于我们' : 'About Us' }}</a></li>
-                    <li><a href="#"
+                    <li><a href="/services"
                             class="link link-hover">{{ app()->getLocale() == 'zh' ? '服务' : 'Services' }}</a></li>
-                    <li><a href="#"
-                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '招聘' : 'Career' }}</a></li>
-                    <li><a href="#"
+                    <li><a href="/materials"
                             class="link link-hover">{{ app()->getLocale() == 'zh' ? '材料' : 'Materials' }}</a></li>
+                    <li><a href="/insight"
+                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '洞察' : 'Insight' }}</a></li>
+
                 </ul>
             </nav>
 

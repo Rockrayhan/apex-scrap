@@ -6,3 +6,8 @@
 <!-- 3. show in frontend (materials page) -->
 
 <!-- 4. quote form update ( backend wise / dynamic ) -->
+<!-- - ask a question -->
+
+- products add at least(8)
+- on click show product image as large  like modal
+- mobile responsive

@@ -12,41 +12,6 @@ class ContactController extends Controller
         return view('frontend.contact');
     }
 
-    //     public function send(Request $request)
-    //     {
-    //         $request->validate([
-    //             'name'    => 'required|string|max:255',
-    //             'email'   => 'required|email',
-    //             'subject' => 'required|string|max:255',
-    //             'message' => 'required|string',
-    //         ]);
-
-    //         $myEmail = config('mail.from.address');
-    //         $appName = config('app.name');
-
-    //         // 1. Send email to admin / receiver
-    //         Mail::raw(
-    //             "Name: {$request->name}\nEmail: {$request->email}\n\nMessage:\n{$request->message}",
-    //             function ($mail) use ($request, $myEmail) {
-    //                 $mail->to($myEmail) // 👈 your email
-    //                     ->subject($request->subject);
-    //             }
-    //         );
-
-    //         // 2. Send auto-reply to the SENDER
-    //         Mail::raw(
-    //             "Dear {$request->name},\n\nThank you for contacting us. 
-    // We have received your message and will get back to you shortly.\n\nBest Regards,\n{$appName}",
-    //             function ($mail) use ($request) {
-    //                 $mail->to($request->email) // 👈 sender’s email
-    //                     ->subject('We received your message');
-    //             }
-    //         );
-
-    //         return back()->with('success', 'Your message has been sent successfully!');
-    //     }
-
-
 
     public function send(Request $request)
     {
@@ -79,7 +44,7 @@ Additional Details:
 
         Mail::raw($adminMessage, function ($mail) use ($myEmail, $request) {
             $mail->to($myEmail)
-                ->subject("New Scrap Inquiry from {$request->name}");
+                ->subject("Quote request from {$request->name}");
         });
 
         // 3. Send auto-reply to the sender
@@ -95,5 +60,59 @@ Additional Details:
         });
 
         return back()->with('success', 'Your message has been sent successfully!');
+    }
+
+
+
+    public function showAskQuestion()
+    {
+        return view('frontend.askQuestion');
+    }
+
+    
+    public function sendAskQuestion(Request $request)
+    {
+        // 1. Validate
+        $request->validate([
+            'name'    => 'required|string|max:255',
+            'email'   => 'required|email',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        $myEmail = config('mail.from.address');
+
+        // 2. Email content for admin
+        $adminMessage = "
+New Question Received:
+
+Name: {$request->name}
+Email: {$request->email}
+Subject: {$request->subject}
+
+Message:
+{$request->message}
+";
+
+        Mail::raw($adminMessage, function ($mail) use ($myEmail, $request) {
+            $mail->to($myEmail)
+                ->subject("New Question from {$request->name}");
+        });
+
+        // 3. Auto-reply to sender
+        $autoReply = "Dear {$request->name},\n\n"
+            . "Thank you for reaching out to us. We have received your question:\n"
+            . "\"{$request->subject}\" \n\n"
+            . "Our team will get back to you shortly.\n\n"
+            . "Best Regards,\n"
+            . config('app.name');
+
+        Mail::raw($autoReply, function ($mail) use ($request) {
+            $mail->to($request->email)
+                ->subject('We received your question');
+        });
+
+        // 4. Redirect back with success message
+        return back()->with('success', 'Your question has been sent successfully!');
     }
 }

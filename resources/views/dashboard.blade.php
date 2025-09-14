@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'GoClova Dashboard')
+@section('title', 'Apex scrap Dashboard')
 
 @section('content')
 

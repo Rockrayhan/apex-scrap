@@ -32,9 +32,13 @@ Route::get('/blogs/{id}', [FrontendController::class, 'blogDetailsPage'])->name(
 
 
 
-
+// get quote
 Route::get('/contact', [ContactController::class, 'showForm'])->name('contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+// ask a question
+Route::get('/ask-question', [ContactController::class, 'showAskQuestion'])->name('showAskQuestion');
+Route::post('/send-question', [ContactController::class, 'sendAskQuestion'])->name('sendAskQuestion');
 
 
 
@@ -65,7 +69,7 @@ Route::get('/api-list', function () {
 
 // blogs
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
-Route::get('/blogs/create', [BlogController::class, 'create'])->name('blogs.create');
+Route::get('/admin/blogs/create', [BlogController::class, 'create'])->name('blogs.create');
 Route::post('/blogs', [BlogController::class, 'store'])->name('blogs.store');
 Route::get('/blogs/edit/{id}', [BlogController::class, 'edit'])->name('blogs.edit');
 Route::post('/blogs/update/{id}', [BlogController::class, 'update'])->name('blogs.update');
@@ -74,7 +78,7 @@ Route::get('/blogs/delete/{id}', [BlogController::class, 'destroy'])->name('blog
 
 
 // admin 
-Route::get('/admin', [AdminAuthController::class, 'dashboard'])->name('dashboard')->middleware('admin');
+Route::get('/apex-admin', [AdminAuthController::class, 'dashboard'])->name('dashboard')->middleware('admin');
 
 Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');

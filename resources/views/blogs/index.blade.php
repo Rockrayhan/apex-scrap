@@ -4,7 +4,7 @@
 <div class="container pb-5 mb-5">
            
     <h2>All Blogs</h2>
-    <a href="{{ route('blogs.create') }}" class="btn btn-primary mb-3">+ Add New Blog</a>
+    <a href="/admin/blogs/create" class="btn btn-primary mb-3">+ Add New Blog</a>
 
     @foreach($blogs as $blog)
     <div class="card mb-2">

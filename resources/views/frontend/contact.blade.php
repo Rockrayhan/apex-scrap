@@ -76,7 +76,7 @@
                 <span class="text-third">{{ app()->getLocale() == 'zh' ? '联系我们' : 'Contact' }}</span>
                 <span>{{ app()->getLocale() == 'zh' ? '' : 'Us' }}</span>
             </h1>
-            <p class="w-full md:w-5/6 text-white text-center">
+            <p class="w-full md:w-2/3 text-white text-center">
                 {{ app()->getLocale() == 'zh'
                     ? 'Apex Scrap 不仅供应废料，还为全球行业提供量身定制的解决方案。无论您是国际买家、商业合作伙伴，还是大型企业，我们的服务旨在确保可靠性、透明度和长期价值。'
                     : 'Apex Scrap, we go beyond supplying scrap—we deliver tailored solutions for global industries. Whether you’re an international buyer, a business partner, or a large-scale industry, our services are designed to ensure reliability, transparency, and long-term value.' }}

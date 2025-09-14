@@ -106,6 +106,87 @@
 
         </section>
 
+{{-- extra insight content --}}
+<section class="bg-gray-100 py-16">
+    <div class="container grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+        {{-- Left Content --}}
+        <div>
+            <h3 class="h3 font-bold text-primary mb-4">
+                {{ app()->getLocale() == 'zh' ? '为什么选择 Apex Scrap？' : 'Why Choose Apex Scrap?' }}
+            </h3>
+            <p class="p text-gray-700 mb-6">
+                {{ app()->getLocale() == 'zh'
+                    ? '我们不仅仅是一个废金属收购商。我们是推动可持续发展的合作伙伴，帮助您为更绿色的未来做出贡献。'
+                    : 'We’re more than just a scrap buyer – we’re your partner in sustainability, helping you contribute to a greener future.' }}
+            </p>
+
+            <ul class="space-y-3 text-gray-700">
+                <li class="flex items-center gap-2">
+                    <i class="fas fa-check text-green-600"></i>
+                    {{ app()->getLocale() == 'zh' ? '超过15年的行业经验' : 'Over 15+ years of industry experience' }}
+                </li>
+                <li class="flex items-center gap-2">
+                    <i class="fas fa-check text-green-600"></i>
+                    {{ app()->getLocale() == 'zh' ? '透明定价与信任' : 'Transparent pricing & trust' }}
+                </li>
+                <li class="flex items-center gap-2">
+                    <i class="fas fa-check text-green-600"></i>
+                    {{ app()->getLocale() == 'zh' ? '环保与可持续' : 'Eco-friendly & sustainable practices' }}
+                </li>
+                <li class="flex items-center gap-2">
+                    <i class="fas fa-check text-green-600"></i>
+                    {{ app()->getLocale() == 'zh' ? '遍布全国的满意客户' : 'Nationwide satisfied clients' }}
+                </li>
+            </ul>
+        </div>
+
+        {{-- Right Content: Stats --}}
+        <div class="grid grid-cols-2 gap-6 text-center">
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h4 class="text-3xl font-bold text-primary">15+</h4>
+                <p class="text-gray-600">
+                    {{ app()->getLocale() == 'zh' ? '年经验' : 'Years Experience' }}
+                </p>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h4 class="text-3xl font-bold text-primary">5000+</h4>
+                <p class="text-gray-600">
+                    {{ app()->getLocale() == 'zh' ? '满意客户' : 'Happy Clients' }}
+                </p>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h4 class="text-3xl font-bold text-primary">100k+</h4>
+                <p class="text-gray-600">
+                    {{ app()->getLocale() == 'zh' ? '吨金属回收' : 'Tons Recycled' }}
+                </p>
+            </div>
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h4 class="text-3xl font-bold text-primary">99%</h4>
+                <p class="text-gray-600">
+                    {{ app()->getLocale() == 'zh' ? '客户满意度' : 'Customer Satisfaction' }}
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Call to Action --}}
+<section class="py-16 bg-gray-200 text-center">
+    <h3 class="h3 text-primary font-bold mb-4">
+        {{ app()->getLocale() == 'zh' ? '准备好与我们合作了吗？' : 'Ready to Partner with Us?' }}
+    </h3>
+    <p class="mb-6 w-full md:w-2/3 mx-auto">
+        {{ app()->getLocale() == 'zh'
+            ? '今天就联系我们，让您的废金属成为可持续未来的一部分。'
+            : 'Get in touch with us today and turn your scrap into part of a sustainable future.' }}
+    </p>
+    <a href="{{ route('contact') }}">
+        <button class="bg-white text-primary font-bold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 transition">
+            {{ app()->getLocale() == 'zh' ? '联系我们' : 'Contact Us' }}
+        </button>
+    </a>
+</section>
 
 
     @endsection

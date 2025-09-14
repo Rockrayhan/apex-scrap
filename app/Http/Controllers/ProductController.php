@@ -26,12 +26,17 @@ class ProductController extends Controller
         return view('products.create', compact('categories'));
     }
 
+
+
     public function store(Request $request)
     {
         $request->validate([
-            'category_id' => 'required|exists:categories,id',
-            'name_en' => 'required|unique:products,name_en',
-            'image' => 'nullable|image'
+            'category_id'     => 'required|exists:categories,id',
+            'name_en'         => 'required|unique:products,name_en',
+            'name_zh'         => 'required|string',
+            'description_en'  => 'nullable|string',
+            'description_zh'  => 'nullable|string',
+            'image'           => 'nullable|image',
         ]);
 
         $filename = null;
@@ -41,23 +46,20 @@ class ProductController extends Controller
             $filename = 'uploads/products/' . $filename;
         }
 
-        // Auto translate
-        $translator = app(TranslationService::class);
-        $name_zh = $translator->translate($request->name_en);
-        $description_zh = $translator->translate($request->description_en ?? '');
-
         Product::create([
-            'category_id' => $request->category_id,
-            'name_en' => $request->name_en,
-            'name_zh' => $name_zh,
-            'slug' => Str::slug($request->name_en),
-            'description_en' => $request->description_en,
-            'description_zh' => $description_zh,
-            'image' => $filename,
+            'category_id'     => $request->category_id,
+            'name_en'         => $request->name_en,
+            'name_zh'         => $request->name_zh,
+            'slug'            => Str::slug($request->name_en),
+            'description_en'  => $request->description_en,
+            'description_zh'  => $request->description_zh,
+            'image'           => $filename,
         ]);
 
         return redirect()->route('admin.products.index')->with('success', 'Product added!');
     }
+
+
 
     public function edit($id)
     {
@@ -66,14 +68,18 @@ class ProductController extends Controller
         return view('products.edit', compact('product', 'categories'));
     }
 
+
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
 
         $request->validate([
-            'category_id' => 'required|exists:categories,id',
-            'name_en' => 'required|unique:products,name_en,' . $id,
-            'image' => 'nullable|image',
+            'category_id'     => 'required|exists:categories,id',
+            'name_en'         => 'required|unique:products,name_en,' . $id,
+            'name_zh'         => 'nullable|string',
+            'description_en'  => 'nullable|string',
+            'description_zh'  => 'nullable|string',
+            'image'           => 'nullable|image',
         ]);
 
         $filename = $product->image;
@@ -86,23 +92,19 @@ class ProductController extends Controller
             $filename = 'uploads/products/' . $filename;
         }
 
-        // Auto translate
-        $translator = app(TranslationService::class);
-        $name_zh = $translator->translate($request->name_en);
-        $description_zh = $translator->translate($request->description_en ?? '');
-
         $product->update([
-            'category_id' => $request->category_id,
-            'name_en' => $request->name_en,
-            'name_zh' => $name_zh,
-            'slug' => Str::slug($request->name_en),
-            'description_en' => $request->description_en,
-            'description_zh' => $description_zh,
-            'image' => $filename,
+            'category_id'     => $request->category_id,
+            'name_en'         => $request->name_en,
+            'name_zh'         => $request->name_zh,
+            'slug'            => Str::slug($request->name_en),
+            'description_en'  => $request->description_en,
+            'description_zh'  => $request->description_zh,
+            'image'           => $filename,
         ]);
 
         return redirect()->route('admin.products.index')->with('success', 'Product updated successfully!');
     }
+
 
     public function destroy($id)
     {

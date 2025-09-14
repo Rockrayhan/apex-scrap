@@ -8,8 +8,42 @@
             <div class="card-header">
                 <h4>Edit Product</h4>
             </div>
+
+
+            {{-- Show Messages --}}
+            <div>
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+            </div>
+
+
+
+
             <div class="card-body">
-                <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.products.update', $product->id) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
@@ -25,16 +59,26 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Product Name</label>
+                        <label class="form-label">Product Name (English) </label>
                         <input type="text" name="name_en" value="{{ old('name', $product->name) }}" class="form-control"
                             required>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Description</label>
+                        <label class="form-label">Product Name (Chinese) </label>
+                        <input type="text" name="name_zh" value="{{ old('name', $product->name) }}" class="form-control"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Description (English) </label>
                         <textarea name="description_en" class="form-control" rows="3">{{ old('description', $product->description) }}</textarea>
                     </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">Description (Chinese) </label>
+                        <textarea name="description_zh" class="form-control" rows="3">{{ old('description', $product->description) }}</textarea>
+                    </div>
 
 
                     <div class="mb-3">

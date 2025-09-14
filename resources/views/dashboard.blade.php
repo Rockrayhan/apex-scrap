@@ -34,7 +34,7 @@
                 <div class="col-sm-6 col-xl-3">
                     <a href="{{ route('admin.categories.index') }}">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="bi bi-app fa-3x text-primary"></i>
+                            <i class="bi bi-kanban fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2"> Categories </p>
                                 <h6 class="mb-0"> {{ $categories->count() }} </h6>
@@ -46,7 +46,7 @@
                 <div class="col-sm-6 col-xl-3">
                     <a href="{{ route('admin.products.index') }}">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="bi bi-app fa-3x text-primary"></i>
+                            <i class="bi bi-kanban fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2"> Products </p>
                                 <h6 class="mb-0"> {{ $products->count() }} </h6>
@@ -58,7 +58,7 @@
                 <div class="col-sm-6 col-xl-3">
                     <a href="{{ route('blogs.index') }}">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="bi bi-app fa-3x text-primary"></i>
+                            <i class="bi bi-kanban fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2"> Blogs </p>
                                 <h6 class="mb-0"> {{ $blogs->count() }} </h6>

@@ -3,11 +3,40 @@
 @section('title', 'All Products')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2>Products</h2>
             <a href="{{ route('admin.products.create') }}" class="btn btn-primary">Add Product</a>
         </div>
+
+        {{-- Show Messages --}}
+        <div>
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+        </div>
+
 
         @foreach ($categories as $category)
             <h6 class="mt-4">{{ $category->name }}</h6>

@@ -1,41 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-    <div class="container">
-    <h2>Category: {{ $category->name }}</h2>
-    <p>Slug: {{ $category->slug }}</p>
+@extends('frontend.layouts.app')
 
-    <h3 class="mt-4">Products under this category:</h3>
+@section('title', 'Apex-Scrap Category Details')
 
-    @if($category->products->count() > 0)
-        <div class="row">
-            @foreach($category->products as $product)
-                <div class="col-md-4 mb-3">
-                    <div class="card h-100">
-                        @if($product->image)
-                            <img src="{{ asset($product->image) }}" class="card-img-top" alt="{{ $product->name }}">
-                        @else
-                            <img src="{{ asset('img/no-image.png') }}" class="card-img-top" alt="No image">
-                        @endif
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">{{ Str::limit($product->description, 100) }}</p>
+@section('content')
+
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+
+            {{-- Category Header --}}
+            <div class="text-center mb-12">
+                <h3 class="h3 font-bold text-primary mb-2">{{ $category->name }}</h3>
+                <p class="text-gray-700">
+                    {{ app()->getLocale() == 'zh'
+                        ? '这里有全部 ' . $category->name . ' 材料'
+                        : 'Here are all ' . $category->name . ' Materials' }}
+                </p>
+            </div>
+
+
+            {{-- Products --}}
+            <h3 class="text-2xl font-semibold text-primary mb-6 text-center">
+                {{ app()->getLocale() == 'zh' ? '此类别下的产品' : 'Products under this category' }}
+            </h3>
+
+            @if ($category->products->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    @foreach ($category->products as $product)
+                        <div
+                            class="card bg-white shadow-xl hover:shadow-2xl transition duration-300 rounded-lg overflow-hidden flex flex-col">
+
+                            {{-- Product Image --}}
+                            @if ($product->image)
+                                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
+                                    class="h-48 w-full object-cover">
+                            @else
+                                <img src="{{ asset('frontend/images/placeholder.jpg') }}" alt="No image"
+                                    class="h-48 w-full object-cover">
+                            @endif
+
+                            {{-- Product Info --}}
+                            <div class="p-4 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <h5 class="text-lg font-bold text-gray-800 mb-2">{{ $product->name }}</h5>
+                                    <p class="text-gray-600 text-sm"> {!! $product->description !!} </p>
+                                </div>
+
+                            </div>
+
                         </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    @else
-        <p>No products found in this category.</p>
-    @endif
-</div>
+                    @endforeach
 
-</body>
-</html>
+                </div>
+            @else
+                <p class="text-center text-gray-500 mt-6">
+                    {{ app()->getLocale() == 'zh' ? '此类别下没有找到产品。' : 'No products found in this category.' }}</p>
+            @endif
+
+        </div>
+    </section>
+
+@endsection

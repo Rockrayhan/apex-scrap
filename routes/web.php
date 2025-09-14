@@ -27,7 +27,7 @@ Route::get('/services', [FrontendController::class, 'services'])->name('services
 Route::get('/materials', [FrontendController::class, 'materials'])->name('materials');
 Route::get('/insight', [FrontendController::class, 'insight'])->name('insight');
 
-Route::get('/categories/{id}', [FrontendController::class, 'categoryDetailsPage'])->name('categories.show');
+Route::get('/categories/{id}', [FrontendController::class, 'categoryDetailsPage'])->name('categoryDetailsPage');
 Route::get('/blogs/{id}', [FrontendController::class, 'blogDetailsPage'])->name('blogDetailsPage');
 
 

@@ -23,19 +23,20 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(['name_en' => 'required|unique:categories,name_en']);
-
-        $translator = app(TranslationService::class);
-        $name_zh = $translator->translate($request->name_en);
+        $request->validate([
+            'name_en' => 'required|unique:categories,name_en',
+            'name_zh' => 'required', 
+        ]);
 
         Category::create([
             'name_en' => $request->name_en,
-            'name_zh' => $name_zh,
+            'name_zh' => $request->name_zh,
             'slug' => Str::slug($request->name_en),
         ]);
 
         return redirect()->route('admin.categories.index')->with('success', 'Category added!');
     }
+
 
     public function edit($id)
     {
@@ -43,25 +44,27 @@ class CategoryController extends Controller
         return view('categories.edit', compact('category'));
     }
 
+
+
     public function update(Request $request, $id)
     {
         $category = Category::findOrFail($id);
 
         $request->validate([
             'name_en' => 'required|unique:categories,name_en,' . $id,
+            'name_zh' => 'required',
         ]);
-
-        $translator = app(TranslationService::class);
-        $name_zh = $translator->translate($request->name_en);
 
         $category->update([
             'name_en' => $request->name_en,
-            'name_zh' => $name_zh,
+            'name_zh' => $request->name_zh,
             'slug' => Str::slug($request->name_en),
         ]);
 
         return redirect()->route('admin.categories.index')->with('success', 'Category updated successfully!');
     }
+
+
 
     public function destroy($id)
     {

@@ -27,7 +27,8 @@ class FrontendController extends Controller
 
     public function materials()
     {
-        return view('frontend.materials');
+        $categories = Category::with('products')->get();
+        return view('frontend.materials', compact('categories'));
     }
 
     public function insight()

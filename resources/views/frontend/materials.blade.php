@@ -28,7 +28,7 @@
 
 
 
-     {{-- firstr category --}}
+     {{-- first category --}}
      <section class="py-16 bg-gray-200">
 
          @php
@@ -58,7 +58,7 @@
                      <div class="col-span-1">
                          <h6 class="h6 font-bold"> {{ app()->getLocale() == 'zh' ? '我们供应 :' : 'We Supply :' }} </h6>
                          <ul class="list-disc ms-5">
-                             @foreach ($firstCategory->products as $product)
+                             @foreach ($firstCategory->products->take(8) as $product)
                                  <li>{{ $product->name }}</li>
                              @endforeach
                          </ul>
@@ -67,7 +67,7 @@
                      {{-- Product Images --}}
                      <div class="col-span-2">
                          <div class="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-4">
-                             @foreach ($firstCategory->products as $product)
+                             @foreach ($firstCategory->products->take(8) as $product)
                                  @if ($product->image)
                                      <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
                                          class="h-30 w-30 object-cover">
@@ -127,7 +127,7 @@
                      <div class="col-span-1">
                          <h6 class="h6 font-bold">{{ app()->getLocale() == 'zh' ? '我们供应 :' : 'We Supply :' }}</h6>
                          <ul class="list-disc ms-5">
-                             @foreach ($secondCategory->products as $product)
+                             @foreach ($secondCategory->products->take(8) as $product)
                                  <li>{{ $product->name }}</li>
                              @endforeach
                          </ul>
@@ -136,7 +136,7 @@
                      {{-- Product Images --}}
                      <div class="col-span-2">
                          <div class="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-4">
-                             @foreach ($secondCategory->products as $product)
+                             @foreach ($secondCategory->products->take(8) as $product)
                                  @if ($product->image)
                                      <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
                                          class="h-30 w-30 object-cover">

@@ -168,79 +168,46 @@
                    </p>
                </div>
 
+
                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                   {{-- Ferrous Metals --}}
-                   <div class="flex flex-col gap-4">
-                       <img src="{{ asset('/frontend/images/cat-1.png') }}" alt="">
-                       <h4 class="h4 font-semibold">
-                           {{ app()->getLocale() == 'zh' ? '黑色金属' : 'Ferrous Metals' }}
-                       </h4>
-                       <p>
-                           {{ app()->getLocale() == 'zh'
-                               ? '您现在可以出售任何旧的家庭金属制品，包括旧家电、铸铁水槽和浴缸。'
-                               : 'Now you can sell any old household metal items, including old appliances, cast iron sinks, and tubs.' }}
-                       </p>
-                       <div>
-                           <button
-                               class="border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 btn-hover">
-                               <span>{{ app()->getLocale() == 'zh' ? '查看更多' : 'See More' }}</span>
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                   stroke="currentColor" class="size-4">
-                                   <path stroke-linecap="round" stroke-linejoin="round"
-                                       d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                               </svg>
-                           </button>
-                       </div>
-                   </div>
+                   @foreach ($categories as $category)
+                       <div class="flex flex-col gap-4">
+                           {{-- Category Image (optional, or you can add a field for images in DB) --}}
+                           <img src="{{ asset('/frontend/images/cat-1.png') }}" alt="{{ $category->name }}">
 
-                   {{-- Non-Ferrous Metals --}}
-                   <div class="flex flex-col gap-4">
-                       <img src="{{ asset('/frontend/images/cat-2.png') }}" alt="">
-                       <h4 class="h4 font-semibold">
-                           {{ app()->getLocale() == 'zh' ? '有色金属' : 'Non-Ferrous Metals' }}
-                       </h4>
-                       <p>
-                           {{ app()->getLocale() == 'zh'
-                               ? '您现在可以出售任何旧的家庭金属制品，包括旧家电、铸铁水槽和浴缸。'
-                               : 'Now you can sell any old household metal items, including old appliances, cast iron sinks, and tubs.' }}
-                       </p>
-                       <div>
-                           <button
-                               class="border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 btn-hover">
-                               <span>{{ app()->getLocale() == 'zh' ? '查看更多' : 'See More' }}</span>
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                   stroke="currentColor" class="size-4">
-                                   <path stroke-linecap="round" stroke-linejoin="round"
-                                       d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                               </svg>
-                           </button>
-                       </div>
-                   </div>
+                           {{-- Category Name --}}
+                           <h4 class="h4 font-semibold">
+                               {{ $category->name }}
+                           </h4>
 
-                   {{-- Catalytic Converters --}}
-                   <div class="flex flex-col gap-4">
-                       <img src="{{ asset('/frontend/images/cat-1.png') }}" alt="">
-                       <h4 class="h4 font-semibold">
-                           {{ app()->getLocale() == 'zh' ? '催化转化器' : 'Catalytic Converters' }}
-                       </h4>
-                       <p>
-                           {{ app()->getLocale() == 'zh'
-                               ? '您现在可以出售任何旧的家庭金属制品，包括旧家电、铸铁水槽和浴缸。'
-                               : 'Now you can sell any old household metal items, including old appliances, cast iron sinks, and tubs.' }}
-                       </p>
-                       <div>
-                           <button
-                               class="border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 btn-hover">
-                               <span>{{ app()->getLocale() == 'zh' ? '查看更多' : 'See More' }}</span>
-                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                   stroke="currentColor" class="size-4">
-                                   <path stroke-linecap="round" stroke-linejoin="round"
-                                       d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                               </svg>
-                           </button>
+                           {{-- Category Short Description --}}
+
+                           <p>
+                               {{ app()->getLocale() == 'zh'
+                                   ? '您现在可以出售任何旧的家庭金属制品，包括旧家电、铸铁水槽和浴缸。'
+                                   : 'Now you can sell any old household metal items, including old appliances, cast iron sinks, and tubs.' }}
+                           </p>
+
+
+                           {{-- See More Button --}}
+                           <div>
+                               <a href="{{ route('categoryDetailsPage', $category->id) }}">
+                                   <button
+                                       class="border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 btn-hover">
+                                       <span>{{ app()->getLocale() == 'zh' ? '查看更多' : 'See More' }}</span>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-4">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                                       </svg>
+                                   </button>
+                               </a>
+                           </div>
                        </div>
-                   </div>
+                   @endforeach
                </div>
+
+
            </section>
 
            {{-- Business Reviews --}}

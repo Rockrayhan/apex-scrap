@@ -66,7 +66,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Product Name (Chinese) </label>
-                        <input type="text" name="name_zh" value="{{ old('name', $product->name) }}" class="form-control"
+                        <input type="text" name="name_zh" value="{{ old('name_zh', $product->name_zh) }}" class="form-control"
                             required>
                     </div>
 
@@ -77,7 +77,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Description (Chinese) </label>
-                        <textarea name="description_zh" class="form-control" rows="3">{{ old('description', $product->description) }}</textarea>
+                        <textarea name="description_zh" class="form-control" rows="3">{{ old('description_zh', $product->description_zh) }}</textarea>
                     </div>
 
 

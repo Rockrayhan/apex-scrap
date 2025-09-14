@@ -44,7 +44,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Category Name (Chinese)</label>
-                        <input type="text" name="name_zh" value="{{ old('name', $category->name) }}" class="form-control"
+                        <input type="text" name="name_zh" value="{{ old('name_zh', $category->name_zh) }}" class="form-control"
                             required>
                     </div>
                     <button type="submit" class="btn btn-success">Update Category</button>

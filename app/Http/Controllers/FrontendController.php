@@ -10,7 +10,8 @@ class FrontendController extends Controller
 {
     public function home()
     {
-        return view('frontend.home');
+        $categories = Category::all();
+        return view('frontend.home', compact('categories'));
     }
 
 

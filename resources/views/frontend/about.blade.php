@@ -53,12 +53,12 @@
            {{-- Why Work With Us --}}
            <section class="py-16">
                <div class="container grid md:grid-cols-3 grid-cols-1 gap-6">
-                   <div class="col-span-1">
+                   <div class="col-span-1 order-2 md:order-1">
                        <img src="{{ asset('/frontend/images/about-2.jpg') }}" alt="about-2"
                            class="rounded-2xl shadow-2xl">
                    </div>
 
-                   <div class="col-span-2 flex flex-col items-end gap-4 px-3">
+                   <div class="col-span-2 flex flex-col items-end gap-4 px-3 order-1 md:order-2">
                        <h3 class="h3 text-primary font-bold text-start">
                            {{ app()->getLocale() == 'zh' ? '为什么选择 Apex Scrap ?' : 'Why Work With Apex Scrap ?' }}
                        </h3>

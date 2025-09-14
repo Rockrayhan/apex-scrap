@@ -110,7 +110,7 @@
         @endif
     </div>
 
-    <section class="py-16 container grid grid-cols-1 md:grid-cols-3">
+    <section class="py-16 container grid grid-cols-1 md:grid-cols-3 gap-y-4">
 
         <div class="con-span-1">
             <div>

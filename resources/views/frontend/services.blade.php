@@ -72,12 +72,12 @@
            {{-- Strong Partnerships --}}
            <section class="py-16">
                <div class="container grid md:grid-cols-2 grid-cols-1 gap-6">
-                   <div class="col-span-1 center">
+                   <div class="col-span-1 center order-2 md:order-1">
                        <img src="{{ asset('/frontend/images/about-2.jpg') }}"
                            alt="{{ app()->getLocale() == 'zh' ? '关于我们' : 'About us' }}" class="rounded-2xl shadow-2xl">
                    </div>
 
-                   <div class="col-span-1 flex flex-col gap-4 px-3">
+                   <div class="col-span-1 flex flex-col gap-4 px-3 order-1 md:order-2">
                        <h3 class="h3 text-primary font-bold text-start">
                            {{ app()->getLocale() == 'zh' ? '稳固的合作关系与可靠供应' : 'Strong Partnerships and Reliable Supply.' }}
                        </h3>

@@ -10,4 +10,7 @@
 
 - products add at least(8)
 - on click show product image as large  like modal
-- mobile responsive
+1. mobile responsive 
+    - footer icon (in vs weChat)
+    - banner btn - get free quote
+    - navbar slider + position

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2025 at 11:07 AM
+-- Generation Time: Sep 14, 2025 at 04:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -69,7 +69,8 @@ CREATE TABLE `blogs` (
 
 INSERT INTO `blogs` (`id`, `title_en`, `title_zh`, `author`, `category`, `image`, `featured_in_home`, `description_en`, `description_zh`, `created_at`, `updated_at`) VALUES
 (13, 'Death Of An Ancient Tree', '古树之死', 'Dr. Joseph Brakus PhD', 'love', '/uploads/blogs/1757756909.jpg', 0, '<p><strong>Mirror\'s Edge Catalyst has more varied gameplay for Faith and Runners, where they serve a greater purpose than in the first game</strong>. In January 2014, writer Rhianna Pratchett announced on Twitter that she would not be involved with the new game and neither would most of the original team.</p>', '<p><strong>《镜之边缘催化剂》为信仰和跑步者提供了更多样化的游戏玩法，它们比第一款游戏有更大的用途</strong>。2014年1月，作家Rhianna Pratchett在Twitter上宣布，她不会参与新游戏，原始团队的大多数人也不会参与。</p>', '2025-09-03 06:07:12', '2025-09-13 03:59:16'),
-(14, 'Death Of An Ancient Tree', '古树之死', 'Jocelyn Gutmann', 'love', '/uploads/blogs/1757756753.jpg', 1, '<p><strong>Mirror\'s Edge Catalyst has more varied gameplay for Faith and Runners, where they serve a greater purpose than in the first game</strong>. In January 2014, writer Rhianna Pratchett announced on Twitter that she would not be involved with the new game and neither would most of the original team.</p>\r\n<ul>\r\n<li>Rhianna Pratchett</li>\r\n<li>announced on Twitter</li>\r\n</ul>', '<p><strong>《镜之边缘催化剂》为信仰和跑步者提供了更多样化的游戏玩法，它们比第一款游戏有更大的用途</strong>。 2014年1月，作家Rhianna Pratchett在Twitter上宣布，她不会参与新游戏，原始团队的大多数人也不会参与。</p>\r\n<ul>\r\n<li>Rhianna Pratchett</li>\r\n<li>在Twitter上宣布</li>\r\n</ul>', '2025-09-03 06:17:26', '2025-09-13 04:19:57');
+(14, 'Death Of An Ancient Tree', '古树之死', 'Jocelyn Gutmann', 'love', '/uploads/blogs/1757756753.jpg', 1, '<p><strong>Mirror\'s Edge Catalyst has more varied gameplay for Faith and Runners, where they serve a greater purpose than in the first game</strong>. In January 2014, writer Rhianna Pratchett announced on Twitter that she would not be involved with the new game and neither would most of the original team.</p>\r\n<ul>\r\n<li>Rhianna Pratchett</li>\r\n<li>announced on Twitter</li>\r\n</ul>', '<p><strong>《镜之边缘催化剂》为信仰和跑步者提供了更多样化的游戏玩法，它们比第一款游戏有更大的用途</strong>。 2014年1月，作家Rhianna Pratchett在Twitter上宣布，她不会参与新游戏，原始团队的大多数人也不会参与。</p>\r\n<ul>\r\n<li>Rhianna Pratchett</li>\r\n<li>在Twitter上宣布</li>\r\n</ul>', '2025-09-03 06:17:26', '2025-09-13 04:19:57'),
+(15, 'Death Of An Ancient Tree', '古树之死', 'Dr. Joseph Brakus PhD', 'jungle', '/uploads/blogs/1757852389.jpg', 0, '<p><strong>Mirror\'s Edge Catalyst has more varied gameplay for Faith and Runners, where they serve a greater purpose than in the first game</strong>. In January 2014, writer Rhianna Pratchett announced on Twitter that she would not be involved with the new game and neither would most of the original team.<br>Explore the latest technological advances and market trends shaping the metal recycling industry</p>', '<p><strong>《镜之边缘催化剂》为信仰和跑步者提供了更多样化的游戏玩法，它们比第一款游戏有更大的用途</strong>。2014年1月，作家Rhianna Pratchett在Twitter上宣布，她不会参与新游戏，原始团队的大多数人也不会参与。<br>探索塑造金属回收行业的最新技术进步和市场趋势</p>', '2025-09-14 06:19:52', '2025-09-14 06:20:23');
 
 -- --------------------------------------------------------
 
@@ -199,7 +200,20 @@ INSERT INTO `products` (`id`, `category_id`, `name_en`, `name_zh`, `slug`, `desc
 (2, 2, 'no ferro', '无铁', 'no-ferro', NULL, NULL, 'uploads/products/1757413798.jpg', '2025-09-09 04:29:58', '2025-09-14 00:37:29'),
 (3, 3, 'catal', '催化剂', 'catal', NULL, NULL, 'uploads/products/1757413881.jpg', '2025-09-09 04:31:21', '2025-09-14 00:38:01'),
 (4, 1, 'ferroo 1', '费鲁一号', 'ferroo-1', NULL, NULL, 'uploads/products/1757777335.png', '2025-09-13 09:28:57', '2025-09-14 00:36:37'),
-(5, 1, 'ferro two', '铁二', 'ferro-two', NULL, NULL, 'uploads/products/1757832220.png', '2025-09-14 00:43:40', '2025-09-14 00:43:40');
+(5, 1, 'ferro two', '铁二', 'ferro-two', NULL, NULL, 'uploads/products/1757832220.png', '2025-09-14 00:43:40', '2025-09-14 00:43:40'),
+(6, 1, 'ferroo une', '催化转化器', 'ferroo-une', NULL, NULL, 'uploads/products/1757860460.png', '2025-09-14 08:34:20', '2025-09-14 08:34:20'),
+(7, 1, 'ferro pos', '有色金属', 'ferro-pos', NULL, NULL, 'uploads/products/1757860485.jpg', '2025-09-14 08:34:45', '2025-09-14 08:34:45'),
+(8, 1, 'ferro so', '有色金属', 'ferro-so', NULL, NULL, 'uploads/products/1757860508.jpg', '2025-09-14 08:35:08', '2025-09-14 08:35:08'),
+(9, 1, 'freeo eto', '无铁', 'freeo-eto', NULL, NULL, 'uploads/products/1757860550.jpg', '2025-09-14 08:35:50', '2025-09-14 08:35:50'),
+(10, 1, 'ferro seto', '费鲁一号', 'ferro-seto', NULL, NULL, 'uploads/products/1757860578.jpg', '2025-09-14 08:36:18', '2025-09-14 08:36:18'),
+(11, 2, 'no ferro to', '黑色金属', 'no-ferro-to', NULL, NULL, 'uploads/products/1757860608.png', '2025-09-14 08:36:48', '2025-09-14 08:36:48'),
+(12, 2, 'ferro tein', '催化转化器', 'ferro-tein', NULL, NULL, 'uploads/products/1757860630.jpg', '2025-09-14 08:37:10', '2025-09-14 08:37:10'),
+(13, 2, 'no ferro cher', '催化转化器', 'no-ferro-cher', NULL, NULL, 'uploads/products/1757860648.jpg', '2025-09-14 08:37:28', '2025-09-14 08:37:28'),
+(14, 2, 'no ferro pei', '无铁', 'no-ferro-pei', NULL, NULL, 'uploads/products/1757860670.jpg', '2025-09-14 08:37:50', '2025-09-14 08:37:50'),
+(15, 2, 'no ferro sie', '无铁', 'no-ferro-sie', NULL, NULL, 'uploads/products/1757860692.jpg', '2025-09-14 08:38:12', '2025-09-14 08:38:12'),
+(16, 2, 'ono ferroo sev', '费鲁一号', 'ono-ferroo-sev', NULL, NULL, 'uploads/products/1757860712.jpg', '2025-09-14 08:38:32', '2025-09-14 08:38:32'),
+(18, 2, 'ono ferroo  eito', '无铁', 'ono-ferroo-eito', NULL, NULL, 'uploads/products/1757860901.jpg', '2025-09-14 08:41:41', '2025-09-14 08:41:41'),
+(19, 2, 'no ferro neino', '费鲁一号', 'no-ferro-neino', NULL, NULL, 'uploads/products/1757860928.jpg', '2025-09-14 08:42:08', '2025-09-14 08:42:08');
 
 -- --------------------------------------------------------
 
@@ -298,7 +312,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -328,7 +342,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users`

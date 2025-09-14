@@ -25,6 +25,10 @@
 
 </head>
 
+
+
+
+
 <body>
     <header>
         {{-- Language Switch - top nav --}}
@@ -75,8 +79,13 @@
                                         d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             </button>
+                            {{-- <ul id="mobile-menu"
+                                class="fixed left-4 right-4 top-30 mt-2 p-5 bg-white rounded-2xl shadow-2xl z-[9999] animate__animated animate__slideInDown animate__faster transition-all duration-300 ease-in-out max-h-[calc(100vh-6rem)] overflow-y-auto invisible opacity-0 scale-95"> --}}
+
                             <ul id="mobile-menu"
-                                class="fixed left-4 right-4 top-20 mt-2 p-5 bg-white rounded-2xl shadow-2xl z-[9999] animate__animated animate__slideInDown animate__faster transition-all duration-300 ease-in-out max-h-[calc(100vh-6rem)] overflow-y-auto invisible opacity-0 scale-95">
+                                class="fixed left-4 right-4 top-20 mt-2 p-5 bg-white rounded-2xl shadow-2xl z-[9999] 
+           animate__animated animate__faster transition-all duration-300 ease-in-out 
+           max-h-[calc(100vh-6rem)] overflow-y-auto invisible opacity-0 scale-95">
 
                                 <!-- Home Link -->
                                 <li class="py-4 px-2 border-b border-gray-100">
@@ -208,6 +217,18 @@
         </nav>
     </header>
 
+
+    <!-- Loader -->
+    <div id="pageLoader"
+        class="fixed inset-0 bg-white z-[9999] flex items-center justify-center opacity-95 transition-opacity ease-in-out">
+
+        <div class="flex flex-col items-center space-y-2">
+            <!-- Logo -->
+            <img src="{{ asset('/frontend/images/logo-2.webp') }}" alt="Loading Logo"
+                class="h-24 md:h-42 w-auto animate-pulse  rounded-lg" />
+
+        </div>
+    </div>
 
 
 
@@ -369,15 +390,19 @@
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M43.9566 36.8847C43.5093 36.5249 42.9856 36.2716 42.4254 36.1442C41.8651 36.0168 41.2831 36.0186 40.7236 36.1495C39.8831 36.4977 39.3399 37.8134 38.7968 38.4713C38.6823 38.629 38.514 38.7396 38.3235 38.7823C38.133 38.8251 37.9335 38.797 37.7623 38.7034C34.6849 37.5012 32.1055 35.2965 30.4429 32.4475C30.3011 32.2697 30.2339 32.044 30.2557 31.8178C30.2774 31.5916 30.3862 31.3827 30.5593 31.235C31.165 30.6368 31.6098 29.8959 31.8524 29.0809C31.9063 28.1818 31.6998 27.2863 31.2576 26.5011C30.9157 25.4002 30.265 24.42 29.3825 23.6762C28.9273 23.472 28.4225 23.4036 27.9292 23.4791C27.4359 23.5546 26.975 23.7709 26.6021 24.1019C25.9548 24.6589 25.4411 25.3537 25.0987 26.135C24.7562 26.9163 24.5939 27.7643 24.6236 28.6165C24.6256 29.0951 24.6864 29.5716 24.8046 30.0354C25.1049 31.1497 25.5667 32.2144 26.1754 33.1956C26.6145 33.9473 27.0937 34.6749 27.6108 35.3755C29.2914 37.6767 31.4038 39.6305 33.831 41.1284C35.049 41.8897 36.3507 42.5086 37.7105 42.973C39.1231 43.6117 40.6827 43.8568 42.2237 43.6824C43.1018 43.5499 43.9337 43.2041 44.6462 42.6755C45.3588 42.1469 45.9302 41.4518 46.3102 40.6512C46.5334 40.1675 46.6012 39.6269 46.5042 39.1033C46.2714 38.0327 44.836 37.4007 43.9566 36.8847Z"
                                 fill="#111827" />
-                        </svg> </a> {{-- Linkedin --}} <a href="#"
-                        class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-400">
+                        </svg>
+
+                    </a> {{-- Linkedin --}} <a href="#"
+                        class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 72 72"
                             fill="none">
                             <path
                                 d="M24.7612 55.999V28.3354H15.5433V55.999H24.7621H24.7612ZM20.1542 24.5591C23.3679 24.5591 25.3687 22.4348 25.3687 19.7801C25.3086 17.065 23.3679 15 20.2153 15C17.0605 15 15 17.065 15 19.7799C15 22.4346 17.0001 24.5588 20.0938 24.5588H20.1534L20.1542 24.5591ZM29.8633 55.999H39.0805V40.5521C39.0805 39.7264 39.1406 38.8985 39.3841 38.3088C40.0502 36.6562 41.5668 34.9455 44.1138 34.9455C47.4484 34.9455 48.7831 37.4821 48.7831 41.2014V55.999H58V40.1376C58 31.6408 53.4532 27.6869 47.3887 27.6869C42.4167 27.6869 40.233 30.4589 39.0198 32.347H39.0812V28.3364H29.8638C29.9841 30.9316 29.8631 56 29.8631 56L29.8633 55.999Z"
                                 fill="#111827" />
-                        </svg> </a> {{-- We chat --}} <a href="#"
-                        class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-400">
+                        </svg> </a>
+
+                    {{-- We chat --}} <a href="#"
+                        class="p-1 bg-[#e3dddd] rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 72 72"
                             fill="none">
                             <path
@@ -463,6 +488,32 @@
 
 
     {{-- mobile script --}}
+    {{-- <script>
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+
+        toggle.addEventListener('click', function() {
+            const isVisible = menu.classList.contains('visible');
+
+            if (isVisible) {
+                menu.classList.remove('visible', 'animate__slideInDown');
+                menu.classList.add('invisible', 'opacity-0', 'scale-95');
+            } else {
+                menu.classList.remove('invisible', 'opacity-0', 'scale-95');
+                menu.classList.add('visible', 'animate__slideInDown');
+            }
+        });
+
+        // Optional: Close when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                menu.classList.remove('visible', 'animate__slideInDown');
+                menu.classList.add('invisible', 'opacity-0', 'scale-95');
+            }
+        });
+    </script> --}}
+
+
     <script>
         const toggle = document.getElementById('menu-toggle');
         const menu = document.getElementById('mobile-menu');
@@ -488,11 +539,12 @@
         });
     </script>
 
+
+
+
+
     {{-- swiper js --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script> --}}
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 
     {{-- Swiper init --}}
     <script>
@@ -514,6 +566,20 @@
             },
         });
     </script>
+
+
+    {{-- loader --}}
+    <script>
+        // Fade out loader after page load
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('pageLoader');
+            loader.classList.add('opacity-0');
+            setTimeout(() => loader.style.display = 'none', 500);
+        });
+    </script>
+
+
+
 
 </body>
 

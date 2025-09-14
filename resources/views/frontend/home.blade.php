@@ -30,7 +30,7 @@
 
                    <div class="flex flex-col items-start md:items-center md:flex-row md:justify-start gap-6">
                     <a href="/contact#msg-us">    
-                        <button class="bg-teal-400 text-secondary rounded-3xl px-8 py-2 btn-hover font-semibold">
+                        <button class="bg-third text-secondary rounded-3xl px-8 py-2 btn-hover font-semibold">
                             {{ app()->getLocale() == 'zh' ? '获取免费报价' : 'Get Free Quote' }}
                         </button>
                     </a>

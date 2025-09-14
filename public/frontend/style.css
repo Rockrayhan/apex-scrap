@@ -208,7 +208,8 @@ button {
 }
 
 .bg-third {
-    background-color: #41F4E4;
+    background-color: #41F4E4 !important;
+    /* background-color: #e3dddd !important; */
 }
 
 /* text color */

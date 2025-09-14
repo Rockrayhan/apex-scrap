@@ -26,8 +26,6 @@
      </section>
 
 
-
-
      {{-- first category --}}
      <section class="py-16 bg-gray-200">
 
@@ -69,15 +67,34 @@
                          <div class="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-4">
                              @foreach ($firstCategory->products->take(8) as $product)
                                  @if ($product->image)
-                                     <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
-                                         class="h-30 w-30 object-cover">
+                                     <label for="product-modal" class="cursor-pointer">
+                                         <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
+                                             class="h-30 w-30 object-cover rounded hover:scale-105 transition"
+                                             onclick="document.getElementById('modal-img').src='{{ asset($product->image) }}'">
+                                     </label>
                                  @else
-                                     <img src="{{ asset('/frontend/images/placeholder.jpg') }}" alt="No Image"
-                                         class="h-30 w-30 object-cover">
+                                     <label for="product-modal" class="cursor-pointer">
+                                         <img src="{{ asset('/frontend/images/placeholder.jpg') }}" alt="No Image"
+                                             class="h-30 w-30  rounded"
+                                             onclick="document.getElementById('modal-img').src='{{ asset('/frontend/images/placeholder.jpg') }}'">
+                                     </label>
                                  @endif
                              @endforeach
                          </div>
                      </div>
+
+                     <!-- DaisyUI Modal -->
+                     <input type="checkbox" id="product-modal" class="modal-toggle" />
+                     <div class="modal">
+                         <div class="modal-box relative max-w-4xl">
+                             <label for="product-modal"
+                                 class="btn btn-sm btn-circle bg-red-400 font-bold text-white absolute right-2 top-2">✕</label>
+                             <img id="modal-img" src="" alt="Product Image" class="max-h-[80vh] mx-auto rounded-lg">
+                         </div>
+                     </div>
+
+
+
                  </div>
 
                  {{-- Link to Category Details Page --}}
@@ -133,18 +150,27 @@
                          </ul>
                      </div>
 
-                     {{-- Product Images --}}
+                     {{-- Product Images - Second Category --}}
                      <div class="col-span-2">
                          <div class="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-4">
                              @foreach ($secondCategory->products->take(8) as $product)
-                                 @if ($product->image)
-                                     <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
-                                         class="h-30 w-30 object-cover">
-                                 @else
-                                     <img src="{{ asset('/frontend/images/placeholder.jpg') }}" alt="No Image"
-                                         class="h-30 w-30 object-cover">
-                                 @endif
+                                 <label for="product-modal" class="cursor-pointer">
+                                     <img src="{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}"
+                                         alt="{{ $product->name }}"
+                                         class="h-30 w-30 object-cover rounded hover:scale-105 transition"
+                                         onclick="document.getElementById('modal-img').src='{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}'">
+                                 </label>
                              @endforeach
+                         </div>
+                     </div>
+
+
+                     <!-- Shared DaisyUI Modal -->
+                     <input type="checkbox" id="product-modal" class="modal-toggle" />
+                     <div class="modal">
+                         <div class="modal-box relative max-w-4xl">
+                             <label for="product-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                             <img id="modal-img" src="" alt="Product Image" class="max-h-[80vh] mx-auto rounded-lg">
                          </div>
                      </div>
                  </div>
@@ -210,8 +236,8 @@
                  {{-- Category Image --}}
                  <div class="col-span-1">
                      @if ($thirdCategory->products->first() && $thirdCategory->products->first()->image)
-                         <img src="{{ asset($thirdCategory->products->first()->image) }}" alt="{{ $thirdCategory->name }}"
-                             class="h-50 md:h-70 lg:h-100 w-auto">
+                         <img src="{{ asset($thirdCategory->products->first()->image) }}"
+                             alt="{{ $thirdCategory->name }}" class="h-50 md:h-70 lg:h-100 w-auto">
                      @else
                          <img src="{{ asset('/frontend/images/placeholder.jpg') }}" alt="No Image" class="h-30 w-full">
                      @endif

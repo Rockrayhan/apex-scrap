@@ -85,21 +85,22 @@
     </section>
 
     {{-- show message --}}
-    <div>
+    <div class="container pt-4">
         @if (session('success'))
-            <div class="bg-green-100 text-green-800 px-4 py-3 rounded mb-4">
+            <div role="alert" class="alert alert-success alert-outline alert-soft">
                 {{ session('success') }}
             </div>
         @endif
 
+
         @if (session('error'))
-            <div class="bg-red-100 text-red-800 px-4 py-3 rounded mb-4">
+            <div role="alert" class="alert alert-error alert-outline alert-soft">
                 {{ session('error') }}
             </div>
         @endif
 
         @if ($errors->any())
-            <div class="bg-red-100 text-red-800 px-4 py-3 rounded mb-4">
+            <div role="alert" class="alert alert-error alert-outline alert-soft">
                 <ul class="list-disc pl-5">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -152,7 +153,7 @@
         <div class="col-span-2">
             <!-- Contact Form -->
             <div class="bg-white rounded-xl  shadow-2xl p-8">
-                <h4 class="h3 font-bold text-primary text-center mb-6">
+                <h4 class="h3 font-bold text-primary text-center mb-6" id="msg-us">
                     {{ app()->getLocale() == 'zh' ? '发送消息给我们' : 'Send us a message' }}
                 </h4>
 
@@ -182,13 +183,18 @@
                             </label>
                             <select id="scrap_category" name="scrap_category"
                                 class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                <option value="">{{ app()->getLocale() == 'zh' ? '选择类别' : 'Select Category' }}
+                                <option disabled selected value="">
+                                    {{ app()->getLocale() == 'zh' ? '选择类别' : 'Select Category' }}
                                 </option>
-                                <option value="metal">{{ app()->getLocale() == 'zh' ? '金属' : 'Metal' }}</option>
-                                <option value="electronics">{{ app()->getLocale() == 'zh' ? '电子' : 'Electronics' }}
+                                <option value="Ferrous-Metal">{{ app()->getLocale() == 'zh' ? '黑色金属' : 'Ferrous-Metal' }}
                                 </option>
-                                <option value="plastic">{{ app()->getLocale() == 'zh' ? '塑料' : 'Plastic' }}</option>
-                                <option value="paper">{{ app()->getLocale() == 'zh' ? '纸张' : 'Paper' }}</option>
+                                <option value="Non-Ferrous-Metal">
+                                    {{ app()->getLocale() == 'zh' ? '有色金属' : 'Non-Ferrous-Metal' }}
+                                </option>
+                                <option value="Catalytic-Converters">
+                                    {{ app()->getLocale() == 'zh' ? '催化转化器' : 'Catalytic-Converters' }}
+                                </option>
+
                             </select>
                         </div>
 
@@ -213,15 +219,9 @@
                             <label for="material_type" class="block text-gray-700 font-medium mb-2">
                                 {{ app()->getLocale() == 'zh' ? '材料类型' : 'Material Type' }}
                             </label>
-                            <select id="material_type" name="material_type"
-                                class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                <option value="">{{ app()->getLocale() == 'zh' ? '选择材料' : 'Select Material' }}
-                                </option>
-                                <option value="copper">{{ app()->getLocale() == 'zh' ? '铜' : 'Copper' }}</option>
-                                <option value="aluminum">{{ app()->getLocale() == 'zh' ? '铝' : 'Aluminum' }}</option>
-                                <option value="steel">{{ app()->getLocale() == 'zh' ? '钢' : 'Steel' }}</option>
-                                <option value="other">{{ app()->getLocale() == 'zh' ? '其他' : 'Other' }}</option>
-                            </select>
+                            <input type="text" id="material_type" name="material_type"
+                                class="w-full pl-5 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="{{ app()->getLocale() == 'zh' ? '输入材料类型' : 'Enter Material Type' }}" required>
                         </div>
 
                         <!-- Email Address -->
@@ -247,7 +247,8 @@
                             </label>
                             <select id="estimated_weight" name="estimated_weight"
                                 class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                <option value="">{{ app()->getLocale() == 'zh' ? '选择重量' : 'Select Weight' }}</option>
+                                <option disabled selected value="">
+                                    {{ app()->getLocale() == 'zh' ? '选择重量' : 'Select Weight' }}</option>
                                 <option value="<50kg">{{ app()->getLocale() == 'zh' ? '少于50公斤' : 'Less than 50kg' }}
                                 </option>
                                 <option value="50-100kg">{{ app()->getLocale() == 'zh' ? '50-100公斤' : '50-100kg' }}

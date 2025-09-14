@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="{{ asset('/frontend/style.css') }}">
 
     {{-- slice js --}}
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" /> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     {{-- font family --}}
@@ -122,11 +121,15 @@
                                 </li>
 
                                 <li>
-                                    <button
-                                        class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
-                                        onclick="getQuoteModal.showModal()">
-                                        {{ app()->getLocale() == 'zh' ? '获取报价' : 'Get Quote' }}
-                                    </button>
+                                    <a href="/contact/#msg-us">
+                                        <button
+                                            class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
+                                            {{-- onclick="getQuoteModal.showModal()" --}}>
+                                            {{ app()->getLocale() == 'zh' ? '获取报价' : 'Get Quote' }}
+                                        </button>
+
+                                    </a>
+
                                 </li>
 
                             </ul>
@@ -189,11 +192,13 @@
                         </ul>
 
                         <ul>
-                            <button
-                                class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
-                                onclick="getQuoteModal.showModal()">
-                                {{ app()->getLocale() == 'zh' ? '获取报价' : 'Get Quote' }}
-                            </button>
+                            <a href="/contact/#msg-us">
+                                <button
+                                    class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
+                                    {{-- onclick="getQuoteModal.showModal()" --}}>
+                                    {{ app()->getLocale() == 'zh' ? '获取报价' : 'Get Quote' }}
+                                </button>
+                            </a>
                         </ul>
 
                     </div>
@@ -206,7 +211,7 @@
 
 
 
-    {{-- Get Quote Modal --}}
+    {{-- Get Quote Modal
     <dialog id="getQuoteModal" class="w-full md:w-1/2 mx-2 sm:mx-auto mb-5 rounded-xl shadow-2xl ">
         <div class="bg-white rounded-xl max-h-[90vh] p-6 mb-6 sm:p-8">
 
@@ -243,11 +248,15 @@
                             Category</label>
                         <select id="scrap_category" name="scrap_category"
                             class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="">Select Category</option>
-                            <option value="metal">Metal</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="plastic">Plastic</option>
-                            <option value="paper">Paper</option>
+                            <option disabled selected value="">Select Category</option>
+                            <option value="Ferrous-Metal">{{ app()->getLocale() == 'zh' ? '黑色金属' : 'Ferrous-Metal' }}
+                            </option>
+                            <option value="Non-Ferrous-Metal">
+                                {{ app()->getLocale() == 'zh' ? '有色金属' : 'Non-Ferrous-Metal' }}
+                            </option>
+                            <option value="Catalytic-Converters">
+                                {{ app()->getLocale() == 'zh' ? '催化转化器' : 'Catalytic-Converters' }}
+                            </option>
                         </select>
                     </div>
 
@@ -265,14 +274,11 @@
                     <!-- Material Type -->
                     <div>
                         <label for="material_type" class="block text-gray-700 font-medium mb-2">Material Type</label>
-                        <select id="material_type" name="material_type"
-                            class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="">Select Material</option>
-                            <option value="copper">Copper</option>
-                            <option value="aluminum">Aluminum</option>
-                            <option value="steel">Steel</option>
-                            <option value="other">Other</option>
-                        </select>
+
+                        <input type="text" id="material_type" name="material_type"
+                            class="w-full pl-5 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            placeholder="Enter Material Type" required>
+
                     </div>
 
                     <!-- Email Address -->
@@ -293,7 +299,7 @@
                             Weight</label>
                         <select id="estimated_weight" name="estimated_weight"
                             class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option value="">Select Weight</option>
+                            <option disabled selected value="">Select Weight</option>
                             <option value="<50kg">Less than 50kg</option>
                             <option value="50-100kg">50-100kg</option>
                             <option value="100-500kg">100-500kg</option>
@@ -319,7 +325,7 @@
                 </button>
             </form>
         </div>
-    </dialog>
+    </dialog> --}}
 
 
 
@@ -504,7 +510,6 @@
             },
         });
     </script>
-
 
 </body>
 

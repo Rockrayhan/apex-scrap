@@ -23,7 +23,7 @@
            </section>
 
 
-           
+
            {{-- About --}}
            <section class="bg-gray-200 py-16">
                <div class="container grid md:grid-cols-3 grid-cols-1 gap-6">
@@ -153,10 +153,12 @@
                </div>
 
                <div class="center pt-10">
-                   <button
-                       class="bg-third text-secondary rounded-3xl px-8 py-2 border-8 border-primary shadow-2xl btn-hover">
-                       {{ app()->getLocale() == 'zh' ? '立即开始' : 'Get Started Today' }}
-                   </button>
+                   <a href="/contact#msg-us">
+                       <button
+                           class="bg-third text-secondary rounded-3xl px-8 py-2 border-8 border-primary shadow-2xl btn-hover font-semibold">
+                           {{ app()->getLocale() == 'zh' ? '立即开始' : 'Get Started Today' }}
+                       </button>
+                   </a>
                </div>
            </section>
 

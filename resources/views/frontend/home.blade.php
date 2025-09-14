@@ -29,12 +29,16 @@
                    </span>
 
                    <div class="flex flex-col items-start md:items-center md:flex-row md:justify-start gap-6">
-                       <button class="bg-teal-400 text-secondary rounded-3xl px-8 py-2 btn-hover">
-                           {{ app()->getLocale() == 'zh' ? '获取免费报价' : 'Get Free Quote' }}
-                       </button>
-                       <button class="border-3 border-teal-400 text-teal-400 rounded-3xl px-8 py-2 btn-hover">
-                           {{ app()->getLocale() == 'zh' ? '我们的服务' : 'Our Services' }}
-                       </button>
+                    <a href="/contact#msg-us">    
+                        <button class="bg-teal-400 text-secondary rounded-3xl px-8 py-2 btn-hover font-semibold">
+                            {{ app()->getLocale() == 'zh' ? '获取免费报价' : 'Get Free Quote' }}
+                        </button>
+                    </a>
+                        <a href="{{route('services')}}">    
+                            <button class="border-4 border-teal-400 text-teal-400 rounded-3xl px-8 py-2 btn-hover font-semibold">
+                                {{ app()->getLocale() == 'zh' ? '我们的服务' : 'Our Services' }}
+                            </button>
+                        </a>                    
                    </div>
                </div>
            </section>
@@ -110,9 +114,11 @@
                                <li>{{ app()->getLocale() == 'zh' ? '全球出口专业知识' : 'Global Export Expertise' }}</li>
                            </ul>
 
-                           <button class="btn-primary btn-hover">
-                               {{ app()->getLocale() == 'zh' ? '了解更多' : 'Read More' }}
-                           </button>
+                           <a href="{{route('about')}}">
+                               <button class="bg-primary text-white px-5 py-2  btn-hover">
+                                   {{ app()->getLocale() == 'zh' ? '了解更多' : 'Read More' }}
+                                </button>
+                            </a>
                        </div>
                    </div>
                </div>
@@ -129,7 +135,7 @@
                <dialog id="video_modal" class="modal">
                    <div class="modal-box max-w-3xl">
                        <div class="aspect-video">
-                           <iframe class="w-full h-96 rounded-lg" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                           <iframe class="w-full h-96 rounded-lg" src="https://youtu.be/4_QI4iQSI0I?si=XAP7rlr-M17L3qyc"
                                title="Video" frameborder="0"
                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                allowfullscreen></iframe>

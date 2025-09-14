@@ -183,9 +183,13 @@
                    <p class="text-lg font-semibold">
                        {{ app()->getLocale() == 'zh' ? '您提出需求，我们全球交付。' : 'You request, we deliver—worldwide.' }}</p>
 
-                   <button class="bg-teal-400 border-2 border-primary rounded-2xl px-8 py-2 btn-hover">
-                       {{ app()->getLocale() == 'zh' ? '联系我们' : 'Contact Us' }}
-                   </button>
+
+                   <a href="/contact#msg-us">
+                       <button
+                           class="bg-third text-secondary rounded-3xl px-8 py-2 border-8 border-primary shadow-2xl btn-hover font-semibold">
+                           {{ app()->getLocale() == 'zh' ? '联系我们' : 'Contact Us' }}
+                       </button>
+                   </a>
                </div>
            </section>
 

@@ -54,7 +54,7 @@
              @endif
          </div>
 
-         <div class="">
+         <div class="container">
              <form action="{{ route('sendAskQuestion') }}" method="POST" class="max-w-2xl mx-auto space-y-6">
                  @csrf
                  <div>

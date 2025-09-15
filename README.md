@@ -1,16 +1,34 @@
-<!-- 1. phase one - ( all pages frontend )  complete  -->
-<!-- 2. phase two - ( all pages text multi-lang )   -->
-<!-- 2. phase three - ( product multi-lang.  product - title_en, title_zh
-                                        category - title_en, title_zh)   -->
 
-<!-- 3. show in frontend (materials page) -->
 
-<!-- 4. quote form update ( backend wise / dynamic ) -->
-<!-- - ask a question -->
 
-- products add at least(8)
-- on click show product image as large  like modal
-1. mobile responsive 
-    - footer icon (in vs weChat)
-    - banner btn - get free quote
-    - navbar slider + position
+    <!-- # service page add image in last section -->
+    <!-- # acces tiny mce -->
+    <!-- # We are -text duplicate , video img hover dark shape  -->
+    <!-- # review section ( autoplay, bg chnage ) -->
+    <!-- # home - waht we sell & buy  , also in material page title -->
+    <!-- # blog page bredcrubm, blog details page lauout -->
+    <!-- # insigh page - about section aupdate -->
+    <!-- # footer - mobile update (remove some) , apex world trade solution, service update -->
+    <!-- # contact page :
+                    material input - tag type, 
+                    form (dropdown ), 
+                    additional details- placeholder, 
+                    office section -->
+
+    <!-- # update modal -->
+    <!-- # add two materials -->
+
+
+
+    <!-- # backend ( color theme + polish ) ,  -->
+              <!-- when create / uupdate show msg optimizely,  -->
+              <!-- search / filter option  -->
+
+
+
+
+
+(optional update)
+    # add category description_en , description_zh table in the database
+    # then show that wise in frontend
+

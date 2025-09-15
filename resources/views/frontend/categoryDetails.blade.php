@@ -18,11 +18,6 @@
             </div>
 
 
-            {{-- Products --}}
-            <h3 class="text-2xl font-semibold text-primary mb-6 text-center">
-                {{ app()->getLocale() == 'zh' ? '此类别下的产品' : 'Products under this category' }}
-            </h3>
-
             @if ($category->products->count() > 0)
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 

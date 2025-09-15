@@ -380,7 +380,9 @@
                             <path
                                 d="M46.4233 38.6403L47.7279 30.3588H39.6917V24.9759C39.6917 22.7114 40.8137 20.4987 44.4013 20.4987H48.1063V13.4465C45.9486 13.1028 43.7685 12.9168 41.5834 12.8901C34.9692 12.8901 30.651 16.8626 30.651 24.0442V30.3588H23.3193V38.6403H30.651V58.671H39.6917V38.6403H46.4233Z"
                                 fill="#111827" />
-                        </svg> </a> {{-- whatsapp --}} <a href="#"
+                        </svg> </a> 
+
+                        {{-- whatsapp --}} <a href="https://wa.me/13134552725" target="_blank"
                         class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 71 72"
                             fill="none">
@@ -392,7 +394,8 @@
                                 fill="#111827" />
                         </svg>
 
-                    </a> {{-- Linkedin --}} <a href="#"
+                    </a>
+                     {{-- Linkedin --}} <a href="#"
                         class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 72 72"
                             fill="none">
@@ -415,7 +418,7 @@
             </aside>
 
             {{-- Quick Links --}}
-            <nav class="flex flex-col items-start">
+            <nav class="flex flex-col items-start hidden md:block">
                 <h6 class="h6 underline decoration-dotted font-bold footer-title mb-3">
                     {{ app()->getLocale() == 'zh' ? '快速链接' : 'Quick Links' }}
                 </h6>
@@ -433,36 +436,36 @@
             </nav>
 
             {{-- Services --}}
-            <nav class="flex flex-col items-start">
+            <nav class="flex flex-col items-start hidden md:block">
                 <h6 class="h6 underline decoration-dotted font-bold footer-title mb-3">
-                    {{ app()->getLocale() == 'zh' ? '服务项目' : 'Services' }}
+                    {{ app()->getLocale() == 'zh' ? '服务项目' : 'Materials' }}
                 </h6>
                 <ul class="list-disc list-inside space-y-1 text-sm">
-                    <li><a href="#"
-                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '住宅回收' : 'Residential Pickup' }}</a>
+                    <li><a href="/materials"
+                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '黑色金属' : 'Ferrous-Metal' }}</a>
                     </li>
-                    <li><a href="#"
-                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '商业收集' : 'Commercial Collection' }}</a>
+                    <li><a href="/materials"
+                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '有色金属' : 'Non-Ferrous-Metal' }}</a>
                     </li>
-                    <li><a href="#"
-                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '金属分类' : 'Metal Sorting' }}</a>
+                    <li><a href="/materials"
+                            class="link link-hover">{{ app()->getLocale() == 'zh' ? 'Catalytic-Converters' : 'Catalytic-Converters' }}</a>
                     </li>
-                    <li><a href="#"
-                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '集装箱租赁' : 'Container Rental' }}</a>
+                    <li><a href="/materials"
+                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '塑料' : 'Plastics' }}</a>
                     </li>
-                    <li><a href="#"
-                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '批量处理' : 'Bulk Processing' }}</a>
+                    <li><a href="/materials"
+                            class="link link-hover">{{ app()->getLocale() == 'zh' ? '纸' : 'Paper' }}</a>
                     </li>
                 </ul>
             </nav>
 
             {{-- Contact --}}
-            <nav class="flex flex-col items-start">
+            <nav class="flex flex-col items-start ">
                 <h6 class="h6 underline decoration-dotted font-bold footer-title mb-3">
                     {{ app()->getLocale() == 'zh' ? '联系方式' : 'Contact Info' }}
                 </h6>
                 <ul class="space-y-1 text-sm">
-                    <li><a class="link link-hover">(555) 123-SCRAP</a></li>
+                    <li><a href="tel:+13134552725" class="link link-hover">+13134552725</a></li>
                     <li><a class="link link-hover">quotes@ecoscrap.com</a></li>
                     <li><a
                             class="link link-hover">{{ app()->getLocale() == 'zh' ? '工业大道 1234号' : '1234 Industrial Blvd' }}</a>
@@ -481,38 +484,13 @@
     <footer class="bg-secondary text-white p-8">
         <p class="container text-center">
             {{ app()->getLocale() == 'zh' ? '版权@ 2025 ' : 'Copyright@ 2025 ' }}
-            <a href="#" class="underline">Apex Trade Solution LLC.</a>
+            <a href="#" class="underline">Apex World Trade Solution LLC.</a>
             {{ app()->getLocale() == 'zh' ? ' 本站由 Studx 制作' : ' This Site is by Studx' }}
         </p>
     </footer>
 
 
     {{-- mobile script --}}
-    {{-- <script>
-        const toggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('mobile-menu');
-
-        toggle.addEventListener('click', function() {
-            const isVisible = menu.classList.contains('visible');
-
-            if (isVisible) {
-                menu.classList.remove('visible', 'animate__slideInDown');
-                menu.classList.add('invisible', 'opacity-0', 'scale-95');
-            } else {
-                menu.classList.remove('invisible', 'opacity-0', 'scale-95');
-                menu.classList.add('visible', 'animate__slideInDown');
-            }
-        });
-
-        // Optional: Close when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-                menu.classList.remove('visible', 'animate__slideInDown');
-                menu.classList.add('invisible', 'opacity-0', 'scale-95');
-            }
-        });
-    </script> --}}
-
 
     <script>
         const toggle = document.getElementById('menu-toggle');
@@ -555,6 +533,10 @@
             navigation: {
                 nextEl: '.swiper-button-next-custom',
                 prevEl: '.swiper-button-prev-custom',
+            },
+            autoplay: {
+                delay: 3000, // 3 seconds
+                disableOnInteraction: false, // keeps autoplay after manual navigation
             },
             breakpoints: {
                 768: {

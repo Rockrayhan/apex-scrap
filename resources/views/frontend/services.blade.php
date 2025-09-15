@@ -159,29 +159,48 @@
            </section>
 
            {{-- Service Getting Process --}}
-           <section class="py-16 container center flex-col gap-6">
-               <h3 class="h3 text-primary text-center font-bold">
-                   {{ app()->getLocale() == 'zh' ? '服务获取流程' : 'Service Getting Process' }}
-               </h3>
+           <section class="py-16 container ">
 
-               <ol class="list-decimal space-y-4">
-                   <h5 class="h6 font-semibold mb-3 underline">
-                       {{ app()->getLocale() == 'zh' ? '与 Apex Scrap 合作很简单：' : 'Working with Apex Scrap is simple:' }}
-                   </h5>
-                   <li><b>{{ app()->getLocale() == 'zh' ? '咨询' : 'Inquiry' }}</b> –
-                       {{ app()->getLocale() == 'zh' ? '告诉我们您需要的材料' : 'Tell us what materials you need' }}</li>
-                   <li><b>{{ app()->getLocale() == 'zh' ? '报价' : 'Quotation' }}</b> –
-                       {{ app()->getLocale() == 'zh' ? '获得透明且有竞争力的报价' : 'Receive a transparent, competitive offer' }}</li>
-                   <li><b>{{ app()->getLocale() == 'zh' ? '物流' : 'Logistics' }}</b> –
-                       {{ app()->getLocale() == 'zh' ? '我们处理出口、文件与运输' : 'We handle export, documentation & shipping' }}
-                   </li>
-                   <li><b>{{ app()->getLocale() == 'zh' ? '交付' : 'Delivery' }}</b> –
-                       {{ app()->getLocale() == 'zh' ? '按时交付并保证质量' : 'On-time delivery with quality assurance' }}</li>
-               </ol>
 
-               <div class="center flex-col pt-10 gap-4">
+               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+
+                   <div class="order-2 md:order-1">
+                       <img src="{{ asset('/frontend/images/services-3.jpg') }}" alt="">
+                   </div>
+
+
+                   <div class="center flex-col gap-6 order-1 md:order-2">
+
+                       <h3 class="h3 text-primary text-center font-bold">
+                           {{ app()->getLocale() == 'zh' ? '服务获取流程' : 'Service Getting Process' }}
+                       </h3>
+
+                       <ol class="list-decimal space-y-4">
+                           <h5 class="h6 font-semibold mb-3">
+                               {{ app()->getLocale() == 'zh' ? '与 Apex Scrap 合作很简单：' : 'Working with Apex Scrap is simple:' }}
+                           </h5>
+                           <li><b>{{ app()->getLocale() == 'zh' ? '咨询' : 'Inquiry' }}</b> –
+                               {{ app()->getLocale() == 'zh' ? '告诉我们您需要的材料' : 'Tell us what materials you need' }}</li>
+                           <li><b>{{ app()->getLocale() == 'zh' ? '报价' : 'Quotation' }}</b> –
+                               {{ app()->getLocale() == 'zh' ? '获得透明且有竞争力的报价' : 'Receive a transparent, competitive offer' }}
+                           </li>
+                           <li><b>{{ app()->getLocale() == 'zh' ? '物流' : 'Logistics' }}</b> –
+                               {{ app()->getLocale() == 'zh' ? '我们处理出口、文件与运输' : 'We handle export, documentation & shipping' }}
+                           </li>
+                           <li><b>{{ app()->getLocale() == 'zh' ? '交付' : 'Delivery' }}</b> –
+                               {{ app()->getLocale() == 'zh' ? '按时交付并保证质量' : 'On-time delivery with quality assurance' }}
+                           </li>
+                       </ol>
+
+                   </div>
+
+               </div>
+
+               <div class="center flex-col pt-12 gap-4">
                    <p class="text-lg font-semibold">
-                       {{ app()->getLocale() == 'zh' ? '您提出需求，我们全球交付。' : 'You request, we deliver—worldwide.' }}</p>
+                       {{ app()->getLocale() == 'zh' ? '您提出需求，我们全球交付。' : 'You request, we deliver—worldwide.' }}
+                   </p>
 
 
                    <a href="/contact#msg-us">
@@ -191,6 +210,7 @@
                        </button>
                    </a>
                </div>
+
            </section>
 
 

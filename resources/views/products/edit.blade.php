@@ -10,34 +10,51 @@
             </div>
 
 
-            {{-- Show Messages --}}
-            <div>
-                @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
-                        {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        {{-- Toast Messages --}}
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055">
+            @if (session('success'))
+                <div class="toast align-items-center bg-light text-success font-weight-bold border-0 show py-2" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            {{ session('success') }}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
                     </div>
-                @endif
+                </div>
+            @endif
 
-                @if (session('error'))
-                    <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
-                        {{ session('error') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            @if (session('error'))
+                <div class="toast align-items-center bg-light text-danger font-weight-bold border-0 show py-2" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            {{ session('error') }}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
                     </div>
-                @endif
+                </div>
+            @endif
 
-                @if ($errors->any())
-                    <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
-                        <ul class="mb-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            @if ($errors->any())
+                <div class="toast align-items-center bg-light text-danger font-weight-bold border-0 show py-2" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
                     </div>
-                @endif
-            </div>
-
+                </div>
+            @endif
+        </div>
 
 
 

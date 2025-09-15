@@ -80,7 +80,7 @@ Route::get('/blogs/delete/{id}', [BlogController::class, 'destroy'])->name('blog
 // admin 
 Route::get('/apex-admin', [AdminAuthController::class, 'dashboard'])->name('dashboard')->middleware('admin');
 
-Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+Route::get('/apex-admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login.submit');
 Route::get('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
 

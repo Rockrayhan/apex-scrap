@@ -46,7 +46,7 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">Category Name(Chinese) </label>
                         <input type="text" name="name_zh" class="form-control"
-                            placeholder="Enter category name in English" required>
+                            placeholder="Enter category name in Chinese" required>
                     </div>
                     <button type="submit" class="btn btn-success">Save Category</button>
                 </form>

@@ -78,14 +78,14 @@
             </h1>
             <p class="w-full md:w-2/3 text-white text-center">
                 {{ app()->getLocale() == 'zh'
-                    ? 'Apex Scrap 不仅供应废料，还为全球行业提供量身定制的解决方案。无论您是国际买家、商业合作伙伴，还是大型企业，我们的服务旨在确保可靠性、透明度和长期价值。'
-                    : 'Apex Scrap, we go beyond supplying scrap—we deliver tailored solutions for global industries. Whether you’re an international buyer, a business partner, or a large-scale industry, our services are designed to ensure reliability, transparency, and long-term value.' }}
+                    ? '无论您身处亚洲、欧洲、中东、非洲还是美洲，Apex Scrap 都是您值得信赖的全球废料供应商——在每一步都提供优质、可持续和价值。'
+                    : 'Whether you are in Asia, Europe, the Middle East, Africa, or the Americas, Apex Scrap is your trusted global scrap supplier—delivering quality, sustainability, and value at every step.' }}
             </p>
         </div>
     </section>
 
     {{-- show message --}}
-    <div class="container pt-4">
+    <div class="container pt-4 text-center">
         @if (session('success'))
             <div role="alert" class="alert alert-success alert-outline alert-soft">
                 {{ session('success') }}
@@ -110,11 +110,11 @@
         @endif
     </div>
 
-    <section class="py-16 container grid grid-cols-1 md:grid-cols-3 gap-y-4">
+    <section class="py-16 container grid grid-cols-1 md:grid-cols-2 gap-y-4">
 
-        <div class="con-span-1">
+        <div class="con-span-1 grid grid-cols-1 md:grid-cols-2">
             <div>
-                <h3 class="h3 font-bold text-primary my-3">{{ app()->getLocale() == 'zh' ? '美国办公室' : 'USA Office' }}</h3>
+                <h4 class="h4 font-bold text-primary my-3">{{ app()->getLocale() == 'zh' ? '美国办公室' : 'USA Office' }}</h4>
                 <div class="flex flex-col gap-4">
                     <div>
                         <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '邮箱' : 'Email' }}</h6>
@@ -122,7 +122,7 @@
                     </div>
                     <div>
                         <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '电话' : 'Phone Number' }}</h6>
-                        <p> +31000000099 </p>
+                        <p> +13134552725 </p>
                     </div>
                     <div>
                         <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '地址' : 'Address' }}</h6>
@@ -131,8 +131,8 @@
                 </div>
             </div>
 
-            <div class="mt-8">
-                <h3 class="h3 font-bold text-primary my-3">{{ app()->getLocale() == 'zh' ? '中国办公室' : 'China Office' }}</h3>
+            <div>
+                <h4 class="h4 font-bold text-primary my-3">{{ app()->getLocale() == 'zh' ? '中国办公室' : 'China Office' }}</h4>
                 <div class="flex flex-col gap-4">
                     <div>
                         <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '邮箱' : 'Email' }}</h6>
@@ -140,7 +140,26 @@
                     </div>
                     <div>
                         <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '电话' : 'Phone Number' }}</h6>
-                        <p> +31000000099 </p>
+                        <p> +13134552725 </p>
+                    </div>
+                    <div>
+                        <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '地址' : 'Address' }}</h6>
+                        <p> 5452 Aerospace Drive Laramie, WY 82070, USA </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="">
+                <h4 class="h4 font-bold text-primary my-3">{{ app()->getLocale() == 'zh' ? '马来西亚办事处' : 'Malaysia Office' }}
+                </h4>
+                <div class="flex flex-col gap-4">
+                    <div>
+                        <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '邮箱' : 'Email' }}</h6>
+                        <p> info@apex-scrap.com </p>
+                    </div>
+                    <div>
+                        <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '电话' : 'Phone Number' }}</h6>
+                        <p> +13134552725 </p>
                     </div>
                     <div>
                         <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '地址' : 'Address' }}</h6>
@@ -150,7 +169,7 @@
             </div>
         </div>
 
-        <div class="col-span-2">
+        <div class="col-span-1">
             <!-- Contact Form -->
             <div class="bg-white rounded-xl  shadow-2xl p-8">
                 <h4 class="h3 font-bold text-primary text-center mb-6" id="msg-us">
@@ -181,22 +200,34 @@
                             <label for="scrap_category" class="block text-gray-700 font-medium mb-2">
                                 {{ app()->getLocale() == 'zh' ? '废料类别' : 'Scrap Category' }}
                             </label>
-                            <select id="scrap_category" name="scrap_category"
-                                class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                <option disabled selected value="">
-                                    {{ app()->getLocale() == 'zh' ? '选择类别' : 'Select Category' }}
-                                </option>
-                                <option value="Ferrous-Metal">{{ app()->getLocale() == 'zh' ? '黑色金属' : 'Ferrous-Metal' }}
-                                </option>
-                                <option value="Non-Ferrous-Metal">
-                                    {{ app()->getLocale() == 'zh' ? '有色金属' : 'Non-Ferrous-Metal' }}
-                                </option>
-                                <option value="Catalytic-Converters">
-                                    {{ app()->getLocale() == 'zh' ? '催化转化器' : 'Catalytic-Converters' }}
-                                </option>
+                            <div class="relative">
+                                <select id="scrap_category" name="scrap_category"
+                                    class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none">
+                                    <option disabled selected value="">
+                                        {{ app()->getLocale() == 'zh' ? '选择类别' : 'Select Category' }}
+                                    </option>
+                                    <option value="Ferrous-Metal">
+                                        {{ app()->getLocale() == 'zh' ? '黑色金属' : 'Ferrous-Metal' }}
+                                    </option>
+                                    <option value="Non-Ferrous-Metal">
+                                        {{ app()->getLocale() == 'zh' ? '有色金属' : 'Non-Ferrous-Metal' }}
+                                    </option>
+                                    <option value="Catalytic-Converters">
+                                        {{ app()->getLocale() == 'zh' ? '催化转化器' : 'Catalytic-Converters' }}
+                                    </option>
+                                </select>
 
-                            </select>
+                                <!-- Custom dropdown icon -->
+                                <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
+
 
                         <!-- Phone Number -->
                         <div>
@@ -219,10 +250,21 @@
                             <label for="material_type" class="block text-gray-700 font-medium mb-2">
                                 {{ app()->getLocale() == 'zh' ? '材料类型' : 'Material Type' }}
                             </label>
-                            <input type="text" id="material_type" name="material_type"
-                                class="w-full pl-5 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="{{ app()->getLocale() == 'zh' ? '输入材料类型' : 'Enter Material Type' }}" required>
+
+                            <div id="tag-container"
+                                class="flex flex-wrap gap-2 w-full pl-3 pr-3 py-2 border border-gray-300 rounded-lg focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 cursor-text"
+                                onclick="document.getElementById('material_input').focus()">
+                                <!-- Tags will appear here -->
+                                <input type="text" id="material_input"
+                                    class="flex-1 min-w-[120px] outline-none border-none focus:ring-0 py-2"
+                                    placeholder="{{ app()->getLocale() == 'zh' ? '输入材料类型 (按空格或回车)' : 'Enter Material Type (press space or enter)' }}">
+                            </div>
+
+                            <!-- Hidden input to store tags -->
+                            <input type="hidden" id="material_type" name="material_type">
                         </div>
+
+
 
                         <!-- Email Address -->
                         <div>
@@ -245,20 +287,36 @@
                             <label for="estimated_weight" class="block text-gray-700 font-medium mb-2">
                                 {{ app()->getLocale() == 'zh' ? '预计重量' : 'Estimated Weight' }}
                             </label>
-                            <select id="estimated_weight" name="estimated_weight"
-                                class="w-full pl-3 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                                <option disabled selected value="">
-                                    {{ app()->getLocale() == 'zh' ? '选择重量' : 'Select Weight' }}</option>
-                                <option value="<50kg">{{ app()->getLocale() == 'zh' ? '少于50公斤' : 'Less than 50kg' }}
-                                </option>
-                                <option value="50-100kg">{{ app()->getLocale() == 'zh' ? '50-100公斤' : '50-100kg' }}
-                                </option>
-                                <option value="100-500kg">{{ app()->getLocale() == 'zh' ? '100-500公斤' : '100-500kg' }}
-                                </option>
-                                <option value=">500kg">{{ app()->getLocale() == 'zh' ? '大于500公斤' : 'More than 500kg' }}
-                                </option>
-                            </select>
+                            <div class="relative">
+                                <select id="estimated_weight" name="estimated_weight"
+                                    class="w-full pl-3 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none">
+                                    <option disabled selected value="">
+                                        {{ app()->getLocale() == 'zh' ? '选择重量' : 'Select Weight' }}
+                                    </option>
+                                    <option value="<10MT">{{ app()->getLocale() == 'zh' ? '少于10公吨' : 'Less than 10 MT' }}
+                                    </option>
+                                    <option value="10-50MT">{{ app()->getLocale() == 'zh' ? '10 – 50 公吨' : '10 – 50 MT' }}
+                                    </option>
+                                    <option value="50-100MT">
+                                        {{ app()->getLocale() == 'zh' ? '50 – 100 公吨' : '50 – 100 MT' }}</option>
+                                    <option value="100-500MT">
+                                        {{ app()->getLocale() == 'zh' ? '100 – 500 公吨' : '100 – 500 MT' }}</option>
+                                    <option value="500MT+">{{ app()->getLocale() == 'zh' ? '500 公吨以上' : '500 MT +' }}
+                                    </option>
+                                </select>
+
+                                <!-- Custom dropdown icon -->
+                                <div
+                                    class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
+
 
                     </div>
 
@@ -273,7 +331,10 @@
                             </div>
                             <textarea id="details" name="details" rows="5"
                                 class="w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="{{ app()->getLocale() == 'zh' ? '请提供其他详细信息' : 'Provide any additional details here' }}"></textarea>
+                                placeholder="{{ app()->getLocale() == 'zh'
+                                    ? '告诉我们有关您的废料、取货地点或任何特殊要求的更多信息...
+                                                                                                                                '
+                                    : 'Tell us more about your scrap materials, pickup location, or any special requirements...' }}"></textarea>
                         </div>
                     </div>
 
@@ -305,8 +366,45 @@
 
 
 
+{{-- input tag script --}}
+<script>
+    const input = document.getElementById('material_input');
+    const hiddenInput = document.getElementById('material_type');
+    const container = document.getElementById('tag-container');
+    let tags = [];
 
+    input.addEventListener('keyup', function (e) {
+        const value = this.value.trim();
 
+        // Trigger on space or enter
+        if ((e.key === ' ' || e.key === 'Enter') && value !== '') {
+            addTag(value);
+            this.value = '';
+        }
+    });
+
+    function addTag(text) {
+        if (tags.includes(text)) return; // prevent duplicates
+        tags.push(text);
+
+        const tag = document.createElement('span');
+        tag.className = 'bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm flex items-center gap-2';
+        tag.innerHTML = `
+            ${text}
+            <button type="button" class="text-blue-500 hover:text-red-500 font-bold">&times;</button>
+        `;
+
+        // Remove tag on click
+        tag.querySelector('button').addEventListener('click', () => {
+            container.removeChild(tag);
+            tags = tags.filter(t => t !== text);
+            hiddenInput.value = tags.join(',');
+        });
+
+        container.insertBefore(tag, input);
+        hiddenInput.value = tags.join(',');
+    }
+</script>
 
 
 
@@ -370,6 +468,10 @@
         // Initialize the map when the page loads
         document.addEventListener('DOMContentLoaded', initMap);
     </script>
+
+
+
+
 
 
 @endsection

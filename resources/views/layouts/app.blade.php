@@ -38,6 +38,11 @@
             width: auto;
             z-index: 999;
         }
+
+        .active {
+            background-color: rgba(0, 128, 0, 0.445) !important;
+            color: #262626 !important;
+        }
     </style>
 </head>
 
@@ -56,8 +61,8 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="/" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"> Apex-Scrap</h3>
+                <a href="/apex-admin" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-success"> Apex-Scrap</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -73,30 +78,29 @@
                     </div>
                     <div class="ms-3">
                         {{-- <h6 class="mb-0">Jhon Doe</h6> --}}
-                        <span>Admin</span>
+                        <span class="text-success">Admin</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-
                     <a href="{{ route('dashboard') }}"
-                        class="nav-item nav-link {{ Route::is('dashboard') ? 'active' : '' }}"><i
-                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-
+                        class="nav-item nav-link {{ Route::is('dashboard') ? 'active' : '' }}">
+                        <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                    </a>
 
                     <a href="{{ route('admin.categories.index') }}"
-                        class="nav-item nav-link {{ Route::is('admin.categories.index') ? 'active' : '' }} "><i
-                            class="fa fa-th me-2"></i>Categories</a>
-
+                        class="nav-item nav-link {{ Route::is('admin.categories.index') ? 'active' : '' }}">
+                        <i class="bi bi-tags me-2"></i> Categories
+                    </a>
 
                     <a href="{{ route('admin.products.index') }}"
-                        class="nav-item nav-link {{ Route::is('admin.products.index') ? 'active' : '' }} "><i
-                            class="fa fa-th me-2"></i>Products</a>
-
+                        class="nav-item nav-link {{ Route::is('admin.products.index') ? 'active' : '' }}">
+                        <i class="bi bi-box-seam me-2"></i> Products
+                    </a>
 
                     <a href="{{ route('blogs.index') }}"
-                        class="nav-item nav-link {{ Route::is('blogs.index') ? 'active' : '' }} "><i
-                            class="fa fa-th me-2"></i>Blogs</a>
-
+                        class="nav-item nav-link {{ Route::is('blogs.index') ? 'active' : '' }}">
+                        <i class="bi bi-journal-text me-2"></i> Blogs
+                    </a>
 
 
                 </div>
@@ -110,18 +114,18 @@
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                    <h2 class="mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
+                <a href="#" class="sidebar-toggler flex-shrink-0 text-success">
                     <i class="fa fa-bars"></i>
                 </a>
 
-                <span class="text-primary mx-3 fs-6"> Admin Dashboard </span>
+                <span class="text-success mx-3 fs-6"> Admin Dashboard </span>
 
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                            <img class="rounded-circle me-lg-2" src="{{ url('img/user.jpg') }}" alt=""
                                 style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">Admin</span>
                         </a>
@@ -141,10 +145,6 @@
             </nav>
             <!-- Navbar End -->
 
-            <div class="d-flex justify-content-end my-3">
-                <a href="{{ route('lang.switch', 'en') }}">English</a> |
-                <a href="{{ route('lang.switch', 'zh') }}">中文</a>
-            </div>
             <div class="my-5 pb-5">
                 @yield('content')
             </div>
@@ -207,6 +207,20 @@
             tinymce.triggerSave(); // Synchronize TinyMCE content with the original <textarea>
         }
     </script>
+
+
+{{-- alert popup --}}
+    <script>
+        const toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        const toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl, {
+                delay: 3500,
+                autohide: true
+            });
+        });
+        toastList.forEach(toast => toast.show());
+    </script>
+
 
 </body>
 

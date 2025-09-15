@@ -9,30 +9,51 @@
                 <h4>Edit Category</h4>
             </div>
 
-            {{-- show message --}}
-            <div>
-                @if (session('success'))
-                    <div class="bg-green-100 text-green-800 px-4 py-3 rounded mb-4">
-                        {{ session('success') }}
+        {{-- Toast Messages --}}
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055">
+            @if (session('success'))
+                <div class="toast align-items-center bg-light text-success font-weight-bold border-0 show py-2" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            {{ session('success') }}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
                     </div>
-                @endif
+                </div>
+            @endif
 
-                @if (session('error'))
-                    <div class="bg-red-100 text-red-800 px-4 py-3 rounded mb-4">
-                        {{ session('error') }}
+            @if (session('error'))
+                <div class="toast align-items-center bg-light text-danger font-weight-bold border-0 show py-2" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            {{ session('error') }}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
                     </div>
-                @endif
+                </div>
+            @endif
 
-                @if ($errors->any())
-                    <div class="bg-red-100 text-red-800 px-4 py-3 rounded mb-4">
-                        <ul class="list-disc pl-5">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+            @if ($errors->any())
+                <div class="toast align-items-center bg-light text-danger font-weight-bold border-0 show py-2" role="alert"
+                    aria-live="assertive" aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
                     </div>
-                @endif
-            </div>
+                </div>
+            @endif
+        </div>
 
             <div class="card-body">
                 <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">

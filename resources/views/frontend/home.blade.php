@@ -29,16 +29,17 @@
                    </span>
 
                    <div class="flex flex-col items-start md:items-center md:flex-row md:justify-start gap-6">
-                    <a href="/contact#msg-us">    
-                        <button class="bg-third text-secondary rounded-3xl px-8 py-2 btn-hover font-semibold">
-                            {{ app()->getLocale() == 'zh' ? '获取免费报价' : 'Get Free Quote' }}
-                        </button>
-                    </a>
-                        <a href="{{route('services')}}">    
-                            <button class="border-4 border-teal-400 text-teal-400 rounded-3xl px-8 py-2 btn-hover font-semibold">
-                                {{ app()->getLocale() == 'zh' ? '我们的服务' : 'Our Services' }}
-                            </button>
-                        </a>                    
+                       <a href="/contact#msg-us">
+                           <button class="bg-third text-secondary rounded-3xl px-8 py-2 btn-hover font-semibold">
+                               {{ app()->getLocale() == 'zh' ? '获取免费报价' : 'Get Free Quote' }}
+                           </button>
+                       </a>
+                       <a href="{{ route('services') }}">
+                           <button
+                               class="border-4 border-teal-400 text-teal-400 rounded-3xl px-8 py-2 btn-hover font-semibold">
+                               {{ app()->getLocale() == 'zh' ? '我们的服务' : 'Our Services' }}
+                           </button>
+                       </a>
                    </div>
                </div>
            </section>
@@ -109,23 +110,25 @@
                        <div class="flex flex-col gap-10">
                            <ul class="list-disc">
                                <li>{{ app()->getLocale() == 'zh' ? '全球出口专业知识' : 'Global Export Expertise' }}</li>
-                               <li>{{ app()->getLocale() == 'zh' ? '全球出口专业知识' : 'Global Export Expertise' }}</li>
-                               <li>{{ app()->getLocale() == 'zh' ? '全球出口专业知识' : 'Global Export Expertise' }}</li>
-                               <li>{{ app()->getLocale() == 'zh' ? '全球出口专业知识' : 'Global Export Expertise' }}</li>
+                               <li>{{ app()->getLocale() == 'zh' ? '环保实践' : 'Eco-Friendly Practices' }}</li>
+                               <li>{{ app()->getLocale() == 'zh' ? '可靠的供应链' : 'Reliable Supply Chain' }}</li>
+                               <li>{{ app()->getLocale() == 'zh' ? '有竞争力的定价' : 'Competitive Pricing' }}</li>
                            </ul>
 
-                           <a href="{{route('about')}}">
+                           <a href="{{ route('about') }}">
                                <button class="bg-primary text-white px-5 py-2  btn-hover">
                                    {{ app()->getLocale() == 'zh' ? '了解更多' : 'Read More' }}
-                                </button>
-                            </a>
+                               </button>
+                           </a>
                        </div>
                    </div>
                </div>
 
                <div class="relative inline-block cursor-pointer group"
                    onclick="document.getElementById('video_modal').showModal()">
-                   <img src="{{ asset('/frontend/images/banner2.webp') }}" alt="" class="w-full h-auto">
+                   <img src="{{ asset('/frontend/images/banner2.webp') }}" alt=""
+                       class="w-full h-auto transition-all duration-700 ease-in-out hover:grayscale" />
+
 
                    <img src="{{ asset('/frontend/images/play-icon.svg') }}" alt="Play"
                        class="absolute -top-2 right-0 w-18 h-18 border-b-5 border-l-5 border-white p-4 
@@ -156,13 +159,13 @@
            </section>
 
 
-           {{-- What we sell --}}
+           {{-- What We Sell & Buy --}}
            <section class="pb-16 container">
                <div class="center flex-col gap-4 py-6">
                    <div class="center gap-3">
                        <hr class="border-b-2 border-green-800 w-12 md:w-18 lg:w-28">
                        <h3 class="h3 text-primary font-bold">
-                           {{ app()->getLocale() == 'zh' ? '我们出售的产品' : 'What We Sell' }}
+                           {{ app()->getLocale() == 'zh' ? '我们销售和购买什么' : 'What We Sell & Buy' }}
                        </h3>
                        <hr class="border-b-2 border-green-800 w-12 md:w-18 lg:w-28">
                    </div>
@@ -175,43 +178,53 @@
                </div>
 
 
-               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+               <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                    @foreach ($categories as $category)
-                       <div class="flex flex-col gap-4">
-                           {{-- Category Image (optional, or you can add a field for images in DB) --}}
-                           <img src="{{ asset('/frontend/images/cat-1.png') }}" alt="{{ $category->name }}">
+                       {{-- card item --}}
+                       <div class="bg-white rounded-lg shadow-md flex flex-col h-full p-4">
+                           {{-- Category First Product Image --}}
+                           @if ($category->products->isNotEmpty() && $category->products->first()->image)
+                               <img src="{{ asset($category->products->first()->image) }}" alt="{{ $category->name }}"
+                                   class="w-full h-40 object-cover rounded-md mb-3">
+                           @else
+                               <img src="{{ asset('/frontend/images/cat-1.png') }}" alt="No Image"
+                                   class="w-full h-40 object-cover rounded-md mb-3">
+                           @endif
 
-                           {{-- Category Name --}}
-                           <h4 class="h4 font-semibold">
-                               {{ $category->name }}
-                           </h4>
+                           {{-- Content --}}
+                           <div class="flex flex-col flex-grow">
+                               {{-- Category Name --}}
+                               <h4 class="text-lg font-semibold mb-2 line-clamp-1">
+                                   {{ $category->name }}
+                               </h4>
 
-                           {{-- Category Short Description --}}
+                               {{-- Category Short Description --}}
+                               <p class="text-sm text-gray-600 flex-grow line-clamp-3">
+                                   {{ app()->getLocale() == 'zh'
+                                       ? '您现在可以出售任何旧的家庭金属制品，包括旧家电、铸铁水槽和浴缸。'
+                                       : 'Now you can sell any old household metal items, including old appliances, cast iron sinks, and tubs.' }}
+                               </p>
 
-                           <p>
-                               {{ app()->getLocale() == 'zh'
-                                   ? '您现在可以出售任何旧的家庭金属制品，包括旧家电、铸铁水槽和浴缸。'
-                                   : 'Now you can sell any old household metal items, including old appliances, cast iron sinks, and tubs.' }}
-                           </p>
-
-
-                           {{-- See More Button --}}
-                           <div>
-                               <a href="{{ route('categoryDetailsPage', $category->id) }}">
-                                   <button
-                                       class="border-3 border-green-800 px-4 py-1 text-primary flex items-center gap-2.5 btn-hover">
-                                       <span>{{ app()->getLocale() == 'zh' ? '查看更多' : 'See More' }}</span>
-                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                           stroke-width="1.5" stroke="currentColor" class="size-4">
-                                           <path stroke-linecap="round" stroke-linejoin="round"
-                                               d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                                       </svg>
-                                   </button>
-                               </a>
+                               {{-- See More Button (sticks to bottom) --}}
+                               <div class="mt-4">
+                                   <a href="{{ route('categoryDetailsPage', $category->id) }}">
+                                       <button
+                                           class="w-full border-2 border-green-800 px-4 py-2 text-primary flex items-center justify-center gap-2 rounded-md  btn-hover">
+                                           <span>{{ app()->getLocale() == 'zh' ? '查看更多' : 'See More' }}</span>
+                                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                               stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                               <path stroke-linecap="round" stroke-linejoin="round"
+                                                   d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                                           </svg>
+                                       </button>
+                                   </a>
+                               </div>
                            </div>
                        </div>
                    @endforeach
                </div>
+
+
 
 
            </section>
@@ -234,15 +247,135 @@
                                stroke="currentColor" class="size-6">
                                <path stroke-linecap="round" stroke-linejoin="round"
                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                           </svg> </button> </div> {{-- Swiper slider --}} <div class="swiper swiper-review">
-                       <div class="swiper-wrapper"> {{-- card --}} <div class="swiper-slide">
-                               <div class="flex flex-col gap-8 bg-[#626262] p-6 rounded-lg text-white shadow-2xl">
-                                   <div class="flex gap-2"> {{-- your stars --}} <svg xmlns="http://www.w3.org/2000/svg"
-                                           fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                           class="size-6">
+                           </svg> </button> </div>
+
+
+
+                   {{-- Swiper slider --}}
+                   <div class="swiper swiper-review">
+                       <div class="swiper-wrapper">
+                           {{-- card --}}
+                           <div class="swiper-slide">
+                               <div
+                                   class="flex flex-col gap-8 bg-teal-800 opacity-70 p-6 rounded-lg text-white shadow-2xl">
+                                   <div class="flex gap-2">
+                                       {{-- stars --}}
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
                                            <path stroke-linecap="round" stroke-linejoin="round"
                                                d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
-                                       </svg> </div>
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                   </div>
+                                   <p> “We are a culturally rooted creative studio in Yogyakarta, partnering with
+                                       forward-thinking brands to reimagine what's possible- through powerful design,
+                                       strategy, and storytelling.” </p>
+                                   <div class="flex justify-between items-center">
+                                       <div>
+                                           <h6 class="font-bold text-lg">Herris Adom</h6>
+                                           <p class="text-sm"> Managing Director </p>
+                                       </div>
+                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           {{-- card --}}
+                           <div class="swiper-slide">
+                               <div
+                                   class="flex flex-col gap-8 bg-teal-800 opacity-70 p-6 rounded-lg text-white shadow-2xl">
+                                   <div class="flex gap-2">
+                                       {{-- your stars --}}
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                   </div>
+                                   <p> “We are a culturally rooted creative studio in Yogyakarta, partnering with
+                                       forward-thinking brands to reimagine what's possible- through powerful design,
+                                       strategy, and storytelling.” </p>
+                                   <div class="flex justify-between items-center">
+                                       <div>
+                                           <h6 class="font-bold text-lg">Herris Adom</h6>
+                                           <p class="text-sm"> Managing Director </p>
+                                       </div>
+                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           {{-- card --}}
+                           <div class="swiper-slide">
+                               <div
+                                   class="flex flex-col gap-8 bg-teal-800 opacity-70 p-6 rounded-lg text-white shadow-2xl">
+                                   <div class="flex gap-2">
+                                       {{-- your stars --}}
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                   </div>
                                    <p> “We are a culturally rooted creative studio in Yogyakarta, partnering with
                                        forward-thinking brands to reimagine what's possible- through powerful design,
                                        strategy, and storytelling.” </p>
@@ -256,53 +389,36 @@
                                    </div>
                                </div>
                            </div> {{-- card --}} <div class="swiper-slide">
-                               <div class="flex flex-col gap-8 bg-[#626262] p-6 rounded-lg text-white shadow-2xl">
-                                   <div class="flex gap-2"> {{-- your stars --}} <svg xmlns="http://www.w3.org/2000/svg"
-                                           fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                           class="size-6">
+                               <div
+                                   class="flex flex-col gap-8 bg-teal-800 opacity-70 p-6 rounded-lg text-white shadow-2xl">
+                                   <div class="flex gap-2">
+                                       {{-- your stars --}}
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
                                            <path stroke-linecap="round" stroke-linejoin="round"
                                                d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
-                                       </svg> </div>
-                                   <p> “We are a culturally rooted creative studio in Yogyakarta, partnering with
-                                       forward-thinking brands to reimagine what's possible- through powerful design,
-                                       strategy, and storytelling.” </p>
-                                   <div class="flex justify-between items-center">
-                                       <div>
-                                           <h6 class="font-bold text-lg">Herris Adom</h6>
-                                           <p class="text-sm"> Managing Director </p>
-                                       </div>
-                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
-                                       </div>
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
+                                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                           stroke-width="1.5" stroke="currentColor" class="size-6">
+                                           <path stroke-linecap="round" stroke-linejoin="round"
+                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                                       </svg>
                                    </div>
-                               </div>
-                           </div> {{-- card --}} <div class="swiper-slide">
-                               <div class="flex flex-col gap-8 bg-[#626262] p-6 rounded-lg text-white shadow-2xl">
-                                   <div class="flex gap-2"> {{-- your stars --}} <svg xmlns="http://www.w3.org/2000/svg"
-                                           fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                           class="size-6">
-                                           <path stroke-linecap="round" stroke-linejoin="round"
-                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
-                                       </svg> </div>
-                                   <p> “We are a culturally rooted creative studio in Yogyakarta, partnering with
-                                       forward-thinking brands to reimagine what's possible- through powerful design,
-                                       strategy, and storytelling.” </p>
-                                   <div class="flex justify-between items-center">
-                                       <div>
-                                           <h6 class="font-bold text-lg">Herris Adom</h6>
-                                           <p class="text-sm"> Managing Director </p>
-                                       </div>
-                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
-                                       </div>
-                                   </div>
-                               </div>
-                           </div> {{-- card --}} <div class="swiper-slide">
-                               <div class="flex flex-col gap-8 bg-[#626262] p-6 rounded-lg text-white shadow-2xl">
-                                   <div class="flex gap-2"> {{-- your stars --}} <svg xmlns="http://www.w3.org/2000/svg"
-                                           fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                           class="size-6">
-                                           <path stroke-linecap="round" stroke-linejoin="round"
-                                               d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
-                                       </svg> </div>
                                    <p> “We are a culturally rooted creative studio in Yogyakarta, partnering with
                                        forward-thinking brands to reimagine what's possible- through powerful design,
                                        strategy, and storytelling.” </p>
@@ -318,14 +434,17 @@
                            </div>
                        </div>
                    </div>
+
+
+
                </div>
            </section>
 
 
-           {{-- Business Partners --}}
+           {{-- Associate Business Partners --}}
            <section class="py-16">
                <h3 class="h3 text-primary text-center py-5 font-bold">
-                   {{ app()->getLocale() == 'zh' ? '合作伙伴' : 'Business Partners' }}
+                   {{ app()->getLocale() == 'zh' ? '业务合作伙伴' : 'Associate Business Partners' }}
                </h3>
 
                <p class="text-center w-full md:w-2/3 container mb-6">

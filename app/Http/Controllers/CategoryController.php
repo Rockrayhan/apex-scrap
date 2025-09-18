@@ -13,6 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
+        // Paginate the results
         return view('categories.index', compact('categories'));
     }
 
@@ -25,7 +26,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name_en' => 'required|unique:categories,name_en',
-            'name_zh' => 'required', 
+            'name_zh' => 'required',
         ]);
 
         Category::create([
@@ -61,7 +62,10 @@ class CategoryController extends Controller
             'slug' => Str::slug($request->name_en),
         ]);
 
-        return redirect()->route('admin.categories.index')->with('success', 'Category updated successfully!');
+
+        return redirect()->route('admin.categories.index')
+            ->with('success', 'Category updated successfully!')
+            ->with('newCategoryId', $category->id);
     }
 
 

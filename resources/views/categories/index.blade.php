@@ -12,26 +12,30 @@
 
 
         {{-- show message --}}
-        <div>
+        <div class="position-fixed top-0 p-3" style="z-index: 2000">
             @if (session('success'))
-                <div class="bg-green-100 text-green-800 px-4 py-3 rounded mb-4">
-                    {{ session('success') }}
+                <div class="toast bg-success text-white shadow-lg fade show" role="alert" aria-live="assertive"
+                    aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body fw-bold">
+                            ✅ {{ session('success') }}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                            data-bs-dismiss="toast"></button>
+                    </div>
                 </div>
             @endif
 
             @if (session('error'))
-                <div class="bg-red-100 text-red-800 px-4 py-3 rounded mb-4">
-                    {{ session('error') }}
-                </div>
-            @endif
-
-            @if ($errors->any())
-                <div class="bg-red-100 text-red-800 px-4 py-3 rounded mb-4">
-                    <ul class="list-disc pl-5">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <div class="toast bg-danger text-white shadow-lg fade show" role="alert" aria-live="assertive"
+                    aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body fw-bold">
+                            ⚠️ {{ session('error') }}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto"
+                            data-bs-dismiss="toast"></button>
+                    </div>
                 </div>
             @endif
         </div>
@@ -48,7 +52,7 @@
             </thead>
             <tbody>
                 @foreach ($categories as $cat)
-                    <tr>
+                    <tr id="category-{{ $cat->id }}">
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $cat->name }}</td>
                         {{-- <td>{{ $cat->slug }}</td> --}}
@@ -73,5 +77,29 @@
             </tbody>
         </table>
     </div>
+
+
+
+
+    {{-- marking inserted product --}}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const newCategoryId = "{{ session('newCategoryId') }}";
+            if (newCategoryId) {
+                const row = document.getElementById("category-" + newCategoryId);
+                if (row) {
+                    row.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                    // Flash effect
+                    row.classList.add("table-success");
+                    setTimeout(() => row.classList.remove("table-success"), 2000);
+                }
+            }
+        });
+    </script>
+
 
 @endsection

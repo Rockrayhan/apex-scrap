@@ -13,8 +13,8 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = Blog::latest()->paginate(10);
-        return view('blogs.index', compact('blogs'));
+        $blogs = Blog::latest()->paginate(5);
+        return view('blogs.index', compact('blogs'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create()
@@ -45,7 +45,7 @@ class BlogController extends Controller
         $title_zh = $translator->translate($request->title_en);
         $description_zh = $translator->translate($request->description_en);
 
-        Blog::create([
+        $blog =  Blog::create([
             'author' => $request->author,
             'title_en' => $request->title_en,
             'title_zh' => $title_zh,
@@ -56,7 +56,10 @@ class BlogController extends Controller
             'featured_in_home' => $request->featured_in_home,
         ]);
 
-        return redirect()->route('blogs.index')->with('success', 'Blog created successfully.');
+        // return redirect()->route('blogs.index')->with('success', 'Blog created successfully.');
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog created successfully.!')
+            ->with('newItemId', $blog->id);
     }
 
 
@@ -70,7 +73,7 @@ class BlogController extends Controller
 
 
 
-    
+
     // Update blog
     public function update(Request $request, $id)
     {
@@ -110,7 +113,11 @@ class BlogController extends Controller
             'featured_in_home' => $request->featured_in_home,
         ]);
 
-        return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');
+        // return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');
+
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog updated successfully.')
+            ->with('newItemId', $blog->id);
     }
 
 

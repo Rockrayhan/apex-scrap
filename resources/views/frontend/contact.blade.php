@@ -6,7 +6,6 @@
 
 
 
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -76,7 +75,7 @@
                 <span class="text-third">{{ app()->getLocale() == 'zh' ? '联系我们' : 'Contact' }}</span>
                 <span>{{ app()->getLocale() == 'zh' ? '' : 'Us' }}</span>
             </h1>
-            <p class="w-full md:w-2/3 text-white text-center">
+            <p class="w-full md:w-2/3 text-white text-center" id="msg-us">
                 {{ app()->getLocale() == 'zh'
                     ? '无论您身处亚洲、欧洲、中东、非洲还是美洲，Apex Scrap 都是您值得信赖的全球废料供应商——在每一步都提供优质、可持续和价值。'
                     : 'Whether you are in Asia, Europe, the Middle East, Africa, or the Americas, Apex Scrap is your trusted global scrap supplier—delivering quality, sustainability, and value at every step.' }}
@@ -172,7 +171,7 @@
         <div class="col-span-1">
             <!-- Contact Form -->
             <div class="bg-white rounded-xl  shadow-2xl p-8">
-                <h4 class="h3 font-bold text-primary text-center mb-6" id="msg-us">
+                <h4 class="h3 font-bold text-primary text-center mb-6" >
                     {{ app()->getLocale() == 'zh' ? '发送消息给我们' : 'Send us a message' }}
                 </h4>
 
@@ -203,16 +202,22 @@
                             <div class="relative">
                                 <select id="scrap_category" name="scrap_category"
                                     class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none">
-                                    <option disabled selected value="">
+                                    <option disabled selected value="" class="bg-gray-100">
                                         {{ app()->getLocale() == 'zh' ? '选择类别' : 'Select Category' }}
                                     </option>
-                                    <option value="Ferrous-Metal">
+                                    <option value="Ferrous-Metal" class="bg-gray-100">
                                         {{ app()->getLocale() == 'zh' ? '黑色金属' : 'Ferrous-Metal' }}
                                     </option>
-                                    <option value="Non-Ferrous-Metal">
+                                    <option value="Non-Ferrous-Metal" class="bg-gray-100">
                                         {{ app()->getLocale() == 'zh' ? '有色金属' : 'Non-Ferrous-Metal' }}
                                     </option>
-                                    <option value="Catalytic-Converters">
+                                    <option value="Plastics" class="bg-gray-100">
+                                        {{ app()->getLocale() == 'zh' ? '塑料' : 'Plastics' }}
+                                    </option>
+                                    <option value="Paper" class="bg-gray-100">
+                                        {{ app()->getLocale() == 'zh' ? '纸' : 'Paper' }}
+                                    </option>
+                                    <option value="Catalytic-Converters" class="bg-gray-100">
                                         {{ app()->getLocale() == 'zh' ? '催化转化器' : 'Catalytic-Converters' }}
                                     </option>
                                 </select>
@@ -248,7 +253,7 @@
                         <!-- Material Type -->
                         <div>
                             <label for="material_type" class="block text-gray-700 font-medium mb-2">
-                                {{ app()->getLocale() == 'zh' ? '材料类型' : 'Material Type' }}
+                                {{ app()->getLocale() == 'zh' ? '材料类型' : 'Material Type' }} 
                             </label>
 
                             <div id="tag-container"
@@ -257,7 +262,7 @@
                                 <!-- Tags will appear here -->
                                 <input type="text" id="material_input"
                                     class="flex-1 min-w-[120px] outline-none border-none focus:ring-0 py-2"
-                                    placeholder="{{ app()->getLocale() == 'zh' ? '输入材料类型 (按空格或回车)' : 'Enter Material Type (press space or enter)' }}">
+                                    placeholder="{{ app()->getLocale() == 'zh' ? '在每个项目后按 (,) 或 Enter' : 'press (,) or Enter after each item' }}">
                             </div>
 
                             <!-- Hidden input to store tags -->
@@ -290,18 +295,18 @@
                             <div class="relative">
                                 <select id="estimated_weight" name="estimated_weight"
                                     class="w-full pl-3 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none">
-                                    <option disabled selected value="">
+                                    <option class="bg-gray-100" disabled selected value="">
                                         {{ app()->getLocale() == 'zh' ? '选择重量' : 'Select Weight' }}
                                     </option>
-                                    <option value="<10MT">{{ app()->getLocale() == 'zh' ? '少于10公吨' : 'Less than 10 MT' }}
+                                    <option class="bg-gray-100" value="<10MT">{{ app()->getLocale() == 'zh' ? '少于10公吨' : 'Less than 10 MT' }}
                                     </option>
-                                    <option value="10-50MT">{{ app()->getLocale() == 'zh' ? '10 – 50 公吨' : '10 – 50 MT' }}
+                                    <option class="bg-gray-100" value="10-50MT">{{ app()->getLocale() == 'zh' ? '10 – 50 公吨' : '10 – 50 MT' }}
                                     </option>
-                                    <option value="50-100MT">
+                                    <option class="bg-gray-100" value="50-100MT">
                                         {{ app()->getLocale() == 'zh' ? '50 – 100 公吨' : '50 – 100 MT' }}</option>
-                                    <option value="100-500MT">
+                                    <option class="bg-gray-100" value="100-500MT">
                                         {{ app()->getLocale() == 'zh' ? '100 – 500 公吨' : '100 – 500 MT' }}</option>
-                                    <option value="500MT+">{{ app()->getLocale() == 'zh' ? '500 公吨以上' : '500 MT +' }}
+                                    <option class="bg-gray-100" value="500MT+">{{ app()->getLocale() == 'zh' ? '500 公吨以上' : '500 MT +' }}
                                     </option>
                                 </select>
 
@@ -373,16 +378,23 @@
     const container = document.getElementById('tag-container');
     let tags = [];
 
+    // Add tag on comma or Enter
     input.addEventListener('keyup', function (e) {
         const value = this.value.trim();
 
-        // Trigger on space or enter
-        if ((e.key === ' ' || e.key === 'Enter') && value !== '') {
-            addTag(value);
+        if ((e.key === ',' || e.key === 'Enter') && value !== '') {
+            const cleanValue = value.replace(/,$/, ''); // remove trailing comma
+            if (cleanValue !== '') addTag(cleanValue);
             this.value = '';
+        }
+
+        // Remove last tag on Backspace when input is empty
+        if (e.key === 'Backspace' && value === '' && tags.length > 0) {
+            removeTag(tags[tags.length - 1]);
         }
     });
 
+    // Function to add a tag
     function addTag(text) {
         if (tags.includes(text)) return; // prevent duplicates
         tags.push(text);
@@ -395,13 +407,26 @@
         `;
 
         // Remove tag on click
-        tag.querySelector('button').addEventListener('click', () => {
-            container.removeChild(tag);
-            tags = tags.filter(t => t !== text);
-            hiddenInput.value = tags.join(',');
-        });
+        tag.querySelector('button').addEventListener('click', () => removeTag(text));
 
         container.insertBefore(tag, input);
+        updateHiddenInput();
+    }
+
+    // Function to remove a tag
+    function removeTag(text) {
+        const tagElements = container.querySelectorAll('span');
+        tagElements.forEach(tagEl => {
+            if (tagEl.textContent.trim().startsWith(text)) {
+                container.removeChild(tagEl);
+            }
+        });
+        tags = tags.filter(t => t !== text);
+        updateHiddenInput();
+    }
+
+    // Update hidden input value
+    function updateHiddenInput() {
         hiddenInput.value = tags.join(',');
     }
 </script>
@@ -409,8 +434,8 @@
 
 
 
+        {{-- Initialize the map --}}
     <script>
-        // Initialize the map
         function initMap() {
             // Create a map centered in Asia
             const map = L.map('map').setView([30, 100], 2);

@@ -209,16 +209,16 @@
     </script>
 
 
-{{-- alert popup --}}
+    {{-- alert popup --}}
     <script>
-        const toastElList = [].slice.call(document.querySelectorAll('.toast'));
-        const toastList = toastElList.map(function(toastEl) {
-            return new bootstrap.Toast(toastEl, {
-                delay: 3500,
-                autohide: true
+        document.addEventListener("DOMContentLoaded", function() {
+            const toastElList = [].slice.call(document.querySelectorAll('.toast'));
+            toastElList.forEach(toastEl => {
+                new bootstrap.Toast(toastEl, {
+                    delay: 4000
+                }).show();
             });
         });
-        toastList.forEach(toast => toast.show());
     </script>
 
 

@@ -43,7 +43,7 @@ class ProductController extends Controller
             $filename = 'uploads/products/' . $filename;
         }
 
-        Product::create([
+        $product = Product::create([
             'category_id'     => $request->category_id,
             'name_en'         => $request->name_en,
             'name_zh'         => $request->name_zh,
@@ -53,7 +53,9 @@ class ProductController extends Controller
             'image'           => $filename,
         ]);
 
-        return redirect()->route('admin.products.index')->with('success', 'Product added!');
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Product added!')
+            ->with('newProductId', $product->id);
     }
 
 
@@ -99,8 +101,13 @@ class ProductController extends Controller
             'image'           => $filename,
         ]);
 
-        return redirect()->route('admin.products.index')->with('success', 'Product updated successfully!');
+        // return redirect()->route('admin.products.index')->with('success', 'Product updated successfully!');
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Product updated successfully!')
+            ->with('newProductId', $product->id);
     }
+
+
 
 
     public function destroy($id)

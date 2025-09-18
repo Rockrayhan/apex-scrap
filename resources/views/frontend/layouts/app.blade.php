@@ -30,191 +30,198 @@
 
 
 <body>
-    <header>
-        {{-- Language Switch - top nav --}}
-        <div class="bg-primary text-white  py-3">
-            <div class="container flex justify-end gap-10 ">
+    <header class="mb-[6.5rem] md:mb-[8rem]">
 
-                <div>
-                    <a href="{{ route('lang.switch', 'en') }}"
-                        class="hover:underline {{ app()->getLocale() == 'en' ? 'font-bold' : '' }}">
-                        EN
-                    </a> |
+        <div class="fixed top-0 z-[1000] w-full">
+            {{-- Language Switch - top nav --}}
+            <div class="bg-primary text-white  py-3 ">
+                <div class="container flex justify-end gap-10 ">
 
-                    <a href="{{ route('lang.switch', 'zh') }}"
-                        class="hover:underline {{ app()->getLocale() == 'zh' ? 'font-bold' : '' }}">
-                        CN
-                    </a>
-                </div>
+                    <div>
+                        <a href="{{ route('lang.switch', 'en') }}"
+                            class="hover:underline {{ app()->getLocale() == 'en' ? 'font-bold' : '' }}">
+                            EN
+                        </a> |
 
-                <div>
-                    <a href="/ask-question" class="hover:underline">
-                        {{ app()->getLocale() == 'zh' ? '有问题吗？' : 'Ask Questions' }}
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-        {{-- navbar --}}
-        <nav class="relative z-50 container">
-            <div class="top-5 left-0 w-full shadow-lg z-50 text-secondary backdrop-blur-sm text-white">
-                <div class="navbar py-2 flex gap-5 h-[65px] md:h-auto">
-                    <!-- Navbar Start -->
-                    <div class="navbar-start flex justify-between items-center w-full lg:flex-1">
-
-                        <!-- Logo -->
-                        <a href="/" class="h-full">
-                            <img src="{{ asset('/frontend/images/logo-2.webp') }}" alt="Logo"
-                                class="h-10 sm:h-12 md:h-16 w-full object-contain" />
-                            {{-- <h4 class="h4 font-bold"> Apex-Scrap </h4> --}}
+                        <a href="{{ route('lang.switch', 'zh') }}"
+                            class="hover:underline {{ app()->getLocale() == 'zh' ? 'font-bold' : '' }}">
+                            CN
                         </a>
+                    </div>
 
-                        <!-- Mobile Navigation -->
-                        <div class="relative lg:hidden text-primary">
-                            <button id="menu-toggle" class="btn btn-ghost p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 6h16M4 12h16M4 18h16" />
-                                </svg>
-                            </button>
-                            {{-- <ul id="mobile-menu"
+                    <div>
+                        <a href="/ask-question" class="hover:underline">
+                            {{ app()->getLocale() == 'zh' ? '有问题吗？' : 'Ask Questions' }}
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            {{-- navbar --}}
+            <nav class="relative z-50 bg-[#ffffffe0] backdrop-blur-sm shadow-md ">
+                <div class="top-5 left-0 w-full shadow-lg z-50 text-secondary  text-white container">
+                    <div class="navbar py-2 flex gap-5 h-[65px] md:h-auto">
+                        <!-- Navbar Start -->
+                        <div class="navbar-start flex justify-between items-center w-full lg:flex-1">
+
+                            <!-- Logo -->
+                            <a href="/" class="h-full">
+                                <img src="{{ asset('/frontend/images/logo-2.webp') }}" alt="Logo"
+                                    class="h-10 sm:h-12 md:h-16 w-full object-contain" />
+                                {{-- <h4 class="h4 font-bold"> Apex-Scrap </h4> --}}
+                            </a>
+
+                            <!-- Mobile Navigation -->
+                            <div class="relative lg:hidden text-primary">
+                                <button id="menu-toggle" class="btn btn-ghost p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 6h16M4 12h16M4 18h16" />
+                                    </svg>
+                                </button>
+                                {{-- <ul id="mobile-menu"
                                 class="fixed left-4 right-4 top-30 mt-2 p-5 bg-white rounded-2xl shadow-2xl z-[9999] animate__animated animate__slideInDown animate__faster transition-all duration-300 ease-in-out max-h-[calc(100vh-6rem)] overflow-y-auto invisible opacity-0 scale-95"> --}}
 
-                            <ul id="mobile-menu"
-                                class="fixed left-4 right-4 top-20 mt-2 p-5 bg-white rounded-2xl shadow-2xl z-[9999] 
+                                <ul id="mobile-menu"
+                                    class="fixed left-4 right-4 top-20 mt-2 p-5 bg-white rounded-2xl shadow-2xl z-[9999] 
            animate__animated animate__faster transition-all duration-300 ease-in-out 
            max-h-[calc(100vh-6rem)] overflow-y-auto invisible opacity-0 scale-95">
 
-                                <!-- Home Link -->
-                                <li class="py-4 px-2 border-b border-gray-100">
-                                    <a href="/" class="text-lg font-medium block w-full">
+                                    <!-- Home Link -->
+                                    <li class="py-4 px-2 border-b border-gray-100">
+                                        <a href="/" class="text-lg font-medium block w-full">
+                                            {{ app()->getLocale() == 'zh' ? '主页' : 'Home' }}
+                                        </a>
+                                    </li>
+
+                                    <!-- about -->
+                                    <li class="py-4 px-2 border-b border-gray-100">
+                                        <a href="/about" class="text-lg font-medium block w-full">
+                                            {{ app()->getLocale() == 'zh' ? '关于我们' : 'About' }}
+                                        </a>
+                                    </li>
+
+                                    <!-- Services -->
+                                    <li class="py-4 px-2 border-b border-gray-100">
+                                        <a href="/services" class="text-lg font-medium block w-full">
+                                            {{ app()->getLocale() == 'zh' ? '服务' : 'Services' }}
+                                        </a>
+                                    </li>
+
+                                    <!-- Materials -->
+                                    <li class="py-4 px-2 border-b border-gray-100">
+                                        <a href="/materials" class="text-lg font-medium block w-full">
+                                            {{ app()->getLocale() == 'zh' ? '材料' : 'Materials' }}
+                                        </a>
+                                    </li>
+
+                                    <!-- Contact -->
+                                    <li class="py-4 px-2 border-b border-gray-100">
+                                        <a href="/contact" class="text-lg font-medium block w-full">
+                                            {{ app()->getLocale() == 'zh' ? '联系我们' : 'Contact' }}
+                                        </a>
+                                    </li>
+
+                                    <!-- Insight -->
+                                    <li class="py-4 px-2 border-b border-gray-100">
+                                        <a href="/insight" class="text-lg font-medium block w-full">
+                                            {{ app()->getLocale() == 'zh' ? '洞察' : 'Insight' }}
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="/contact/#msg-us">
+                                            <button
+                                                class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
+                                                {{-- onclick="getQuoteModal.showModal()" --}}>
+                                                {{ app()->getLocale() == 'zh' ? '获取报价' : 'Get Quote' }}
+                                            </button>
+
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <!-- Navbar Center (Desktop) -->
+                        <div class="navbar-center hidden lg:flex gap-16 ">
+                            <ul class="flex gap-10 items-center h6">
+
+                                <!-- Home -->
+                                <li>
+                                    <a href="{{ route('home') }}"
+                                        class="hover:text-green-800 transition-all duration-200 {{ Route::is('home') ? 'active' : '' }}">
                                         {{ app()->getLocale() == 'zh' ? '主页' : 'Home' }}
                                     </a>
                                 </li>
 
-                                <!-- about -->
-                                <li class="py-4 px-2 border-b border-gray-100">
-                                    <a href="/about" class="text-lg font-medium block w-full">
+                                <!-- About -->
+                                <li>
+                                    <a href="{{ route('about') }}"
+                                        class="hover:text-green-800 transition-all duration-200 {{ Route::is('about') ? 'active' : '' }}">
                                         {{ app()->getLocale() == 'zh' ? '关于我们' : 'About' }}
                                     </a>
                                 </li>
 
                                 <!-- Services -->
-                                <li class="py-4 px-2 border-b border-gray-100">
-                                    <a href="/services" class="text-lg font-medium block w-full">
+                                <li>
+                                    <a href="{{ route('services') }}"
+                                        class="hover:text-green-800 transition-all duration-200 {{ Route::is('services') ? 'active' : '' }}">
                                         {{ app()->getLocale() == 'zh' ? '服务' : 'Services' }}
                                     </a>
                                 </li>
 
                                 <!-- Materials -->
-                                <li class="py-4 px-2 border-b border-gray-100">
-                                    <a href="/materials" class="text-lg font-medium block w-full">
+                                <li>
+                                    <a href="{{ route('materials') }}"
+                                        class="hover:text-green-800 transition-all duration-200 {{ Route::is('materials') ? 'active' : '' }}">
                                         {{ app()->getLocale() == 'zh' ? '材料' : 'Materials' }}
                                     </a>
                                 </li>
 
                                 <!-- Contact -->
-                                <li class="py-4 px-2 border-b border-gray-100">
-                                    <a href="/contact" class="text-lg font-medium block w-full">
+                                <li>
+                                    <a href="{{ route('contact') }}"
+                                        class="hover:text-green-800 transition-all duration-200 {{ Route::is('contact') ? 'active' : '' }}">
                                         {{ app()->getLocale() == 'zh' ? '联系我们' : 'Contact' }}
                                     </a>
                                 </li>
 
                                 <!-- Insight -->
-                                <li class="py-4 px-2 border-b border-gray-100">
-                                    <a href="/insight" class="text-lg font-medium block w-full">
+                                <li>
+                                    <a href="{{ route('insight') }}"
+                                        class="hover:text-green-800 transition-all duration-200 {{ Route::is('insight') ? 'active' : '' }}">
                                         {{ app()->getLocale() == 'zh' ? '洞察' : 'Insight' }}
                                     </a>
                                 </li>
 
-                                <li>
-                                    <a href="/contact/#msg-us">
-                                        <button
-                                            class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
-                                            {{-- onclick="getQuoteModal.showModal()" --}}>
-                                            {{ app()->getLocale() == 'zh' ? '获取报价' : 'Get Quote' }}
-                                        </button>
-
-                                    </a>
-
-                                </li>
-
                             </ul>
+
+                            <ul>
+                                <a href="/contact/#msg-us">
+                                    <button
+                                        class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
+                                        {{-- onclick="getQuoteModal.showModal()" --}}>
+                                        {{ app()->getLocale() == 'zh' ? '获取报价' : 'Get Quote' }}
+                                    </button>
+                                </a>
+                            </ul>
+
                         </div>
 
                     </div>
-
-                    <!-- Navbar Center (Desktop) -->
-                    <div class="navbar-center hidden lg:flex gap-16 ">
-                        <ul class="flex gap-10 items-center h6">
-
-                            <!-- Home -->
-                            <li>
-                                <a href="{{ route('home') }}"
-                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('home') ? 'active' : '' }}">
-                                    {{ app()->getLocale() == 'zh' ? '主页' : 'Home' }}
-                                </a>
-                            </li>
-
-                            <!-- About -->
-                            <li>
-                                <a href="{{ route('about') }}"
-                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('about') ? 'active' : '' }}">
-                                    {{ app()->getLocale() == 'zh' ? '关于我们' : 'About' }}
-                                </a>
-                            </li>
-
-                            <!-- Services -->
-                            <li>
-                                <a href="{{ route('services') }}"
-                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('services') ? 'active' : '' }}">
-                                    {{ app()->getLocale() == 'zh' ? '服务' : 'Services' }}
-                                </a>
-                            </li>
-
-                            <!-- Materials -->
-                            <li>
-                                <a href="{{ route('materials') }}"
-                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('materials') ? 'active' : '' }}">
-                                    {{ app()->getLocale() == 'zh' ? '材料' : 'Materials' }}
-                                </a>
-                            </li>
-
-                            <!-- Contact -->
-                            <li>
-                                <a href="{{ route('contact') }}"
-                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('contact') ? 'active' : '' }}">
-                                    {{ app()->getLocale() == 'zh' ? '联系我们' : 'Contact' }}
-                                </a>
-                            </li>
-
-                            <!-- Insight -->
-                            <li>
-                                <a href="{{ route('insight') }}"
-                                    class="hover:text-green-800 transition-all duration-200 {{ Route::is('insight') ? 'active' : '' }}">
-                                    {{ app()->getLocale() == 'zh' ? '洞察' : 'Insight' }}
-                                </a>
-                            </li>
-
-                        </ul>
-
-                        <ul>
-                            <a href="/contact/#msg-us">
-                                <button
-                                    class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
-                                    {{-- onclick="getQuoteModal.showModal()" --}}>
-                                    {{ app()->getLocale() == 'zh' ? '获取报价' : 'Get Quote' }}
-                                </button>
-                            </a>
-                        </ul>
-
-                    </div>
-
                 </div>
-            </div>
-        </nav>
+            </nav>
+
+
+
+        </div>
+
     </header>
 
 
@@ -351,7 +358,7 @@
 
 
     <main>
-        <div>
+        <div class="">
             @yield('content')
         </div>
     </main>
@@ -380,9 +387,9 @@
                             <path
                                 d="M46.4233 38.6403L47.7279 30.3588H39.6917V24.9759C39.6917 22.7114 40.8137 20.4987 44.4013 20.4987H48.1063V13.4465C45.9486 13.1028 43.7685 12.9168 41.5834 12.8901C34.9692 12.8901 30.651 16.8626 30.651 24.0442V30.3588H23.3193V38.6403H30.651V58.671H39.6917V38.6403H46.4233Z"
                                 fill="#111827" />
-                        </svg> </a> 
+                        </svg> </a>
 
-                        {{-- whatsapp --}} <a href="https://wa.me/13134552725" target="_blank"
+                    {{-- whatsapp --}} <a href="https://wa.me/13134552725" target="_blank"
                         class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 hover:border-gray-100 hover:bg-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 71 72"
                             fill="none">
@@ -395,7 +402,7 @@
                         </svg>
 
                     </a>
-                     {{-- Linkedin --}} <a href="#"
+                    {{-- Linkedin --}} <a href="#"
                         class="p-1 bg-gray-100 rounded-lg flex items-center border border-gray-300 justify-center transition-all duration-500 ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 72 72"
                             fill="none">

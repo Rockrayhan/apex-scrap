@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2025 at 04:42 PM
+-- Generation Time: Sep 15, 2025 at 06:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -94,7 +94,9 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`id`, `name_en`, `name_zh`, `slug`, `created_at`, `updated_at`) VALUES
 (1, 'Ferrous-Metal', '黑色金属', 'ferrous-metal', '2025-09-09 03:57:56', '2025-09-13 23:27:45'),
 (2, 'Non-Ferrous-Metal', '有色金属', 'non-ferrous-metal', '2025-09-09 03:58:36', '2025-09-14 02:39:43'),
-(3, 'Catalytic-Converters', '催化转化器', 'catalytic-converters', '2025-09-09 03:59:50', '2025-09-13 23:29:31');
+(4, 'Plastics', '塑料', 'plastics', '2025-09-15 08:49:31', '2025-09-15 08:49:31'),
+(5, 'Paper', '纸', 'paper', '2025-09-15 09:03:12', '2025-09-15 09:03:12'),
+(6, 'Catalytic-Converters', '催化转化器', 'catalytic-converters', '2025-09-15 09:32:14', '2025-09-15 09:32:14');
 
 -- --------------------------------------------------------
 
@@ -198,7 +200,6 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `category_id`, `name_en`, `name_zh`, `slug`, `description_en`, `description_zh`, `image`, `created_at`, `updated_at`) VALUES
 (1, 1, 'ferro', '费罗铎', 'ferro', NULL, '', 'uploads/products/1757413678.jpg', '2025-09-09 04:27:47', '2025-09-13 09:27:18'),
 (2, 2, 'no ferro', '无铁', 'no-ferro', NULL, NULL, 'uploads/products/1757413798.jpg', '2025-09-09 04:29:58', '2025-09-14 00:37:29'),
-(3, 3, 'catal', '催化剂', 'catal', NULL, NULL, 'uploads/products/1757413881.jpg', '2025-09-09 04:31:21', '2025-09-14 00:38:01'),
 (4, 1, 'ferroo 1', '费鲁一号', 'ferroo-1', NULL, NULL, 'uploads/products/1757777335.png', '2025-09-13 09:28:57', '2025-09-14 00:36:37'),
 (5, 1, 'ferro two', '铁二', 'ferro-two', NULL, NULL, 'uploads/products/1757832220.png', '2025-09-14 00:43:40', '2025-09-14 00:43:40'),
 (6, 1, 'ferroo une', '催化转化器', 'ferroo-une', NULL, NULL, 'uploads/products/1757860460.png', '2025-09-14 08:34:20', '2025-09-14 08:34:20'),
@@ -213,7 +214,16 @@ INSERT INTO `products` (`id`, `category_id`, `name_en`, `name_zh`, `slug`, `desc
 (15, 2, 'no ferro sie', '无铁', 'no-ferro-sie', NULL, NULL, 'uploads/products/1757860692.jpg', '2025-09-14 08:38:12', '2025-09-14 08:38:12'),
 (16, 2, 'ono ferroo sev', '费鲁一号', 'ono-ferroo-sev', NULL, NULL, 'uploads/products/1757860712.jpg', '2025-09-14 08:38:32', '2025-09-14 08:38:32'),
 (18, 2, 'ono ferroo  eito', '无铁', 'ono-ferroo-eito', NULL, NULL, 'uploads/products/1757860901.jpg', '2025-09-14 08:41:41', '2025-09-14 08:41:41'),
-(19, 2, 'no ferro neino', '费鲁一号', 'no-ferro-neino', NULL, NULL, 'uploads/products/1757860928.jpg', '2025-09-14 08:42:08', '2025-09-14 08:42:08');
+(19, 2, 'no ferro neino', '费鲁一号', 'no-ferro-neino', NULL, NULL, 'uploads/products/1757860928.jpg', '2025-09-14 08:42:08', '2025-09-14 08:42:08'),
+(20, 4, 'Plastics uno', '有色金属', 'plastics-uno', NULL, NULL, 'uploads/products/1757948780.jpg', '2025-09-15 09:06:20', '2025-09-15 09:06:20'),
+(21, 4, 'plas to', '无铁', 'plas-to', NULL, NULL, 'uploads/products/1757948875.jpg', '2025-09-15 09:07:55', '2025-09-15 09:07:55'),
+(22, 4, 'Plastics tre', '费鲁一号', 'plastics-tre', NULL, NULL, 'uploads/products/1757948954.png', '2025-09-15 09:09:14', '2025-09-15 09:09:14'),
+(23, 4, 'plas fo', '无铁', 'plas-fo', NULL, NULL, 'uploads/products/1757948990.png', '2025-09-15 09:09:50', '2025-09-15 09:09:50'),
+(24, 5, 'paper uno', '无铁', 'paper-uno', NULL, NULL, 'uploads/products/1757949488.jpg', '2025-09-15 09:18:08', '2025-09-15 09:18:08'),
+(25, 5, 'Paper to', '无铁', 'paper-to', NULL, NULL, 'uploads/products/1757949545.jpg', '2025-09-15 09:19:05', '2025-09-15 09:19:05'),
+(26, 5, 'paper tre', '催化剂', 'paper-tre', NULL, NULL, 'uploads/products/1757949960.jpg', '2025-09-15 09:26:00', '2025-09-15 09:26:00'),
+(27, 5, 'Paper fro', '催化剂', 'paper-fro', NULL, NULL, 'uploads/products/1757950013.jpg', '2025-09-15 09:26:53', '2025-09-15 09:26:53'),
+(28, 6, 'Catalytic-Converters', '催化转化器', 'catalytic-converters', NULL, NULL, 'uploads/products/1757950406.png', '2025-09-15 09:33:26', '2025-09-15 09:33:26');
 
 -- --------------------------------------------------------
 
@@ -318,7 +328,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -342,7 +352,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`

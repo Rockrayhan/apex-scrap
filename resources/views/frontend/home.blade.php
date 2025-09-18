@@ -7,7 +7,7 @@
 
 
            {{-- home banner --}}
-           <section class="relative flex justify-center min-h-[80vh] bg-black/40 bg-cover bg-no-repeat bg-center"
+           <section class="relative flex justify-center min-h-[90vh] md:min-h-[85vh] bg-black/40 bg-cover bg-no-repeat bg-center"
                style="background-image: url('{{ asset('/frontend/images/banner.webp') }}')">
 
                {{-- Dark overlay --}}

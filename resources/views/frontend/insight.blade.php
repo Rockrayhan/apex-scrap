@@ -80,7 +80,7 @@
 
                             {{-- Description --}}
                             <p class="text-sm text-gray-700 line-clamp-3">
-                                {!! $blog->description !!}
+                                {!! Str::limit(strip_tags($blog->description), 100) !!}
                             </p>
 
                             {{-- Card Footer --}}

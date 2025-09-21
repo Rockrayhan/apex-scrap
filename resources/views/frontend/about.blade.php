@@ -85,6 +85,54 @@
            </section>
 
 
+           {{-- Meet Our Team --}}
+
+           <section class="py-16 bg-gray-200">
+               <div class="container">
+
+                   <div class="center flex-col gap-3">
+                       <h3 class="h3 font-bold text-primary text-center">
+                           {{ app()->getLocale() == 'zh' ? '认识我们的团队' : 'Meet Our Team' }}
+                       </h3>
+                       <p class="p text-center w-full md:w-2/3">
+                           {{ app()->getLocale() == 'zh'
+                               ? '我们经验丰富的专业团队致力于为您提供最佳服务和金属回收专业知识。'
+                               : 'Our experienced professionals are dedicated to providing you with the best service and expertise in metal recycling.' }}
+                       </p>
+                   </div>
+
+
+
+                   <div class="flex-col md:flex-row flex justify-evenly mt-8">
+
+                       <div class="center flex-col gap-1">
+                           <img src="{{ asset('/frontend/images/team-1.png') }}" alt=""
+                               class="h-32 w-32 rounded-full">
+                           <h6 class="h6 font-semibold"> Mr. Faridul </h6>
+                           <p class="text-primary"> Founder & CEO </p>
+                       </div>
+                       <div class="center flex-col gap-1">
+                           <img src="{{ asset('/frontend/images/team-2.png') }}" alt=""
+                               class="h-32 w-32 rounded-full">
+                           <h6 class="h6 font-semibold"> Mr. Barik Zia </h6>
+                           <p class="text-primary"> Operations Manager </p>
+                       </div>
+                       <div class="center flex-col gap-1">
+                           <img src="{{ asset('/frontend/images/team-1.png') }}" alt=""
+                               class="h-32 w-32 rounded-full">
+                           <h6 class="h6 font-semibold"> Sheikh Hossain </h6>
+                           <p class="text-primary"> Operations Manager </p>
+                       </div>
+
+                   </div>
+
+
+
+
+               </div>
+           </section>
+
+
            {{-- How It Works --}}
            <section class="py-16 container">
                <div class="center flex-col gap-3">

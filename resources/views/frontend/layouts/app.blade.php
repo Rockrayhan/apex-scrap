@@ -202,15 +202,15 @@
 
                             </ul>
 
-                            <ul>
-                                <a href="/contact/#msg-us">
-                                    <button
-                                        class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
-                                        {{-- onclick="getQuoteModal.showModal()" --}}>
-                                        {{ app()->getLocale() == 'zh' ? '获取报价' : 'Get Quote' }}
-                                    </button>
-                                </a>
-                            </ul>
+
+                            <a href="/contact/#msg-us">
+                                <button
+                                    class="hover:text-green-800 transition-all duration-200 border-x-2 border-b-4 border-green-800 px-3 py-1 rounded-lg"
+                                    {{-- onclick="getQuoteModal.showModal()" --}}>
+                                    {{ app()->getLocale() == 'zh' ? '获取报价' : 'Get Quote' }}
+                                </button>
+                            </a>
+
 
                         </div>
 

@@ -79,7 +79,7 @@
 
                      <!-- DaisyUI Modal -->
                      <input type="checkbox" id="product-modal" class="modal-toggle" />
-                     <div class="modal">
+                     <div class="modal z-[1000]">
                          <div
                              class="modal-box relative w-11/12 max-w-2xl h-[80vh] md:h-[70vh] p-6 flex flex-col justify-between">
                              <!-- Close Button -->
@@ -159,29 +159,6 @@
                          </ul>
                      </div>
 
-                     {{-- <!-- Product Images - Second Category -->
-                     <div class="col-span-2">
-                         <div class="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-4">
-                             @foreach ($secondCategory->products->take(8) as $product)
-                                 <label for="product-modal" class="cursor-pointer">
-                                     <img src="{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}"
-                                         alt="{{ $product->name }}"
-                                         class="h-30 w-30 object-cover rounded hover:scale-105 transition"
-                                         onclick="document.getElementById('modal-img').src='{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}'">
-                                 </label>
-                             @endforeach
-                         </div>
-                     </div>
-
-
-                     <!-- Shared DaisyUI Modal -->
-                     <input type="checkbox" id="product-modal" class="modal-toggle" />
-                     <div class="modal">
-                         <div class="modal-box relative max-w-4xl">
-                             <label for="product-modal" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                             <img id="modal-img" src="" alt="Product Image" class="max-h-[80vh] mx-auto rounded-lg">
-                         </div>
-                     </div> --}}
 
 
 
@@ -202,7 +179,7 @@
 
                      <!-- DaisyUI Modal -->
                      <input type="checkbox" id="product-modal" class="modal-toggle" />
-                     <div class="modal">
+                     <div class="modal z-[1000]">
                          <div
                              class="modal-box relative w-11/12 max-w-2xl h-[80vh] md:h-[70vh] p-6 flex flex-col justify-between">
                              <!-- Close Button -->
@@ -303,7 +280,7 @@
 
                      <!-- DaisyUI Modal -->
                      <input type="checkbox" id="product-modal" class="modal-toggle" />
-                     <div class="modal">
+                     <div class="modal z-[1000]">
                          <div
                              class="modal-box relative w-11/12 max-w-2xl h-[80vh] md:h-[70vh] p-6 flex flex-col justify-between">
                              <!-- Close Button -->
@@ -392,7 +369,7 @@
 
                      <!-- DaisyUI Modal -->
                      <input type="checkbox" id="product-modal" class="modal-toggle" />
-                     <div class="modal">
+                     <div class="modal z-[1000]">
                          <div
                              class="modal-box relative w-11/12 max-w-2xl h-[80vh] md:h-[70vh] p-6 flex flex-col justify-between">
                              <!-- Close Button -->

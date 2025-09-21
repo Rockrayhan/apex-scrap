@@ -143,7 +143,7 @@
                     </div>
                     <div>
                         <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '地址' : 'Address' }}</h6>
-                        <p> 5452 Aerospace Drive Laramie, WY 82070, USA </p>
+                        <p> Room 904,building 8,JianFa YangXi Garden，No.848 ShiTan Road，Baiyun District, Guangzhou City </p>
                     </div>
                 </div>
             </div>

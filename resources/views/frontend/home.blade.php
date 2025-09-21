@@ -7,7 +7,8 @@
 
 
            {{-- home banner --}}
-           <section class="relative flex justify-center min-h-[90vh] md:min-h-[85vh] bg-black/40 bg-cover bg-no-repeat bg-center"
+           <section
+               class="relative flex justify-center min-h-[90vh] md:min-h-[85vh] bg-black/40 bg-cover bg-no-repeat bg-center"
                style="background-image: url('{{ asset('/frontend/images/banner.webp') }}')">
 
                {{-- Dark overlay --}}
@@ -124,50 +125,63 @@
                    </div>
                </div>
 
-               <div class="relative inline-block cursor-pointer group"
-                   onclick="document.getElementById('video_modal').showModal()">
+
+
+
+
+
+
+
+               <div class="relative inline-block cursor-pointer group" onclick="openVideoModal()">
                    <img src="{{ asset('/frontend/images/banner2.webp') }}" alt=""
                        class="w-full h-auto transition-all duration-700 ease-in-out hover:grayscale" />
-
-
                    <img src="{{ asset('/frontend/images/play-icon.svg') }}" alt="Play"
                        class="absolute -top-2 right-0 w-18 h-18 border-b-5 border-l-5 border-white p-4 
-            transition-transform duration-300 ease-in-out group-hover:scale-120">
+         transition-transform duration-300 ease-in-out group-hover:scale-120">
                </div>
 
                <dialog id="video_modal" class="modal">
                    <div class="modal-box max-w-3xl">
                        <div class="aspect-video">
-                           <iframe class="w-full h-96 rounded-lg" src="https://youtu.be/4_QI4iQSI0I?si=XAP7rlr-M17L3qyc"
-                               title="Video" frameborder="0"
+                           <iframe id="video_iframe" class="w-full h-96 rounded-lg" src="" title="Video"
+                               frameborder="0"
                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                allowfullscreen></iframe>
                        </div>
                        <div class="modal-action">
                            <form method="dialog">
-                               <button class="btn">
+                               <button class="btn" onclick="closeVideoModal()">
                                    {{ app()->getLocale() == 'zh' ? '关闭' : 'Close' }}
                                </button>
                            </form>
                        </div>
                    </div>
-
-                   <form method="dialog" class="modal-backdrop">
+                   <form method="dialog" class="modal-backdrop" onclick="closeVideoModal()">
                        <button>{{ app()->getLocale() == 'zh' ? '关闭' : 'Close' }}</button>
                    </form>
                </dialog>
+
+
+
+
+
+
+
+
+
+
            </section>
 
 
            {{-- What We Sell & Buy --}}
            <section class="pb-16 container">
                <div class="center flex-col gap-4 py-6">
-                   <div class="center gap-3">
-                       <hr class="border-b-2 border-green-800 w-12 md:w-18 lg:w-28">
+                   <div class="center gap-2 md:gap-4">
+                       <hr class="border-b-2 border-green-800 w-8 md:w-18 lg:w-28">
                        <h3 class="h3 text-primary font-bold">
                            {{ app()->getLocale() == 'zh' ? '我们销售和购买什么' : 'What We Sell & Buy' }}
                        </h3>
-                       <hr class="border-b-2 border-green-800 w-12 md:w-18 lg:w-28">
+                       <hr class="border-b-2 border-green-800 w-8 md:w-18 lg:w-28">
                    </div>
 
                    <p class="text-center w-full md:w-2/3">
@@ -470,5 +484,24 @@
            </section>
 
 
+
+
+
+           <script>
+               const modal = document.getElementById("video_modal");
+               const iframe = document.getElementById("video_iframe");
+                  const videoUrl = "https://drive.google.com/file/d/1TX7EJ66ygVAdBhSwYr-N22n9KGGze0BF/preview";
+
+
+                  function openVideoModal() {
+                      iframe.src = videoUrl; // load video when modal opens
+                      modal.showModal();
+                  }
+
+               function closeVideoModal() {
+                   iframe.src = ""; // clear video so it stops playing
+                   modal.close();
+               }
+           </script>
 
        @endsection

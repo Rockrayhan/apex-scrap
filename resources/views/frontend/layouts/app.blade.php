@@ -587,7 +587,7 @@
     {{-- loader --}}
     <script>
         // Fade out loader after page load
-        window.addEventListener('load', () => {
+        window.addEventListener('DOMContentLoaded', () => {
             const loader = document.getElementById('pageLoader');
             loader.classList.add('opacity-0');
             setTimeout(() => loader.style.display = 'none', 100);

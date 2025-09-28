@@ -13,12 +13,13 @@
 <!-- 8. services - product image reduce gap . -->
 <!-- 9. update address china , viyetnam -->
 <!-- 11. search with title in blog -->
-8. services - popup image the only image.
-5. we are -- give video in public
+<!-- 8. services - popup image the only image. -->
+<!-- 5. we are -- give video in public -->
+
+
 6. dynamic - team + review
 10. edit product - make uplaoded image crossable
-
-
+11. clear cache and then zip - lets see what happens -_-
 
 
     # categories / slug instead of categories / id
@@ -29,5 +30,4 @@
 
 -   Unique <title> and <meta description>.
 -   A single <h1>.
--   Structured data (JSON-LD) if possible.
 -   Generate and submit a sitemap.xml to Google Search Console.

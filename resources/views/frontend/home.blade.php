@@ -148,7 +148,6 @@
                </div>
 
 
-
                <div class="relative inline-block cursor-pointer group" onclick="openVideoModal()">
                    <img src="{{ asset('/frontend/images/banner2.webp') }}" alt=""
                        class="w-full h-auto transition-all duration-700 ease-in-out hover:grayscale" loading="lazy" />
@@ -157,25 +156,24 @@
                </div>
 
                <dialog id="video_modal" class="modal">
-                   <div class="modal-box max-w-3xl">
-                       <div class="aspect-video">
-                           <iframe id="video_iframe" class="w-full h-96 rounded-lg" src="" title="Video"
-                               frameborder="0"
-                               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                               allowfullscreen></iframe>
-                       </div>
-                       <div class="modal-action">
-                           <form method="dialog">
-                               <button class="btn" onclick="closeVideoModal()">
-                                   {{ app()->getLocale() == 'zh' ? '关闭' : 'Close' }}
-                               </button>
-                           </form>
+                   <div class="modal-box max-w-3xl relative p-0">
+                       <!-- Close Button -->
+                       <button onclick="closeVideoModal()"
+                           class="btn btn-sm btn-circle bg-red-500 text-white absolute right-2 top-2 z-10">✕</button>
+
+                       <!-- Video -->
+                       <div class="aspect-video w-full h-full">
+                           <video id="modal_video" class="w-full h-full rounded-lg" controls preload="metadata">
+                               <source src="{{ asset('/frontend/Apx Scrap Media.webm') }}" type="video/mp4">
+                               {{ app()->getLocale() == 'zh' ? '您的浏览器不支持视频播放' : 'Your browser does not support the video tag.' }}
+                           </video>
                        </div>
                    </div>
-                   <form method="dialog" class="modal-backdrop" onclick="closeVideoModal()">
-                       <button>{{ app()->getLocale() == 'zh' ? '关闭' : 'Close' }}</button>
-                   </form>
+
+                   <!-- Click outside to close -->
+                   <form method="dialog" class="modal-backdrop" onclick="closeVideoModal()"></form>
                </dialog>
+
 
 
            </section>
@@ -503,19 +501,20 @@
 
 
 
+           {{-- modal video --}}
+
            <script>
                const modal = document.getElementById("video_modal");
-               const iframe = document.getElementById("video_iframe");
-               const videoUrl = "https://drive.google.com/file/d/1TX7EJ66ygVAdBhSwYr-N22n9KGGze0BF/preview";
-
+               const video = document.getElementById("modal_video");
 
                function openVideoModal() {
-                   iframe.src = videoUrl; // load video when modal opens
                    modal.showModal();
+                   video.play(); // autoplay when modal opens
                }
 
                function closeVideoModal() {
-                   iframe.src = ""; // clear video so it stops playing
+                   video.pause();
+                   video.currentTime = 0; // reset to beginning
                    modal.close();
                }
            </script>

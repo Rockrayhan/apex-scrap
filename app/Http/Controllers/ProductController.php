@@ -101,7 +101,6 @@ class ProductController extends Controller
             'image'           => $filename,
         ]);
 
-        // return redirect()->route('admin.products.index')->with('success', 'Product updated successfully!');
         return redirect()->route('admin.products.index')
             ->with('success', 'Product updated successfully!')
             ->with('newProductId', $product->id);

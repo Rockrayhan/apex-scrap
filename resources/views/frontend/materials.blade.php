@@ -4,7 +4,20 @@
 
  <style>
      .modal-box {
-         background-color: rgba(0, 0, 0, 0);
+         background-color: rgba(112, 109, 109, 0);
+         box-shadow: 0px 0px 0px 0px !important;
+     }
+
+     .modal-box h3 {
+         color: whitesmoke;
+         background-color: #262626;
+         border-radius: 10px;
+         padding: 5px 10px 5px 10px ;
+         position: absolute;
+         left: 25px;
+         /* top: 0px; */
+         display: block
+
      }
  </style>
 
@@ -86,8 +99,8 @@
 
 
                      <!-- DaisyUI Modal -->
-                     {{-- <input type="checkbox" id="product-modal" class="modal-toggle" />
-                     <div class="modal z-[1000]">
+                     <input type="checkbox" id="product-modal" class="modal-toggle" />
+                     <div class="modal z-[1000]" onclick="closeOnOutsideClick(event)">
                          <div
                              class="modal-box relative w-11/12 max-w-2xl h-[80vh] md:h-[70vh] p-6 flex flex-col justify-between">
                              <!-- Close Button -->
@@ -95,22 +108,22 @@
                                  class="btn btn-sm btn-circle bg-red-400 font-bold text-white absolute right-2 top-2">✕</label>
 
                              <!-- Product Name -->
-                             <h3 id="modal-title" class="text-2xl font-bold text-center mb-4 truncate"></h3>
+                             <h3 id="modal-title" class="text-2xl font-bold text-center mb-2 truncate "></h3>
 
                              <!-- Product Image -->
                              <div class="flex-1 flex justify-center items-center overflow-hidden">
                                  <img id="modal-img" src="" alt="Product Image"
-                                     class="max-h-full max-w-full rounded-lg object-contain transition-transform duration-300 hover:scale-105">
+                                     class="h-full w-full rounded-lg object-contain">
                              </div>
                          </div>
-                     </div> --}}
+                     </div>
 
 
-
+                     {{-- 
                      <input type="checkbox" id="product-modal" class="modal-toggle" />
                      <div class="modal z-[1000]">
 
-                         <div class="flex flex-col justify-between relative w-11/12 max-w-2xl h-[80vh] md:h-[70vh]">
+                         <div class="flex flex-col justify-between relative w-3/5 h-[80vh] md:h-[70vh]">
                              <img id="modal-img" src="" alt="Product Image"
                                  class="max-h-full max-w-full rounded-lg object-contain">
                              <!-- Close Button -->
@@ -119,11 +132,11 @@
 
                              <!-- Product Name -->
                              <h3 id="modal-title"
-                                 class="text-3xl font-bold text-center mb-4 truncate text-white absolute right-10 top-0">
+                                 class="text-3xl font-bold text-center mb-4 truncate text-white absolute right-10 top-0 bg-gray-600">
                              </h3>
                          </div>
 
-                     </div>
+                     </div> --}}
 
 
 
@@ -527,15 +540,34 @@
 
 
      {{-- modal  --}}
+     {{-- <script>
+         function openModal(name, imgSrc) {
+             const modalCheckbox = document.getElementById('product-modal');
+             document.getElementById('modal-title').textContent = name;
+             document.getElementById('modal-img').src = imgSrc;
+             modalCheckbox.checked = true; 
+         }
+     </script> --}}
+
+     {{-- modal --}}
      <script>
          function openModal(name, imgSrc) {
              const modalCheckbox = document.getElementById('product-modal');
              document.getElementById('modal-title').textContent = name;
              document.getElementById('modal-img').src = imgSrc;
-             modalCheckbox.checked = true; // Properly open modal
+             modalCheckbox.checked = true;
+         }
+
+         function closeOnOutsideClick(event) {
+             const modalBox = document.querySelector('.modal-box');
+             const modalCheckbox = document.getElementById('product-modal');
+
+             // if clicked outside modal-box
+             if (!modalBox.contains(event.target)) {
+                 modalCheckbox.checked = false;
+             }
          }
      </script>
-
 
 
  @endsection

@@ -63,8 +63,8 @@
                    </div>
 
                    <div class="col-span-1">
-                       <img src="{{ asset('/frontend/images/about-1.jpg') }}"
-                           alt="{{ app()->getLocale() == 'zh' ? '关于我们' : 'About us' }}" class="rounded-2xl shadow-2xl">
+                       <img src="{{ asset('/frontend/images/about-1.webp') }}"
+                           alt="about-us" class="rounded-2xl shadow-2xl" loading="lazy">
                    </div>
                </div>
            </section>
@@ -73,8 +73,8 @@
            <section class="py-16">
                <div class="container grid md:grid-cols-2 grid-cols-1 gap-6">
                    <div class="col-span-1 center order-2 md:order-1">
-                       <img src="{{ asset('/frontend/images/about-2.jpg') }}"
-                           alt="{{ app()->getLocale() == 'zh' ? '关于我们' : 'About us' }}" class="rounded-2xl shadow-2xl">
+                       <img src="{{ asset('/frontend/images/about-2.webp') }}"
+                           alt="about-us" class="rounded-2xl shadow-2xl" loading="lazy">
                    </div>
 
                    <div class="col-span-1 flex flex-col gap-4 px-3 order-1 md:order-2">
@@ -152,8 +152,8 @@
                    </div>
 
                    <div class="col-span-1">
-                       <img src="{{ asset('/frontend/images/about-1.jpg') }}"
-                           alt="{{ app()->getLocale() == 'zh' ? '大宗供应' : 'Bulk supply' }}" class="rounded-2xl shadow-2xl">
+                       <img src="{{ asset('/frontend/images/about-1.webp') }}"
+                           alt="Bulk-supply" class="rounded-2xl shadow-2xl">
                    </div>
                </div>
            </section>
@@ -166,7 +166,7 @@
 
 
                    <div class="order-2 md:order-1">
-                       <img src="{{ asset('/frontend/images/services-3.jpg') }}" alt="">
+                       <img src="{{ asset('/frontend/images/services-3.jpg') }}" alt="service-3" loading="lazy">
                    </div>
 
 
@@ -177,9 +177,6 @@
                        </h3>
 
                        <ol class="list-decimal space-y-4">
-                           <h5 class="h6 font-semibold mb-3">
-                               {{ app()->getLocale() == 'zh' ? '与 Apex Scrap 合作很简单：' : 'Working with Apex Scrap is simple:' }}
-                           </h5>
                            <li><b>{{ app()->getLocale() == 'zh' ? '咨询' : 'Inquiry' }}</b> –
                                {{ app()->getLocale() == 'zh' ? '告诉我们您需要的材料' : 'Tell us what materials you need' }}</li>
                            <li><b>{{ app()->getLocale() == 'zh' ? '报价' : 'Quotation' }}</b> –

@@ -48,13 +48,12 @@
                 @foreach ($blogs as $blog)
                     <div class="card bg-gray-200 shadow-sm hover:shadow-md transition-shadow duration-300">
 
-                        {{-- Blog Image --}}
-                        @if ($blog->image)
-                            <figure>
-                                <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}"
-                                    class="w-full h-48 object-cover" />
-                            </figure>
-                        @endif
+                        {{-- blog image --}}
+                        <figure>
+                            <img src="{{ $blog->image ? asset($blog->image) : asset('frontend/images/placeholder.jpg') }}"
+                                alt="{{ $blog->title ?? 'Blog image' }}" class="w-full h-48 object-cover" loading="lazy" />
+                        </figure>
+
 
                         {{-- Blog Body --}}
                         <div class="card-body">
@@ -107,58 +106,59 @@
         </section>
 
 
-{{-- extra insight content --}}
-<section class="bg-gray-100 py-16">
-    <div class="container max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        
-        {{-- Left Side: Illustration / Image --}}
-        <div class="order-2 md:order-1">
-            <img src="/frontend/images/insight-1.jpg" alt="Apex Scrap Recycling" class="rounded-lg shadow-md">
-        </div>
+        {{-- extra insight content --}}
+        <section class="bg-gray-100 py-16">
+            <div class="container max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
-        {{-- Right Side: Content --}}
-        <div class="order-1 md:order-2">
-            <h3 class="text-3xl font-bold text-primary mb-4">
-                {{ app()->getLocale() == 'zh' ? 'Apex Scrap – 将废物转化为机遇' : 'Apex Scrap – Turning Waste into Opportunity' }}
+                {{-- Left Side: Illustration / Image --}}
+                <div class="order-2 md:order-1">
+                    <img src="/frontend/images/insight-1.jpg" alt="Apex Scrap Recycling" class="rounded-lg shadow-md"
+                        loading="lazy">
+                </div>
+
+                {{-- Right Side: Content --}}
+                <div class="order-1 md:order-2">
+                    <h3 class="text-3xl font-bold text-primary mb-4">
+                        {{ app()->getLocale() == 'zh' ? 'Apex Scrap – 将废物转化为机遇' : 'Apex Scrap – Turning Waste into Opportunity' }}
+                    </h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        {{ app()->getLocale() == 'zh'
+                            ? '在 Apex Scrap，我们帮助企业有效回收废料，将废品转化为有价值的资源。通过这样做，我们促进可持续产品开发并减少环境影响。'
+                            : 'At Apex Scrap, we help businesses recycle waste effectively, transforming scrap into valuable resources. By doing so, we contribute to sustainable product development and reduce environmental impact.' }}
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        {{ app()->getLocale() == 'zh'
+                            ? '我们处理的每一吨材料，都在支持资源节约、节能和减少污染，为行业和地球带来积极影响。'
+                            : 'Every ton of material we process supports resource conservation, energy savings, and pollution reduction, making a positive difference for industries and the planet.' }}
+                    </p>
+                    <p class="font-semibold text-lg text-primary italic">
+                        {{ app()->getLocale() == 'zh'
+                            ? '您的废料，我们的专业，共创绿色未来。'
+                            : 'Your scrap, our expertise, a greener future.' }}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        {{-- Call to Action --}}
+        <section class="py-16 bg-gray-200 text-center">
+            <h3 class="h3 text-primary font-bold mb-4">
+                {{ app()->getLocale() == 'zh' ? '准备好与我们合作了吗？' : 'Ready to Partner with Us?' }}
             </h3>
-            <p class="text-gray-700 mb-4 leading-relaxed">
+            <p class="mb-6 w-full md:w-2/3 mx-auto">
                 {{ app()->getLocale() == 'zh'
-                    ? '在 Apex Scrap，我们帮助企业有效回收废料，将废品转化为有价值的资源。通过这样做，我们促进可持续产品开发并减少环境影响。'
-                    : 'At Apex Scrap, we help businesses recycle waste effectively, transforming scrap into valuable resources. By doing so, we contribute to sustainable product development and reduce environmental impact.' }}
+                    ? '今天就联系我们，让您的废金属成为可持续未来的一部分。'
+                    : 'Get in touch with us today and turn your scrap into part of a sustainable future.' }}
             </p>
-            <p class="text-gray-700 mb-4 leading-relaxed">
-                {{ app()->getLocale() == 'zh'
-                    ? '我们处理的每一吨材料，都在支持资源节约、节能和减少污染，为行业和地球带来积极影响。'
-                    : 'Every ton of material we process supports resource conservation, energy savings, and pollution reduction, making a positive difference for industries and the planet.' }}
-            </p>
-            <p class="font-semibold text-lg text-primary italic">
-                {{ app()->getLocale() == 'zh'
-                    ? '您的废料，我们的专业，共创绿色未来。'
-                    : 'Your scrap, our expertise, a greener future.' }}
-            </p>
-        </div>
-    </div>
-</section>
-
-
-
-
-{{-- Call to Action --}}
-<section class="py-16 bg-gray-200 text-center">
-    <h3 class="h3 text-primary font-bold mb-4">
-        {{ app()->getLocale() == 'zh' ? '准备好与我们合作了吗？' : 'Ready to Partner with Us?' }}
-    </h3>
-    <p class="mb-6 w-full md:w-2/3 mx-auto">
-        {{ app()->getLocale() == 'zh'
-            ? '今天就联系我们，让您的废金属成为可持续未来的一部分。'
-            : 'Get in touch with us today and turn your scrap into part of a sustainable future.' }}
-    </p>
-    <a href="{{ route('contact') }}">
-        <button class="bg-white text-primary font-bold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 transition">
-            {{ app()->getLocale() == 'zh' ? '联系我们' : 'Contact Us' }}
-        </button>
-    </a>
-</section>
+            <a href="{{ route('contact') }}">
+                <button class="bg-white text-primary font-bold px-6 py-3 rounded-lg shadow-md btn-hover">
+                    {{ app()->getLocale() == 'zh' ? '联系我们' : 'Contact Us' }}
+                </button>
+            </a>
+        </section>
 
 
     @endsection

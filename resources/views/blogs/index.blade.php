@@ -34,8 +34,18 @@
 
         <div class="d-flex justify-content-between align-items-center mb-3">
             <h2>All Blogs</h2>
-            <a href="/admin/blogs/create" class="btn btn-success mb-3"> Add New Blog</a>
+
+            <form action="{{ route('blogs.index') }}" method="GET" class="flex gap-2">
+                <input type="text" name="search"
+                    placeholder="Search by Title"
+                    value="{{ request('search') }}"
+                    class="border border-success rounded p-2" />
+                <button type="submit" class="btn btn-success">Search</button>
+            </form>
+
+            <a href="/admin/blogs/create" class="btn btn-success mb-3">Add New Blog</a>
         </div>
+
 
         <table class="table table-bordered table-striped align-middle">
             <thead class="table-light">

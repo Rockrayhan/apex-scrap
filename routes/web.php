@@ -62,9 +62,7 @@ Route::post('/send-question', [ContactController::class, 'sendAskQuestion'])->na
 
 
 
-Route::get('/api-list', function () {
-    return view('api-list');
-})->name('api-lists');
+
 
 
 // blogs

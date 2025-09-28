@@ -11,11 +11,29 @@ class BlogController extends Controller
 {
 
 
+    // public function index()
+    // {
+    //     $blogs = Blog::latest()->paginate(5);
+    //     return view('blogs.index', compact('blogs'))->with('i', (request()->input('page', 1) - 1) * 5);
+    // }
+
+
+
     public function index()
     {
-        $blogs = Blog::latest()->paginate(5);
-        return view('blogs.index', compact('blogs'))->with('i', (request()->input('page', 1) - 1) * 5);
+        $search = request('search');
+
+        $blogs = Blog::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('title_en', 'like', "%{$search}%");
+            })
+            ->latest()
+            ->paginate(5);
+
+        return view('blogs.index', compact('blogs', 'search'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
 
     public function create()
     {

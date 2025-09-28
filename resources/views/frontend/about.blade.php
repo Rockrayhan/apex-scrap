@@ -43,7 +43,7 @@
                        </ul>
                    </div>
                    <div class="col-span-1">
-                       <img src="{{ asset('/frontend/images/about-1.jpg') }}" alt="about-1" class="rounded-2xl shadow-2xl">
+                       <img src="{{ asset('/frontend/images/about-1.webp') }}" alt="about-1" class="rounded-2xl shadow-2xl" loading="lazy">
                    </div>
                </div>
            </section>
@@ -54,8 +54,8 @@
            <section class="py-16">
                <div class="container grid md:grid-cols-3 grid-cols-1 gap-6">
                    <div class="col-span-1 order-2 md:order-1">
-                       <img src="{{ asset('/frontend/images/about-2.jpg') }}" alt="about-2"
-                           class="rounded-2xl shadow-2xl">
+                       <img src="{{ asset('/frontend/images/about-2.webp') }}" alt="about-2"
+                           class="rounded-2xl shadow-2xl" loading="lazy">
                    </div>
 
                    <div class="col-span-2 flex flex-col items-end gap-4 px-3 order-1 md:order-2">
@@ -106,19 +106,19 @@
                    <div class="flex-col md:flex-row flex justify-evenly mt-8">
 
                        <div class="center flex-col gap-1">
-                           <img src="{{ asset('/frontend/images/team-1.png') }}" alt=""
+                           <img src="{{ asset('/frontend/images/team-1.png') }}" alt="team-image" loading="lazy"
                                class="h-32 w-32 rounded-full">
                            <h6 class="h6 font-semibold"> Mr. Faridul </h6>
                            <p class="text-primary"> Founder & CEO </p>
                        </div>
                        <div class="center flex-col gap-1">
-                           <img src="{{ asset('/frontend/images/team-2.png') }}" alt=""
+                           <img src="{{ asset('/frontend/images/team-2.png') }}" alt="team-image" loading="lazy"
                                class="h-32 w-32 rounded-full">
                            <h6 class="h6 font-semibold"> Mr. Barik Zia </h6>
                            <p class="text-primary"> Operations Manager </p>
                        </div>
                        <div class="center flex-col gap-1">
-                           <img src="{{ asset('/frontend/images/team-1.png') }}" alt=""
+                           <img src="{{ asset('/frontend/images/team-1.png') }}" alt="team-image" loading="lazy"
                                class="h-32 w-32 rounded-full">
                            <h6 class="h6 font-semibold"> Sheikh Hossain </h6>
                            <p class="text-primary"> Operations Manager </p>

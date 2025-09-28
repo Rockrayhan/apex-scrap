@@ -2,7 +2,15 @@
 
  @section('title', 'Apex-Scrap Services')
 
+ <style>
+     .modal-box {
+         background-color: rgba(0, 0, 0, 0);
+     }
+ </style>
+
  @section('content')
+
+
 
      {{-- banner --}}
      <section class="relative center min-h-[40vh] md:min-h-[50vh] bg-black/40 bg-cover bg-no-repeat bg-center"
@@ -40,7 +48,7 @@
                  <div class="center flex-col">
                      <h3 class="h3 text-primary font-bold py-6">{{ $firstCategory->name }}</h3>
 
-                     <p class="p w-full md:w-2/3">
+                     <p class="p w-full">
                          {{ app()->getLocale() == 'zh'
                              ? '铁合金是工业制造的骨干，以其强度、耐用性和多功能性而闻名。它们广泛应用于建筑、汽车、造船和重型机械。Apex Scrap 提供符合国际标准的高质量铁合金废料，支持全球工业。'
                              : 'Ferrous metals are the backbone of industrial manufacturing, valued for their strength, durability, and versatility. They are widely used in construction, automotive, shipbuilding, and heavy machinery. At Apex Scrap, we supply high-quality ferrous scrap that meets international standards and supports industries worldwide.' }}
@@ -55,7 +63,7 @@
                      {{-- Product List --}}
                      <div class="col-span-1">
                          <h6 class="h6 font-bold"> {{ app()->getLocale() == 'zh' ? '我们供应 :' : 'We Supply :' }} </h6>
-                         <ul class="list-disc ms-5">
+                         <ul class="list-disc ms-5 space-y-2.5">
                              @foreach ($firstCategory->products->take(8) as $product)
                                  <li>{{ $product->name }}</li>
                              @endforeach
@@ -68,7 +76,7 @@
                              @foreach ($firstCategory->products->take(8) as $product)
                                  <img src="{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}"
                                      alt="{{ $product->name }}"
-                                     class="h-30 w-30 object-cover rounded hover:scale-105 transition cursor-pointer"
+                                     class="h-42 w-48 object-cover rounded hover:scale-105 transition cursor-pointer"
                                      onclick="openModal('{{ $product->name }}', '{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}')">
                              @endforeach
                          </div>
@@ -78,7 +86,7 @@
 
 
                      <!-- DaisyUI Modal -->
-                     <input type="checkbox" id="product-modal" class="modal-toggle" />
+                     {{-- <input type="checkbox" id="product-modal" class="modal-toggle" />
                      <div class="modal z-[1000]">
                          <div
                              class="modal-box relative w-11/12 max-w-2xl h-[80vh] md:h-[70vh] p-6 flex flex-col justify-between">
@@ -95,7 +103,30 @@
                                      class="max-h-full max-w-full rounded-lg object-contain transition-transform duration-300 hover:scale-105">
                              </div>
                          </div>
+                     </div> --}}
+
+
+
+                     <input type="checkbox" id="product-modal" class="modal-toggle" />
+                     <div class="modal z-[1000]">
+
+                         <div class="flex flex-col justify-between relative w-11/12 max-w-2xl h-[80vh] md:h-[70vh]">
+                             <img id="modal-img" src="" alt="Product Image"
+                                 class="max-h-full max-w-full rounded-lg object-contain">
+                             <!-- Close Button -->
+                             <label for="product-modal"
+                                 class="btn btn-sm btn-circle bg-red-400 font-bold text-white absolute right-2 top-2">✕</label>
+
+                             <!-- Product Name -->
+                             <h3 id="modal-title"
+                                 class="text-3xl font-bold text-center mb-4 truncate text-white absolute right-10 top-0">
+                             </h3>
+                         </div>
+
                      </div>
+
+
+
 
 
 
@@ -125,6 +156,7 @@
          @endif
      </section>
 
+
      {{-- Second Category --}}
      <section class="py-16">
 
@@ -139,7 +171,7 @@
                  <div class="center flex-col">
                      <h3 class="h3 text-primary font-bold py-6">{{ $secondCategory->name }}</h3>
 
-                     <p class="p w-full md:w-2/3">
+                     <p class="p w-full">
                          {{ app()->getLocale() == 'zh'
                              ? '有色金属具有耐腐蚀、轻量化的特性，在多个行业中具有高市场价值。它们在电子、电气、航空航天、汽车和包装等领域至关重要。Apex Scrap 提供优质有色废料，确保全球冶炼厂、精炼厂和回收企业的可靠供应。'
                              : 'Non-ferrous metals are corrosion-resistant, lightweight, and hold high market value across multiple industries. They are essential in electrical, aerospace, automotive, and packaging sectors. Apex Scrap provides premium-grade non-ferrous scrap, ensuring reliable supply for smelters, refiners, and recyclers globally.' }}
@@ -168,7 +200,7 @@
                              @foreach ($secondCategory->products->take(8) as $product)
                                  <img src="{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}"
                                      alt="{{ $product->name }}"
-                                     class="h-30 w-30 object-cover rounded hover:scale-105 transition cursor-pointer"
+                                     class="h-42 w-48 object-cover rounded hover:scale-105 transition cursor-pointer"
                                      onclick="openModal('{{ $product->name }}', '{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}')">
                              @endforeach
                          </div>
@@ -241,7 +273,7 @@
                  <div class="center flex-col">
                      <h3 class="h3 text-primary font-bold py-6">{{ $thirdCategory->name }}</h3>
 
-                     <p class="p w-full md:w-2/3">
+                     <p class="p w-full">
                          {{ app()->getLocale() == 'zh'
                              ? '塑料废料是可持续回收利用的重要组成部分，能够将废弃物转化为包装、纺织品和消费品的原材料。Apex Scrap 提供经过分类和批量处理的塑料废料，支持全球回收计划，同时满足行业质量和一致性标准。'
                              : 'Plastic scrap is a vital part of sustainable recycling, transforming waste into raw materials for packaging, textiles, and consumer goods. At Apex Scrap, we provide sorted and bulk plastic scrap that supports global recycling initiatives while meeting industry standards for quality and consistency.' }}
@@ -269,7 +301,7 @@
                              @foreach ($thirdCategory->products->take(8) as $product)
                                  <img src="{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}"
                                      alt="{{ $product->name }}"
-                                     class="h-30 w-30 object-cover rounded hover:scale-105 transition cursor-pointer"
+                                     class="h-42 w-48 object-cover rounded hover:scale-105 transition cursor-pointer"
                                      onclick="openModal('{{ $product->name }}', '{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}')">
                              @endforeach
                          </div>
@@ -332,7 +364,7 @@
                  <div class="center flex-col">
                      <h3 class="h3 text-primary font-bold py-6">{{ $forthCategory->name }}</h3>
 
-                     <p class="p w-full md:w-2/3">
+                     <p class="p w-full">
                          {{ app()->getLocale() == 'zh'
                              ? '废纸回收利用可以减少浪费、节约能源、保护森林，同时为各行各业提供环保原材料。Apex Scrap 出口各种等级的散装废纸，服务于全球各地的造纸厂、包装公司和回收商。'
                              : 'Paper scrap recycling reduces waste, saves energy, and protects forests while supplying industries with eco-friendly raw material. Apex Scrap exports bulk paper scrap in various grades, serving paper mills, packaging companies, and recyclers across global markets.' }}
@@ -358,7 +390,7 @@
                              @foreach ($forthCategory->products->take(8) as $product)
                                  <img src="{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}"
                                      alt="{{ $product->name }}"
-                                     class="h-30 w-30 object-cover rounded hover:scale-105 transition cursor-pointer"
+                                     class="h-42 w-48 object-cover rounded hover:scale-105 transition cursor-pointer"
                                      onclick="openModal('{{ $product->name }}', '{{ $product->image ? asset($product->image) : asset('/frontend/images/placeholder.jpg') }}')">
                              @endforeach
                          </div>

@@ -8,7 +8,7 @@
 
            {{-- home banner --}}
            <section
-               class="relative flex justify-center min-h-[90vh] md:min-h-[85vh] bg-black/40 bg-cover bg-no-repeat bg-center"
+               class="relative flex justify-center min-h-[90vh] md:min-h-[70vh] bg-black/40 bg-cover bg-no-repeat bg-center"
                style="background-image: url('{{ asset('/frontend/images/banner.webp') }}')">
 
                {{-- Dark overlay --}}
@@ -47,28 +47,50 @@
 
            {{-- business area --}}
            <div class="bg-primary">
-               <div
-                   class="container mx-auto flex flex-col md:flex-row md:items-center md:justify-between text-white py-5 px-4">
-                   <h6 class="h4 font-semibold mb-3 md:mb-0">
+               <div class="container flex flex-col md:flex-row md:items-center md:justify-between text-white py-5 px-4">
+                   <h6 class="h4 font-semibold mb-3 md:mb-0 w-full">
                        {{ app()->getLocale() == 'zh' ? '业务领域' : 'Business Areas' }}
                    </h6>
 
-                   <div class="flex flex-wrap gap-x-8 gap-y-2">
-                       <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
-                           {{ app()->getLocale() == 'zh' ? '中国' : 'China' }}
-                       </span>
-                       <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
-                           {{ app()->getLocale() == 'zh' ? '新加坡' : 'Singapore' }}
-                       </span>
-                       <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
-                           {{ app()->getLocale() == 'zh' ? '日本' : 'Japan' }}
-                       </span>
-                       <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
-                           {{ app()->getLocale() == 'zh' ? '迪拜' : 'Dubai' }}
-                       </span>
-                       <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
-                           {{ app()->getLocale() == 'zh' ? '土耳其' : 'Turkey' }}
-                       </span>
+                   <div class="relative overflow-hidden bg-primary text-white py-2 w-full">
+                       <div class="animate-business-area flex gap-x-18 whitespace-nowrap">
+                           <!-- First Row -->
+                           <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
+                               {{ app()->getLocale() == 'zh' ? '中国' : 'China' }}
+                           </span>
+                           <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
+                               {{ app()->getLocale() == 'zh' ? '新加坡' : 'Singapore' }}
+                           </span>
+                           <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
+                               {{ app()->getLocale() == 'zh' ? '日本' : 'Japan' }}
+                           </span>
+                           <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
+                               {{ app()->getLocale() == 'zh' ? '迪拜' : 'Dubai' }}
+                           </span>
+                           <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
+                               {{ app()->getLocale() == 'zh' ? '土耳其' : 'Turkey' }}
+                           </span>
+
+                           <!-- Duplicate Row for seamless loop -->
+                           <!-- second Row -->
+                           <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
+                               {{ app()->getLocale() == 'zh' ? '中国' : 'China' }}
+                           </span>
+                           <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
+                               {{ app()->getLocale() == 'zh' ? '新加坡' : 'Singapore' }}
+                           </span>
+                           <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
+                               {{ app()->getLocale() == 'zh' ? '日本' : 'Japan' }}
+                           </span>
+                           <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
+                               {{ app()->getLocale() == 'zh' ? '迪拜' : 'Dubai' }}
+                           </span>
+                           <span class="hover:text-gray-200 cursor-pointer text-lg md:text-xl">
+                               {{ app()->getLocale() == 'zh' ? '土耳其' : 'Turkey' }}
+                           </span>
+
+
+                       </div>
                    </div>
                </div>
            </div>
@@ -127,17 +149,11 @@
 
 
 
-
-
-
-
-
                <div class="relative inline-block cursor-pointer group" onclick="openVideoModal()">
                    <img src="{{ asset('/frontend/images/banner2.webp') }}" alt=""
-                       class="w-full h-auto transition-all duration-700 ease-in-out hover:grayscale" />
-                   <img src="{{ asset('/frontend/images/play-icon.svg') }}" alt="Play"
-                       class="absolute -top-2 right-0 w-18 h-18 border-b-5 border-l-5 border-white p-4 
-         transition-transform duration-300 ease-in-out group-hover:scale-120">
+                       class="w-full h-auto transition-all duration-700 ease-in-out hover:grayscale" loading="lazy" />
+                   <img src="{{ asset('/frontend/images/play-icon.svg') }}" alt="Play" loading="lazy"
+                       class="absolute -top-2 right-0 w-18 h-18 border-b-5 border-l-5 border-white p-4 transition-transform duration-300 ease-in-out group-hover:scale-120">
                </div>
 
                <dialog id="video_modal" class="modal">
@@ -160,14 +176,6 @@
                        <button>{{ app()->getLocale() == 'zh' ? '关闭' : 'Close' }}</button>
                    </form>
                </dialog>
-
-
-
-
-
-
-
-
 
 
            </section>
@@ -237,11 +245,8 @@
                        </div>
                    @endforeach
                </div>
-
-
-
-
            </section>
+
 
            {{-- Business Reviews --}}
            <section class="bg-gray-200 py-16">
@@ -308,7 +313,8 @@
                                            <h6 class="font-bold text-lg">Herris Adom</h6>
                                            <p class="text-sm"> Managing Director </p>
                                        </div>
-                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
+                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="client-image"
+                                               loading="lazy">
                                        </div>
                                    </div>
                                </div>
@@ -353,7 +359,8 @@
                                            <h6 class="font-bold text-lg">Herris Adom</h6>
                                            <p class="text-sm"> Managing Director </p>
                                        </div>
-                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
+                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="client-image"
+                                               loading="lazy">
                                        </div>
                                    </div>
                                </div>
@@ -398,7 +405,8 @@
                                            <h6 class="font-bold text-lg">Herris Adom</h6>
                                            <p class="text-sm"> Managing Director </p>
                                        </div>
-                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
+                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="client-image"
+                                               loading="lazy">
                                        </div>
                                    </div>
                                </div>
@@ -441,14 +449,14 @@
                                            <h6 class="font-bold text-lg">Herris Adom</h6>
                                            <p class="text-sm"> Managing Director </p>
                                        </div>
-                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="">
+                                       <div> <img src="{{ asset('/frontend/images/client-1.png') }}" alt="client-image"
+                                               loading="lazy">
                                        </div>
                                    </div>
                                </div>
                            </div>
                        </div>
                    </div>
-
 
 
                </div>
@@ -467,18 +475,26 @@
                        : 'Apex Scrap, we believe growth comes through strong partnerships. Over the years, we’ve built lasting relationships with manufacturers, recyclers, steel mills, foundries, and global trading companies who trust us for consistent quality and reliable supply.' }}
                </p>
 
-               <div class="bg-secondary py-10">
-                   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
+               <div class="bg-secondary py-16 overflow-hidden">
+                   <div class="flex gap-32 animate-partners-logo ">
+                       <!-- First Row -->
                        <img src="{{ asset('/frontend/images/client-1.png') }}" alt="Client 1"
-                           class="transition duration-300 ease-in-out hover:grayscale hover:scale-105" />
+                           class=" hover:grayscale hover:scale-105 transition" />
                        <img src="{{ asset('/frontend/images/client-2.png') }}" alt="Client 2"
-                           class="transition duration-300 ease-in-out hover:grayscale hover:scale-105" />
+                           class=" hover:grayscale hover:scale-105 transition" />
                        <img src="{{ asset('/frontend/images/client-3.png') }}" alt="Client 3"
-                           class="transition duration-300 ease-in-out hover:grayscale hover:scale-105" />
+                           class=" hover:grayscale hover:scale-105 transition" />
                        <img src="{{ asset('/frontend/images/client-4.png') }}" alt="Client 4"
-                           class="transition duration-300 ease-in-out hover:grayscale hover:scale-105" />
+                           class=" hover:grayscale hover:scale-105 transition" />
                        <img src="{{ asset('/frontend/images/client-5.png') }}" alt="Client 5"
-                           class="transition duration-300 ease-in-out hover:grayscale hover:scale-105" />
+                           class=" hover:grayscale hover:scale-105 transition" />
+
+                       <!-- Second Row (Duplicate for infinite loop) -->
+                       <img src="{{ asset('/frontend/images/client-1.png') }}" alt="Client 1" class=" opacity-80" />
+                       <img src="{{ asset('/frontend/images/client-2.png') }}" alt="Client 2" class=" opacity-80" />
+                       <img src="{{ asset('/frontend/images/client-3.png') }}" alt="Client 3" class=" opacity-80" />
+                       <img src="{{ asset('/frontend/images/client-4.png') }}" alt="Client 4" class=" opacity-80" />
+                       <img src="{{ asset('/frontend/images/client-5.png') }}" alt="Client 5" class=" opacity-80" />
                    </div>
                </div>
            </section>
@@ -490,13 +506,13 @@
            <script>
                const modal = document.getElementById("video_modal");
                const iframe = document.getElementById("video_iframe");
-                  const videoUrl = "https://drive.google.com/file/d/1TX7EJ66ygVAdBhSwYr-N22n9KGGze0BF/preview";
+               const videoUrl = "https://drive.google.com/file/d/1TX7EJ66ygVAdBhSwYr-N22n9KGGze0BF/preview";
 
 
-                  function openVideoModal() {
-                      iframe.src = videoUrl; // load video when modal opens
-                      modal.showModal();
-                  }
+               function openVideoModal() {
+                   iframe.src = videoUrl; // load video when modal opens
+                   modal.showModal();
+               }
 
                function closeVideoModal() {
                    iframe.src = ""; // clear video so it stops playing

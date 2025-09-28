@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link rel="icon" href="{{ asset('/frontend/images/favicon.png') }}" type="image/x-icon">
 
     
     <!-- Customized Bootstrap Stylesheet -->

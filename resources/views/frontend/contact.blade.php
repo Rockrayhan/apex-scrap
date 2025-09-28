@@ -109,9 +109,9 @@
         @endif
     </div>
 
-    <section class="py-16 container grid grid-cols-1 md:grid-cols-2 gap-y-4">
+    <section class="py-16 container grid grid-cols-1 md:grid-cols-2  gap-4">
 
-        <div class="con-span-1 grid grid-cols-1 md:grid-cols-2">
+        <div class="con-span-1 grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <h4 class="h4 font-bold text-primary my-3">{{ app()->getLocale() == 'zh' ? '美国办公室' : 'USA Office' }}</h4>
                 <div class="flex flex-col gap-4">
@@ -125,7 +125,7 @@
                     </div>
                     <div>
                         <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '地址' : 'Address' }}</h6>
-                        <p> 5452 Aerospace Drive Laramie, WY 82070, USA </p>
+                        <p   class="w-full md:w-4/5"> 5452 Aerospace Drive Laramie, WY 82070, USA </p>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@
                     </div>
                     <div>
                         <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '地址' : 'Address' }}</h6>
-                        <p> Room 904,building 8,JianFa YangXi Garden，No.848 ShiTan Road，Baiyun District, Guangzhou City </p>
+                        <p class="w-full md:w-4/5"> Room 904,building 8,JianFa YangXi Garden，No.848 ShiTan Road，Baiyun District, Guangzhou City </p>
                     </div>
                 </div>
             </div>
@@ -162,10 +162,32 @@
                     </div>
                     <div>
                         <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '地址' : 'Address' }}</h6>
-                        <p> 5452 Aerospace Drive Laramie, WY 82070, USA </p>
+                        <p  class="w-full md:w-4/5"> Warehouse: Lot 1042, Jalan 2, Selayang Baru 68100 Selangor Malaysia </p>
                     </div>
                 </div>
             </div>
+
+
+            <div class="">
+                <h4 class="h4 font-bold text-primary my-3">{{ app()->getLocale() == 'zh' ? '马来西亚办事处' : 'Vietnam  Office' }}
+                </h4>
+                <div class="flex flex-col gap-4">
+                    <div>
+                        <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '邮箱' : 'Email' }}</h6>
+                        <p> info@apex-scrap.com </p>
+                    </div>
+                    <div>
+                        <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '电话' : 'Phone Number' }}</h6>
+                        <p> +13134552725 </p>
+                    </div>
+                    <div>
+                        <h6 class="h6 font-semibold">{{ app()->getLocale() == 'zh' ? '地址' : 'Address' }}</h6>
+                        <p class="w-full md:w-4/5"> Packhouse- Tan Thanh Commune, Thanh Binh District, Dong Thap Province, Vietnam </p>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
         <div class="col-span-1">

@@ -4,10 +4,36 @@
 
 @section('content')
 
-    <div class="d-flex justify-content-between align-items-center mb-3 sticky-top bg-light py-3 px-3 shadow-sm"
-        style="top: 4rem; z-index: 1000;">
-        <h2 class="m-0">Products</h2>
-        <a href="{{ route('admin.products.create') }}" class="btn btn-success">Add Product</a>
+    <div class=" py-3 px-3 shadow-sm sticky-top bg-light" style="top: 4rem; z-index: 1000;">
+        <div class="d-flex justify-content-between align-items-center mb-3 ">
+            <h2 class="m-0">Products</h2>
+            <a href="{{ route('admin.products.create') }}" class="btn btn-success">Add Product</a>
+        </div>
+
+
+
+        {{-- Filter by category --}}
+        <div class="dropdown mb-4">
+            <button class="btn btn-light text-success dropdown-toggle border-2 border-secondary" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Filter by category
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li>
+                    <a class="dropdown-item" href="javascript:void(0)" onclick="filterCategory('all')">
+                        All Categories
+                    </a>
+                </li>
+                @foreach ($categories as $category)
+                    <li>
+                        <a class="dropdown-item" href="javascript:void(0)" onclick="filterCategory('{{ $category->id }}')">
+                            {{ $category->name }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+
     </div>
 
     <div class="container">
@@ -42,27 +68,7 @@
             @endif
         </div>
 
-        {{-- Filter by category --}}
-        <div class="dropdown mb-4">
-            <button class="btn btn-light text-success dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Filter by category
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li>
-                    <a class="dropdown-item" href="javascript:void(0)" onclick="filterCategory('all')">
-                        All Categories
-                    </a>
-                </li>
-                @foreach ($categories as $category)
-                    <li>
-                        <a class="dropdown-item" href="javascript:void(0)" onclick="filterCategory('{{ $category->id }}')">
-                            {{ $category->name }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+
         {{-- Category-wise tables --}}
         <div class="mt-4">
             @foreach ($categories as $category)

@@ -15,10 +15,10 @@
 <!-- 11. search with title in blog -->
 <!-- 8. services - popup image the only image. -->
 <!-- 5. we are -- give video in public -->
+<!-- 10. edit product - make uplaoded image crossable -->
 
 
 6. dynamic - team + review
-10. edit product - make uplaoded image crossable
 11. clear cache and then zip - lets see what happens -_-
 
 

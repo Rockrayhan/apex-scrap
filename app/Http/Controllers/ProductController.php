@@ -82,6 +82,16 @@ class ProductController extends Controller
         ]);
 
         $filename = $product->image;
+
+        // If user clicked ❌ remove image
+        if ($request->remove_image == 1) {
+            if ($product->image && file_exists(public_path($product->image))) {
+                unlink(public_path($product->image));
+            }
+            $filename = null; // remove image reference
+        }
+
+        // If new image uploaded
         if ($request->hasFile('image')) {
             if ($product->image && file_exists(public_path($product->image))) {
                 unlink(public_path($product->image));

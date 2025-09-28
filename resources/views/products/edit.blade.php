@@ -10,51 +10,51 @@
             </div>
 
 
-        {{-- Toast Messages --}}
-        <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055">
-            @if (session('success'))
-                <div class="toast align-items-center bg-light text-success font-weight-bold border-0 show py-2" role="alert"
-                    aria-live="assertive" aria-atomic="true">
-                    <div class="d-flex">
-                        <div class="toast-body">
-                            {{ session('success') }}
+            {{-- Toast Messages --}}
+            <div class="position-fixed top-0 end-0 p-3" style="z-index: 1055">
+                @if (session('success'))
+                    <div class="toast align-items-center bg-light text-success font-weight-bold border-0 show py-2"
+                        role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                {{ session('success') }}
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                                aria-label="Close"></button>
                         </div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
                     </div>
-                </div>
-            @endif
+                @endif
 
-            @if (session('error'))
-                <div class="toast align-items-center bg-light text-danger font-weight-bold border-0 show py-2" role="alert"
-                    aria-live="assertive" aria-atomic="true">
-                    <div class="d-flex">
-                        <div class="toast-body">
-                            {{ session('error') }}
+                @if (session('error'))
+                    <div class="toast align-items-center bg-light text-danger font-weight-bold border-0 show py-2"
+                        role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                {{ session('error') }}
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                                aria-label="Close"></button>
                         </div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
                     </div>
-                </div>
-            @endif
+                @endif
 
-            @if ($errors->any())
-                <div class="toast align-items-center bg-light text-danger font-weight-bold border-0 show py-2" role="alert"
-                    aria-live="assertive" aria-atomic="true">
-                    <div class="d-flex">
-                        <div class="toast-body">
-                            <ul class="mb-0">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
+                @if ($errors->any())
+                    <div class="toast align-items-center bg-light text-danger font-weight-bold border-0 show py-2"
+                        role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                <ul class="mb-0">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                                aria-label="Close"></button>
                         </div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
                     </div>
-                </div>
-            @endif
-        </div>
+                @endif
+            </div>
 
 
 
@@ -83,8 +83,8 @@
 
                     <div class="mb-3">
                         <label class="form-label">Product Name (Chinese) </label>
-                        <input type="text" name="name_zh" value="{{ old('name_zh', $product->name_zh) }}" class="form-control"
-                            required>
+                        <input type="text" name="name_zh" value="{{ old('name_zh', $product->name_zh) }}"
+                            class="form-control" required>
                     </div>
 
                     <div class="mb-3">
@@ -101,11 +101,22 @@
                     <div class="mb-3">
                         <label class="form-label">Current Image</label><br>
                         @if ($product->image)
-                            <img src="{{ asset($product->image) }}" width="100" class="img-thumbnail mb-2">
+                            <div class="position-relative d-inline-block" id="currentImageWrapper">
+                                <img src="{{ asset($product->image) }}" width="120" class="img-thumbnail mb-2">
+                                <!-- ❌ Remove Button -->
+                                <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0"
+                                    style="border-radius:50%;" onclick="removeCurrentImage()">
+                                    &times;
+                                </button>
+                            </div>
+                            <!-- Hidden input to mark deletion -->
+                            <input type="hidden" name="remove_image" id="remove_image" value="0">
                         @else
                             <span class="text-muted">No image uploaded</span>
                         @endif
                     </div>
+
+
 
                     <div class="mb-3">
                         <label class="form-label">Upload New Image</label>
@@ -120,4 +131,18 @@
             </div>
         </div>
     </div>
+
+
+    {{-- image removal --}}
+    <script>
+        function removeCurrentImage() {
+            if (confirm("Are you sure you want to remove this image?")) {
+                const wrapper = document.getElementById('currentImageWrapper');
+                wrapper.remove(); // remove image preview
+                document.getElementById('remove_image').value = 1; // mark for deletion
+            }
+        }
+    </script>
+
+
 @endsection

@@ -1,33 +1,16 @@
-(optional update)
+# Apex Scrap - Scrap Metarial Business site.
 
-# add category description_en , description_zh table in the database
+## 🔗 Live Link: https://apex-scrap.com/
 
-# then show that wise in frontend
+## 🛠️ Tech Stack : Laravel, MySQL, Tailwind CSS
 
-## ( optimization )
-
-<!-- 1. materials category header desc full width -->
-<!-- 2. business area sinlgle line in mobile , slide -->
-<!-- 3. associalte logo slide -->
-<!-- 4. footer logo hover change color to primary -->
-<!-- 8. services - product image reduce gap . -->
-<!-- 9. update address china , viyetnam -->
-<!-- 11. search with title in blog -->
-<!-- 8. services - popup image the only image. -->
-<!-- 5. we are -- give video in public -->
-<!-- 10. edit product - make uplaoded image crossable -->
+## ✨ Features : 
+- Business website
+- Fully dynamic content
+- Admin panel to manage website content
+- Clean and responsive UI 
 
 
-6. dynamic - team + review
-11. clear cache and then zip - lets see what happens -_-
 
 
-    # categories / slug instead of categories / id
 
-    # blog slug / instead of id
-
-## Ensure every page has:
-
--   Unique <title> and <meta description>.
--   A single <h1>.
--   Generate and submit a sitemap.xml to Google Search Console.

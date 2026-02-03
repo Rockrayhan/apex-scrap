@@ -5,7 +5,7 @@
 ## 🛠️ Tech Stack : Laravel, MySQL, Tailwind CSS
 
 ## ✨ Features : 
-- Business website
+- Multiple language supports - English & China
 - Fully dynamic content
 - Admin panel to manage website content
 - Clean and responsive UI 
